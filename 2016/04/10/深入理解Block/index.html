@@ -90,7 +90,7 @@ Block objects are a C-level syntactic and runtime feature. They are similar to s
 <meta property="og:site_name" content="时空人">
 <meta property="og:description" content="一.Block概要什么是Block
 Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to aut">
-<meta property="og:updated_time" content="2016-04-10T09:42:21.000Z">
+<meta property="og:updated_time" content="2016-04-10T09:44:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Block">
 <meta name="twitter:description" content="一.Block概要什么是Block
@@ -330,6 +330,7 @@ Block objects are a C-level syntactic and runtime feature. They are similar to s
 </ul>
 </blockquote>
 <p>所以, 可以用一句话来表示Block:<strong>带有自动变量(局部变量)的匿名函数</strong>.</p>
+<a id="more"></a>
 <p>下面看一个C语言函数的例子</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明一个名为func的函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span> <span class="params">(<span class="keyword">int</span> count)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个函数</span></span><br><span class="line"><span class="keyword">int</span> result = func (<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用函数指针来代替直接调用函数</span></span><br><span class="line"><span class="keyword">int</span> result = (* funcptr) (<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 <p>看着似乎不用知道函数名也能够使用该函数,但其实使用函数指针也仍然需要知道函数名称.</p>

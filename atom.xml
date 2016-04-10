@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chaiyongfeng.com/"/>
-  <updated>2016-04-10T09:42:21.000Z</updated>
+  <updated>2016-04-10T09:44:51.000Z</updated>
   <id>http://chaiyongfeng.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://chaiyongfeng.com/2016/04/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Block/"/>
     <id>http://chaiyongfeng.com/2016/04/10/深入理解Block/</id>
     <published>2016-04-10T09:37:24.000Z</published>
-    <updated>2016-04-10T09:42:21.000Z</updated>
+    <updated>2016-04-10T09:44:51.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;一-Block概要&quot;&gt;&lt;a href=&quot;#一-Block概要&quot; class=&quot;headerlink&quot; title=&quot;一.Block概要&quot;&gt;&lt;/a&gt;一.Block概要&lt;/h3&gt;&lt;h4 id=&quot;什么是Block&quot;&gt;&lt;a href=&quot;#什么是Block&quot; class=&quot;headerlink&quot; title=&quot;什么是Block&quot;&gt;&lt;/a&gt;什么是Block&lt;/h4&gt;&lt;blockquote&gt;
 &lt;p&gt;Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to automatic (stack) or managed (heap) memory. A block can therefore maintain a set of state (data) that it can use to impact behavior when executed.&lt;/p&gt;
@@ -31,6 +31,7 @@
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;所以, 可以用一句话来表示Block:&lt;strong&gt;带有自动变量(局部变量)的匿名函数&lt;/strong&gt;.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;下面看一个C语言函数的例子&lt;/p&gt;
 &lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 声明一个名为func的函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; count)&lt;/span&gt;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 调用这个函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; result = func (&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 使用函数指针来代替直接调用函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; result = (* funcptr) (&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;看着似乎不用知道函数名也能够使用该函数,但其实使用函数指针也仍然需要知道函数名称.&lt;/p&gt;
@@ -168,7 +169,15 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;一-Block概要&quot;&gt;&lt;a href=&quot;#一-Block概要&quot; class=&quot;headerlink&quot; title=&quot;一.Block概要&quot;&gt;&lt;/a&gt;一.Block概要&lt;/h3&gt;&lt;h4 id=&quot;什么是Block&quot;&gt;&lt;a href=&quot;#什么是Block&quot; class=&quot;
+      &lt;h3 id=&quot;一-Block概要&quot;&gt;&lt;a href=&quot;#一-Block概要&quot; class=&quot;headerlink&quot; title=&quot;一.Block概要&quot;&gt;&lt;/a&gt;一.Block概要&lt;/h3&gt;&lt;h4 id=&quot;什么是Block&quot;&gt;&lt;a href=&quot;#什么是Block&quot; class=&quot;headerlink&quot; title=&quot;什么是Block&quot;&gt;&lt;/a&gt;什么是Block&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to automatic (stack) or managed (heap) memory. A block can therefore maintain a set of state (data) that it can use to impact behavior when executed.&lt;/p&gt;
+&lt;p&gt;怎么理解这段话? 可以分成两段来理解:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Block 对象是一个C语言级别的语法和运行时特征: Block的形式跟C语言中函数指针的形式基本相似(后文会有讲到)&lt;/li&gt;
+&lt;li&gt;包含stack或者heap中的内存的变量: Block带有自动变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;所以, 可以用一句话来表示Block:&lt;strong&gt;带有自动变量(局部变量)的匿名函数&lt;/strong&gt;.&lt;/p&gt;
     
     </summary>
     
@@ -184,9 +193,10 @@
     <link href="http://chaiyongfeng.com/2016/04/10/hello-world/"/>
     <id>http://chaiyongfeng.com/2016/04/10/hello-world/</id>
     <published>2016-04-10T07:33:43.000Z</published>
-    <updated>2016-04-10T07:33:43.000Z</updated>
+    <updated>2016-04-10T09:45:07.000Z</updated>
     
     <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -199,7 +209,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
