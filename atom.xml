@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chaiyongfeng.com/"/>
-  <updated>2016-07-01T10:28:10.000Z</updated>
+  <updated>2016-07-01T10:32:43.000Z</updated>
   <id>http://chaiyongfeng.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://chaiyongfeng.com/2016/07/01/Runtime/"/>
     <id>http://chaiyongfeng.com/2016/07/01/Runtime/</id>
     <published>2016-07-01T10:13:04.000Z</published>
-    <updated>2016-07-01T10:28:10.000Z</updated>
+    <updated>2016-07-01T10:32:43.000Z</updated>
     
-    <content type="html">&lt;p&gt;故事要从一次崩溃开始…&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg&quot; alt=&quot;图片来自网络&quot;&gt;&lt;/p&gt;
+&lt;p&gt;故事要从一次崩溃开始…&lt;/p&gt;
 &lt;p&gt;由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.&lt;/p&gt;
 &lt;h3 id=&quot;Runtime&quot;&gt;&lt;a href=&quot;#Runtime&quot; class=&quot;headerlink&quot; title=&quot;Runtime&quot;&gt;&lt;/a&gt;Runtime&lt;/h3&gt;&lt;p&gt;正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编译器不会报红.对于这一点,C语言恰恰是相反的,他会在编译阶段就告诉你,你调用了一个没有实现过的方法.&lt;/p&gt;
 &lt;p&gt;既然如此, Object-C 不仅仅需要一个编译器,而且也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发.这个运行时系统就是我们今天的主人公 &lt;strong&gt;Runtime&lt;/strong&gt; .&lt;/p&gt;
@@ -58,9 +59,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;故事要从一次崩溃开始…&lt;/p&gt;
-&lt;p&gt;由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.&lt;/p&gt;
-&lt;h3 id=
+      &lt;p&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg&quot; alt=&quot;图片来自网络&quot;&gt;&lt;/p&gt;
+&lt;p&gt;故事要从一次崩溃开始…&lt;/p&gt;
+&lt;p&gt;由于你的粗心大意,调用了一个只声明没有实现
     
     </summary>
     
