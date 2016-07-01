@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chaiyongfeng.com/"/>
-  <updated>2016-04-14T01:42:01.000Z</updated>
+  <updated>2016-07-01T10:15:20.000Z</updated>
   <id>http://chaiyongfeng.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Runtime</title>
+    <link href="http://chaiyongfeng.com/2016/07/01/Runtime/"/>
+    <id>http://chaiyongfeng.com/2016/07/01/Runtime/</id>
+    <published>2016-07-01T10:13:04.000Z</published>
+    <updated>2016-07-01T10:15:20.000Z</updated>
+    
+    <content type="html">&lt;p&gt;故事要从一次崩溃开始…&lt;/p&gt;
+&lt;p&gt;由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.&lt;/p&gt;
+&lt;h3 id=&quot;Runtime&quot;&gt;&lt;a href=&quot;#Runtime&quot; class=&quot;headerlink&quot; title=&quot;Runtime&quot;&gt;&lt;/a&gt;Runtime&lt;/h3&gt;&lt;p&gt;正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编译器不会报红.对于这一点,C语言恰恰是相反的,他会在编译阶段就告诉你,你调用了一个没有实现过的方法.&lt;/p&gt;
+&lt;p&gt;既然如此, Object-C 不仅仅需要一个编译器,而且也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发.这个运行时系统就是我们今天的主人公 &lt;strong&gt;Runtime&lt;/strong&gt; .&lt;/p&gt;
+&lt;p&gt;Runtime 是用C和汇编写的,而且是开源的,点击&lt;a href=&quot;http://opensource.apple.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;可以下载到它.&lt;/p&gt;
+&lt;h3 id=&quot;消息传递&quot;&gt;&lt;a href=&quot;#消息传递&quot; class=&quot;headerlink&quot; title=&quot;消息传递&quot;&gt;&lt;/a&gt;消息传递&lt;/h3&gt;&lt;p&gt;当我们在屏幕上敲出&lt;code&gt;[self doSomething]&lt;/code&gt;这一行代码时,编译器会对 Objective-C 代码做分析检查, 并把它翻译成一个C的函数调用,如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;objc_msgSend(self, doSomething)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;检测self是不是nil,如果是则会直接忽略.&lt;/li&gt;
+&lt;li&gt;方法的调用者会通过 isa 指针来找到其所属的类，然后在 cache 或者 methodLists 中查找该方法，找得到就跳到对应的方法去执行.&lt;/li&gt;
+&lt;li&gt;如果class中没有找到对应的方法,继续往它的superclass中找,如果还没找到会继续往上找,直到找到NSObject类为止.(如下图)&lt;/li&gt;
+&lt;li&gt;一旦找到对应的函数,就去执行它的实现IMP.如果没有找到就会进入消息转发.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;图片来自objc_explain_Classes_and_metaclasses&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;动态方法解析和转发&quot;&gt;&lt;a href=&quot;#动态方法解析和转发&quot; class=&quot;headerlink&quot; title=&quot;动态方法解析和转发&quot;&gt;&lt;/a&gt;动态方法解析和转发&lt;/h3&gt;&lt;p&gt;在上面的消息传递中,如果一直没有找到对应的函数,没有其他设置的话,就是我们在一开始提到的从崩溃开始,我们的程序会崩溃.但是在程序崩溃前, Runtime 会给我们三次拯救程序的机会:&lt;/p&gt;
+&lt;p&gt;1.动态方法解析&lt;/p&gt;
+&lt;p&gt;2.备用接收者(重定向)&lt;/p&gt;
+&lt;p&gt;3.消息转发&lt;/p&gt;
+&lt;p&gt;下面我们分别来看看这三次机会&lt;/p&gt;
+&lt;h4 id=&quot;动态方法解析&quot;&gt;&lt;a href=&quot;#动态方法解析&quot; class=&quot;headerlink&quot; title=&quot;动态方法解析&quot;&gt;&lt;/a&gt;动态方法解析&lt;/h4&gt;&lt;p&gt;在上面的消息传递中,如果一直没有找到对应的方法, Runtime 会发送 &lt;code&gt;+ resolveInstanceMethod:&lt;/code&gt; 或者 &lt;code&gt;+ resolveClassMethod:&lt;/code&gt; 尝试去 resolve 这个消息.调用&lt;code&gt;class_addMethod&lt;/code&gt;添加方法的实现.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;void doSomething(id self, SEL sel)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    NSLog(@&amp;quot;%@ %@&amp;quot;, self, NSStringFromSelector(sel));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ (BOOL)resolveInstanceMethod:(SEL)sel&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (sel == @selector(doSomething)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        class_addMethod(self, @selector(doSomething), (IMP)doSomething, &amp;quot;v@:&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return [super resolveInstanceMethod:sel];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;备用接收者&quot;&gt;&lt;a href=&quot;#备用接收者&quot; class=&quot;headerlink&quot; title=&quot;备用接收者&quot;&gt;&lt;/a&gt;备用接收者&lt;/h4&gt;&lt;p&gt;如果 resolve 方法返回 NO, Runtime 就发送&lt;code&gt;- forwardingTargetForSelector:&lt;/code&gt; 允许你把这个消息转发给另一个对象.切记不能返回self,这样会进入死循环状态.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (id)forwardingTargetForSelector:(SEL)aSelector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (aSelector == @selector(eat)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Person *person = [[Person alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        class_addMethod(self.superclass, @selector(eat), (IMP)eat, &amp;quot;v@:&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return person;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return [super forwardingTargetForSelector:aSelector];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;完整转发&quot;&gt;&lt;a href=&quot;#完整转发&quot; class=&quot;headerlink&quot; title=&quot;完整转发&quot;&gt;&lt;/a&gt;完整转发&lt;/h4&gt;&lt;p&gt;到这一步,是 Runtime 给我们最后一次拯救世界的机会.如果没有新的目标对象返回, Runtime 就会发送 &lt;code&gt;- methodSignatureForSelector:&lt;/code&gt; 和 &lt;code&gt;- forwardInvocation:&lt;/code&gt; 消息.&lt;/p&gt;
+&lt;p&gt;首先调用&lt;code&gt;methodSignatureForSelector:&lt;/code&gt;方法,尝试获得一个方法签名.如果获取不到,则直接调用&lt;code&gt;doesNotRecognizeSelector&lt;/code&gt;抛出异常.&lt;/p&gt;
+&lt;p&gt;否则就会调用&lt;code&gt;forwardInvocation:&lt;/code&gt;方法,将上一步获取到的方法签名包装成Invocation传入.调用&lt;code&gt;invokeWithTarget:&lt;/code&gt;手动转发消息.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (aSelector == @selector(eat)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        NSMethodSignature *sig = [NSMethodSignature signatureWithObjCTypes:&amp;quot;v@:&amp;quot;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return sig;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return nil;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)forwardInvocation:(NSInvocation *)anInvocation&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Person *person = [[Person alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if ([person respondsToSelector:anInvocation.selector]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [anInvocation invokeWithTarget:person];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        class_addMethod(self.superclass, @selector(eat), (IMP)eat, &amp;quot;v@:&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;Runtime-实例应用&quot;&gt;&lt;a href=&quot;#Runtime-实例应用&quot; class=&quot;headerlink&quot; title=&quot;Runtime 实例应用&quot;&gt;&lt;/a&gt;Runtime 实例应用&lt;/h2&gt;&lt;p&gt;了解了 Runtime 的一些特性,我们就可以根据它的特性做一些很magic的事情,比如:&lt;/p&gt;
+&lt;p&gt;1.Method Swizzling&lt;br&gt;2.AOP - Aspect&lt;br&gt;3.JSPatch&lt;br&gt;4.字典与模型的便捷转换&lt;br&gt;5.便捷归档与接档&lt;br&gt;6.Associated Objects&lt;/p&gt;
+&lt;h3 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/571495-5cd12b17d449bab1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;图片来自网络&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;故事要从一次崩溃开始…&lt;/p&gt;
+&lt;p&gt;由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.&lt;/p&gt;
+&lt;h3 id=
+    
+    </summary>
+    
+      <category term="Object-C" scheme="http://chaiyongfeng.com/categories/Object-C/"/>
+    
+    
+      <category term="iOS" scheme="http://chaiyongfeng.com/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解Block</title>

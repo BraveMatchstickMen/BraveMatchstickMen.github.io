@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -82,15 +82,25 @@
 
 
 
-<meta name="description" content="只要思想不滑坡 办法总比困难多">
-<meta property="og:type" content="website">
-<meta property="og:title" content="时空人">
-<meta property="og:url" content="http://chaiyongfeng.com/index.html">
+<meta name="description" content="故事要从一次崩溃开始…
+由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.
+Runtime正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Runtime">
+<meta property="og:url" content="http://chaiyongfeng.com/2016/07/01/Runtime/index.html">
 <meta property="og:site_name" content="时空人">
-<meta property="og:description" content="只要思想不滑坡 办法总比困难多">
+<meta property="og:description" content="故事要从一次崩溃开始…
+由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.
+Runtime正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/571495-5cd12b17d449bab1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-07-01T10:15:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时空人">
-<meta name="twitter:description" content="只要思想不滑坡 办法总比困难多">
+<meta name="twitter:title" content="Runtime">
+<meta name="twitter:description" content="故事要从一次崩溃开始…
+由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.
+Runtime正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg">
 
 
 
@@ -108,7 +118,7 @@
   };
 </script>
 
-  <title> 时空人 </title>
+  <title> Runtime | 时空人 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -129,9 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -238,9 +246,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -260,10 +268,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/01/Runtime/" itemprop="url">
-                  Runtime
-                </a>
+                Runtime
               
             
           </h1>
@@ -322,9 +327,7 @@
       
 
       
-        
-          
-            <p>故事要从一次崩溃开始…</p>
+        <p>故事要从一次崩溃开始…</p>
 <p>由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.</p>
 <h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p>正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编译器不会报红.对于这一点,C语言恰恰是相反的,他会在编译阶段就告诉你,你调用了一个没有实现过的方法.</p>
 <p>既然如此, Object-C 不仅仅需要一个编译器,而且也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发.这个运行时系统就是我们今天的主人公 <strong>Runtime</strong> .</p>
@@ -357,256 +360,57 @@
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://upload-images.jianshu.io/upload_images/571495-5cd12b17d449bab1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><a href="">图片来自网络</a></p>
 
-          
-        
       
     </div>
     
     <div>
       
+        
+      
     </div>
 
     <div>
+      
+        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/深入理解Block/" itemprop="url">
-                  深入理解Block
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T17:37:24+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Object-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Object-C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><img src="http://ww4.sinaimg.cn/mw690/8edca89bgw1f2vzgz0qijj20qo0ez0wj.jpg" alt="来自 Lili Popper 的作品"></p>
-<h3 id="Block概要"><a href="#Block概要" class="headerlink" title="Block概要"></a>Block概要</h3><h4 id="什么是Block"><a href="#什么是Block" class="headerlink" title="什么是Block"></a>什么是Block</h4><blockquote>
-<p>Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to automatic (stack) or managed (heap) memory. A block can therefore maintain a set of state (data) that it can use to impact behavior when executed.</p>
-<p>怎么理解这段话? 可以分成两段来理解:</p>
-<ul>
-<li>Block 对象是一个C语言级别的语法和运行时特征: Block的形式跟C语言中函数指针的形式基本相似(后文会有讲到)</li>
-<li>包含stack或者heap中的内存的变量: Block带有自动变量</li>
-</ul>
-</blockquote>
-<p>所以, 可以用一句话来表示Block:<strong>带有自动变量(局部变量)的匿名函数</strong>.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/深入理解Block/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/10/深入理解Block/" rel="next" title="深入理解Block">
+                <i class="fa fa-chevron-left"></i> 深入理解Block
+              </a>
+            
           </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T15:33:43+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -614,6 +418,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -633,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ww1.sinaimg.cn/mw690/8edca89bgw1f2rp95fpbjj208c08ct9y.jpg"
@@ -736,6 +553,17 @@
       </section>
 
       
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Runtime"><span class="nav-number">1.</span> <span class="nav-text">Runtime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#消息传递"><span class="nav-number">2.</span> <span class="nav-text">消息传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态方法解析和转发"><span class="nav-number">3.</span> <span class="nav-text">动态方法解析和转发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#动态方法解析"><span class="nav-number">3.1.</span> <span class="nav-text">动态方法解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备用接收者"><span class="nav-number">3.2.</span> <span class="nav-text">备用接收者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整转发"><span class="nav-number">3.3.</span> <span class="nav-text">完整转发</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Runtime-实例应用"><span class="nav-number"></span> <span class="nav-text">Runtime 实例应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
 
     </div>
   </aside>
@@ -832,6 +660,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
