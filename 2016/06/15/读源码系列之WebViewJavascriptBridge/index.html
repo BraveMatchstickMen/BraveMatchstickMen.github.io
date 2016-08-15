@@ -1,0 +1,701 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="读源码," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时空人" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="WebViewJavascriptBridge是我们经常会用到的一个Objective-C与JavaScript交互的第三方.
+想想我们如果不用这个第三方是怎么交互的:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读源码系列之 WebViewJavascriptBridge">
+<meta property="og:url" content="http://chaiyongfeng.com/2016/06/15/读源码系列之WebViewJavascriptBridge/index.html">
+<meta property="og:site_name" content="时空人">
+<meta property="og:description" content="WebViewJavascriptBridge是我们经常会用到的一个Objective-C与JavaScript交互的第三方.
+想想我们如果不用这个第三方是怎么交互的:">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/8edca89bgw1f6tdpwuz0ej20i00a074w.jpg">
+<meta property="og:updated_time" content="2016-08-15T01:06:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读源码系列之 WebViewJavascriptBridge">
+<meta name="twitter:description" content="WebViewJavascriptBridge是我们经常会用到的一个Objective-C与JavaScript交互的第三方.
+想想我们如果不用这个第三方是怎么交互的:">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/8edca89bgw1f6tdpwuz0ej20i00a074w.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 读源码系列之 WebViewJavascriptBridge | 时空人 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时空人</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                读源码系列之 WebViewJavascriptBridge
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T09:00:36+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Object-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Object-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="external">WebViewJavascriptBridge</a>是我们经常会用到的一个Objective-C与JavaScript交互的第三方.</p>
+<p>想想我们如果不用这个第三方是怎么交互的:</p>
+<a id="more"></a>
+<p>iOS 调 JavaScript</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[_webView stringByEvaluatingJavaScriptFromString:jsString];</span><br></pre></td></tr></table></figure>
+<p>JavaScript 调 iOS</p>
+<p>WebView 没法直接调用 iOS,只能触发特定链接,让 iOS 在 WebView 代理方法中捕获到这特定链接,从而执行相应操作,间接实现 WebView 调 iOS.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType &#123;</span><br><span class="line">    NSURL *url = [request URL];</span><br><span class="line">    if (url == 指定的url) &#123;</span><br><span class="line">      [call method]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果 JavaScript 调用 iOS 的方法比较多, 那我们就要在这个代理方法中各种判断 url, 写很长的 if else. 这样的写法从功能上来说肯定是没问题的, 但是从代码规范来看, 却是很糟糕的, 可读性差, 违反单一原则, 耦合度高等问题. 所以, WebViewJavascriptBridge 这个库就是帮我们来解决这个问题的. 下面我们先来看看用他是怎么实现交互的.</p>
+<p>iOS 调 JavaScript</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[_bridge callHandler:@&quot;JavaScriptToDo&quot; data:nil];</span><br></pre></td></tr></table></figure>
+<p>JavaScript 调 iOS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[_bridge registerHandler:@&quot;iOSToDo&quot; handler:^(id data, WVJBResponseCallback responseCallback) &#123;</span><br><span class="line">      [call iOSMethod]</span><br><span class="line">  &#125;];</span><br></pre></td></tr></table></figure>
+<p>这样一看是不是比原生的方法好多了, iOS 调用 JavaScript 时也是一句话, 但是 JavaScript 调用iOS, 不用再去代理方法中判断url. 直接注册一个我们事先协商好的handler, 然后在回调方法中调用iOS方法. 这种做法是不是正好解决了我们再上面提到那些问题.</p>
+<p>WebViewJavascriptBridge 的原理其实还是我们上面说到的系统方法, 只是在这上面封装了一层. 下面我们看一下它的源码.</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="http://ww2.sinaimg.cn/mw690/8edca89bgw1f6tdpwuz0ej20i00a074w.jpg" alt=""></p>
+<p>一共只有六个文件, 是不是很少! 好了, 下面我们就逐一击破. 捏柿子就要捡软的捏, 所以我们充分贯彻这一点. 下面先看几个软的.</p>
+<h2 id="WKWebViewJavascriptBridge"><a href="#WKWebViewJavascriptBridge" class="headerlink" title="WKWebViewJavascriptBridge"></a>WKWebViewJavascriptBridge</h2><p>WKWebViewJavascriptBridge 是为了支持 WKWebView 后来新增的, 跟 WebViewJavascriptBridge 应该差不多少, 所以这部分先不用看. </p>
+<h2 id="WebViewJavascriptBridge-JS"><a href="#WebViewJavascriptBridge-JS" class="headerlink" title="WebViewJavascriptBridge_JS"></a>WebViewJavascriptBridge_JS</h2><p>WebViewJavascriptBridge_JS 这个文件是什么呢? 点进去看一下, 发现只有一个返回值是字符串的方法. 比较长, 往下看, 发现都是些 JavaScript 的方法, 是不是就可以大胆的猜测一下, 这个是不是就是传说中的bridge.</p>
+<p>再往下看, 发现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.WebViewJavascriptBridge = &#123;</span><br><span class="line">		registerHandler: registerHandler,</span><br><span class="line">		callHandler: callHandler,</span><br><span class="line">		_fetchQueue: _fetchQueue,</span><br><span class="line">		_handleMessageFromObjC: _handleMessageFromObjC</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
+<p>这个方法是什么呢? 大概看看应该不难理解, 这个方法就是将全局变量WebViewJavascriptBridge 放在 Web 页面的 JavaScript 中.</p>
+<h2 id="WebViewJavascriptBridge"><a href="#WebViewJavascriptBridge" class="headerlink" title="WebViewJavascriptBridge"></a>WebViewJavascriptBridge</h2><p>1.在初始化时成为 webView 的真实代理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 实例化</span><br><span class="line">+ (instancetype)bridgeForWebView:(WVJB_WEBVIEW_TYPE*)webView &#123;</span><br><span class="line">    WebViewJavascriptBridge* bridge = [[self alloc] init];</span><br><span class="line">    [bridge _platformSpecificSetup:webView];</span><br><span class="line">    return bridge;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">// 成为代理、初始化 WebVeiwJavascriptBridgeBase</span><br><span class="line"> - (void) _platformSpecificSetup:(WVJB_WEBVIEW_TYPE*)webView &#123;</span><br><span class="line">    _webView = webView;</span><br><span class="line">    _webView.delegate = self;</span><br><span class="line">    _base = [[WebViewJavascriptBridgeBase alloc] init];</span><br><span class="line">    _base.delegate = self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实现 WebViewDelegate 方法</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>2.暴露接口, 提供 callHandler、registerHandler 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)registerHandler:(NSString*)handlerName handler:(WVJBHandler)handler;</span><br><span class="line">  - (void)callHandler:(NSString*)handlerName;</span><br><span class="line">  - (void)callHandler:(NSString*)handlerName data:(id)data;</span><br><span class="line">  - (void)callHandler:(NSString*)handlerName data:(id)data responseCallback:(WVJBResponseCallback)responseCallback;</span><br></pre></td></tr></table></figure>
+<p> 3.监听 Url 变化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType &#123;</span><br><span class="line">  if (webView != _webView) &#123; return YES; &#125;</span><br><span class="line">  NSURL *url = [request URL];</span><br><span class="line">  __strong WVJB_WEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewDelegate;</span><br><span class="line">  if ([_base isCorrectProcotocolScheme:url]) &#123;</span><br><span class="line">      if ([_base isBridgeLoadedURL:url]) &#123;// wvjbscheme://__BRIDGE_LOADED__</span><br><span class="line">          [_base injectJavascriptFile]; // 重点：注入JSBridge</span><br><span class="line">      &#125; else if ([_base isQueueMessageURL:url]) &#123;</span><br><span class="line">          NSString *messageQueueString = [self _evaluateJavascript:[_base  webViewJavascriptFetchQueyCommand]]; //从Web 页面获取JS 数据</span><br><span class="line">          [_base flushMessageQueue:messageQueueString];  // 数据处理</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">          [_base logUnkownMessage:url];</span><br><span class="line">      &#125;</span><br><span class="line">      return NO;</span><br><span class="line">  &#125; else if (strongDelegate &amp;&amp; [strongDelegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) &#123;</span><br><span class="line">      return [strongDelegate webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">      return YES;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个类其实就三个作用:</p>
+<p>1.初始化并成为真正的代理</p>
+<p>2.提供接口</p>
+<p>3.监听 url 变化</p>
+<p>而具体实现都是交给 WebViewJavascriptBridgeBase 去完成.</p>
+<h2 id="WebViewJavascriptBridgeBase"><a href="#WebViewJavascriptBridgeBase" class="headerlink" title="WebViewJavascriptBridgeBase"></a>WebViewJavascriptBridgeBase</h2><p>WebViewJavascriptBridgeBase 其实可以看做是 WebViewJavascript 类的业务层, 实现了CallHandler、registerHandler 方法. 通过操控 WebView 执行 JavaScriptString 以及监听 WebView url 变化, 是真正实现 iOS 与 Web 交互的部分.</p>
+<p>1.RegisterHandler</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 将 handlerName 保存起来</span><br><span class="line">_base.messageHandlers[handlerName] = [handler copy];</span><br></pre></td></tr></table></figure>
+<p>2.CallHandler</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- (void)sendData:(id)data responseCallback:(WVJBResponseCallback)responseCallback handlerName:(NSString*)handlerName &#123;</span><br><span class="line">    NSMutableDictionary* message = [NSMutableDictionary dictionary];</span><br><span class="line">    </span><br><span class="line">    if (data) &#123;</span><br><span class="line">        message[@&quot;data&quot;] = data;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (responseCallback) &#123;</span><br><span class="line">        NSString* callbackId = [NSString stringWithFormat:@&quot;objc_cb_%ld&quot;, ++_uniqueId];</span><br><span class="line">        self.responseCallbacks[callbackId] = [responseCallback copy];</span><br><span class="line">        message[@&quot;callbackId&quot;] = callbackId;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    if (handlerName) &#123;</span><br><span class="line">        message[@&quot;handlerName&quot;] = handlerName;</span><br><span class="line">    &#125;</span><br><span class="line">    [self _queueMessage:message];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要回调时将 responseCallback 按唯一 callbackId 保存 —&gt; message 转 json 字符串 —&gt; WebView 执行 JavaScriptString.</p>
+<p>3.消息处理</p>
+<p>messageQueueString 转JSON, 遍历, 拿到 WVJBMessage 类型的数据. 然后查看是否有responseId, 有则是 iOS 端调 Web 端之后所需要的回调. 没有则就是 Web 主动调 iOS 所发送数据.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if (responseId) &#123;</span><br><span class="line">  WVJBResponseCallback responseCallback = _responseCallbacks[responseId];</span><br><span class="line">  responseCallback(message[@&quot;responseData&quot;]);</span><br><span class="line">  [self.responseCallbacks removeObjectForKey:responseId];</span><br><span class="line">&#125; else &#123;</span><br><span class="line">   WVJBResponseCallback responseCallback = NULL;</span><br><span class="line">   NSString* callbackId = message[@&quot;callbackId&quot;];</span><br><span class="line">   if (callbackId) &#123;</span><br><span class="line">     responseCallback = ^(id responseData) &#123;</span><br><span class="line">       if (responseData == nil) &#123;</span><br><span class="line">         responseData = [NSNull null];</span><br><span class="line">       &#125;</span><br><span class="line">                    </span><br><span class="line">       WVJBMessage* msg = @&#123; @&quot;responseId&quot;:callbackId, @&quot;responseData&quot;:responseData &#125;;</span><br><span class="line">       [self _queueMessage:msg];</span><br><span class="line">     &#125;;</span><br><span class="line">   &#125; else &#123;</span><br><span class="line">       responseCallback = ^(id ignoreResponseData) &#123;</span><br><span class="line">             // Do nothing</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/读源码/" rel="tag">#读源码</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/10/深入理解Block/" rel="next" title="深入理解Block">
+                <i class="fa fa-chevron-left"></i> 深入理解Block
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/01/Runtime/" rel="prev" title="Runtime">
+                Runtime <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww1.sinaimg.cn/mw690/8edca89bgw1f2rp95fpbjj208c08ct9y.jpg"
+               alt="Brave" />
+          <p class="site-author-name" itemprop="name">Brave</p>
+          <p class="site-description motion-element" itemprop="description">只要思想不滑坡 办法总比困难多</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/BraveMatchstickMen" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2396825755" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/fddb055efe32/latest_articles" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xingren.com" target="_blank">杏仁医生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hack.xingren.com/2016/03/29/webpack%E5%85%A5%E9%97%A8/" target="_blank">杏仁技术博客</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构"><span class="nav-number">1.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WKWebViewJavascriptBridge"><span class="nav-number">2.</span> <span class="nav-text">WKWebViewJavascriptBridge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebViewJavascriptBridge-JS"><span class="nav-number">3.</span> <span class="nav-text">WebViewJavascriptBridge_JS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebViewJavascriptBridge"><span class="nav-number">4.</span> <span class="nav-text">WebViewJavascriptBridge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebViewJavascriptBridgeBase"><span class="nav-number">5.</span> <span class="nav-text">WebViewJavascriptBridgeBase</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brave</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
