@@ -82,22 +82,21 @@
 
 
 
-<meta name="description" content="故事要从一次崩溃开始…
-由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta name="description" content="故事要从一次崩溃开始… 由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Runtime">
-<meta property="og:url" content="http://chusaikeji.com/2016/07/01/Runtime/index.html">
+<meta property="og:url" content="http://blog.chusaikeji.com/2016/07/01/Runtime/index.html">
 <meta property="og:site_name" content="时空人">
-<meta property="og:description" content="故事要从一次崩溃开始…
-由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta property="og:description" content="故事要从一次崩溃开始… 由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/571495-5cd12b17d449bab1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:updated_time" content="2016-07-01T10:40:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runtime">
-<meta name="twitter:description" content="故事要从一次崩溃开始…
-由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta name="twitter:description" content="故事要从一次崩溃开始… 由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg">
 
 
@@ -331,7 +330,7 @@
 <a id="more"></a>
 <h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p>正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编译器不会报红.对于这一点,C语言恰恰是相反的,他会在编译阶段就告诉你,你调用了一个没有实现过的方法.</p>
 <p>既然如此, Object-C 不仅仅需要一个编译器,而且也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发.这个运行时系统就是我们今天的主人公 <strong>Runtime</strong> .</p>
-<p>Runtime 是用C和汇编写的,而且是开源的,点击<a href="http://opensource.apple.com" target="_blank" rel="external">这里</a>可以下载到它.</p>
+<p>Runtime 是用C和汇编写的,而且是开源的,点击<a href="http://opensource.apple.com" target="_blank" rel="noopener">这里</a>可以下载到它.</p>
 <h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p>当我们在屏幕上敲出<code>[self doSomething]</code>这一行代码时,编译器会对 Objective-C 代码做分析检查, 并把它翻译成一个C的函数调用,如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objc_msgSend(self, doSomething)</span><br></pre></td></tr></table></figure>
 <ul>
@@ -341,7 +340,7 @@
 <li>一旦找到对应的函数,就去执行它的实现IMP.如果没有找到就会进入消息转发.</li>
 </ul>
 <p><img src="http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg" alt=""></p>
-<p><a href="http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html" target="_blank" rel="external">图片来自objc_explain_Classes_and_metaclasses</a></p>
+<p><a href="http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html" target="_blank" rel="noopener">图片来自objc_explain_Classes_and_metaclasses</a></p>
 <h3 id="动态方法解析和转发"><a href="#动态方法解析和转发" class="headerlink" title="动态方法解析和转发"></a>动态方法解析和转发</h3><p>在上面的消息传递中,如果一直没有找到对应的函数,没有其他设置的话,就是我们在一开始提到的从崩溃开始,我们的程序会崩溃.但是在程序崩溃前, Runtime 会给我们三次拯救程序的机会:</p>
 <p>1.动态方法解析</p>
 <p>2.备用接收者(重定向)</p>
