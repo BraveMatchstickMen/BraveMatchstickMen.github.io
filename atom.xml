@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://chaiyongfeng.com/"/>
+  <link href="http://chusaikeji.com/"/>
   <updated>2016-07-01T10:40:41.000Z</updated>
-  <id>http://chaiyongfeng.com/</id>
+  <id>http://chusaikeji.com/</id>
   
   <author>
     <name>Brave</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Runtime</title>
-    <link href="http://chaiyongfeng.com/2016/07/01/Runtime/"/>
-    <id>http://chaiyongfeng.com/2016/07/01/Runtime/</id>
+    <link href="http://chusaikeji.com/2016/07/01/Runtime/"/>
+    <id>http://chusaikeji.com/2016/07/01/Runtime/</id>
     <published>2016-07-01T10:13:04.000Z</published>
     <updated>2016-07-01T10:40:41.000Z</updated>
     
@@ -66,17 +66,17 @@
     
     </summary>
     
-      <category term="Object-C" scheme="http://chaiyongfeng.com/categories/Object-C/"/>
+      <category term="Object-C" scheme="http://chusaikeji.com/categories/Object-C/"/>
     
     
-      <category term="iOS" scheme="http://chaiyongfeng.com/tags/iOS/"/>
+      <category term="iOS" scheme="http://chusaikeji.com/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>读源码系列之 WebViewJavascriptBridge</title>
-    <link href="http://chaiyongfeng.com/2016/06/15/%E8%AF%BB%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%E4%B9%8BWebViewJavascriptBridge/"/>
-    <id>http://chaiyongfeng.com/2016/06/15/读源码系列之WebViewJavascriptBridge/</id>
+    <link href="http://chusaikeji.com/2016/06/15/%E8%AF%BB%E6%BA%90%E7%A0%81%E7%B3%BB%E5%88%97%E4%B9%8BWebViewJavascriptBridge/"/>
+    <id>http://chusaikeji.com/2016/06/15/读源码系列之WebViewJavascriptBridge/</id>
     <published>2016-06-15T01:00:36.000Z</published>
     <updated>2016-08-15T01:06:59.000Z</updated>
     
@@ -130,17 +130,17 @@
     
     </summary>
     
-      <category term="Object-C" scheme="http://chaiyongfeng.com/categories/Object-C/"/>
+      <category term="Object-C" scheme="http://chusaikeji.com/categories/Object-C/"/>
     
     
-      <category term="读源码" scheme="http://chaiyongfeng.com/tags/%E8%AF%BB%E6%BA%90%E7%A0%81/"/>
+      <category term="读源码" scheme="http://chusaikeji.com/tags/%E8%AF%BB%E6%BA%90%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>深入理解Block</title>
-    <link href="http://chaiyongfeng.com/2016/04/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Block/"/>
-    <id>http://chaiyongfeng.com/2016/04/10/深入理解Block/</id>
+    <link href="http://chusaikeji.com/2016/04/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Block/"/>
+    <id>http://chusaikeji.com/2016/04/10/深入理解Block/</id>
     <published>2016-04-10T09:37:24.000Z</published>
     <updated>2016-04-14T01:42:01.000Z</updated>
     
@@ -305,17 +305,17 @@
     
     </summary>
     
-      <category term="Object-C" scheme="http://chaiyongfeng.com/categories/Object-C/"/>
+      <category term="Object-C" scheme="http://chusaikeji.com/categories/Object-C/"/>
     
     
-      <category term="Block" scheme="http://chaiyongfeng.com/tags/Block/"/>
+      <category term="Block" scheme="http://chusaikeji.com/tags/Block/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://chaiyongfeng.com/2016/04/10/hello-world/"/>
-    <id>http://chaiyongfeng.com/2016/04/10/hello-world/</id>
+    <link href="http://chusaikeji.com/2016/04/10/hello-world/"/>
+    <id>http://chusaikeji.com/2016/04/10/hello-world/</id>
     <published>2016-04-10T07:33:43.000Z</published>
     <updated>2016-04-10T09:45:07.000Z</updated>
     
