@@ -82,18 +82,21 @@
 
 
 
-<meta name="description" content="上一篇文章对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过自定义, 来实现一个简单的scrollView, 再次加深对其理解.">
+<meta name="description" content="今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Simple-Custom-ScrollView">
-<meta property="og:url" content="http://blog.chusaikeji.com/2015/02/11/Simple-Custom-ScrollView/index.html">
+<meta property="og:title" content="如何利用查头文件学习 iOS 开发">
+<meta property="og:url" content="http://blog.chusaikeji.com/2015/01/26/如何利用查头文件学习 iOS 开发/index.html">
 <meta property="og:site_name" content="时空人">
-<meta property="og:description" content="上一篇文章对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过自定义, 来实现一个简单的scrollView, 再次加深对其理解.">
+<meta property="og:description" content="今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T15:12:26.000Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png?imageView2/2/w/1240/q/100">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-6e312800a435f887.png?imageView2/2/w/1240/q/100">
+<meta property="og:updated_time" content="2018-04-30T15:53:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simple-Custom-ScrollView">
-<meta name="twitter:description" content="上一篇文章对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过自定义, 来实现一个简单的scrollView, 再次加深对其理解.">
+<meta name="twitter:title" content="如何利用查头文件学习 iOS 开发">
+<meta name="twitter:description" content="今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png?imageView2/2/w/1240/q/100">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> Simple-Custom-ScrollView | 时空人 </title>
+  <title> 如何利用查头文件学习 iOS 开发 | 时空人 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +264,7 @@
             
             
               
-                Simple-Custom-ScrollView
+                如何利用查头文件学习 iOS 开发
               
             
           </h1>
@@ -273,8 +276,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-11T11:00:00+08:00" content="2015-02-11">
-              2015-02-11
+            <time itemprop="dateCreated" datetime="2015-01-26T23:07:00+08:00" content="2015-01-26">
+              2015-01-26
             </time>
           </span>
 
@@ -320,107 +323,29 @@
       
 
       
-        <p><a href="http://www.jianshu.com/p/7631a5b1dec5" target="_blank" rel="noopener">上一篇文章</a>对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过<em>自定义</em>, 来实现一个简单的scrollView, 再次加深对其理解. </p>
+        <p>今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.</p>
 <a id="more"></a>
-<p>在SimpleCustomScrollView.h</p>
-<pre><code>#import &lt;UIKit/UIKit.h&gt;
-
-@interface SimpleCustomScrollView : UIView
-
-// 咱们也定义一个跟系统一样的contentSize, 实现滚动的范围
-@property (nonatomic) CGSize contentSize;
-
-@end
-</code></pre><p>在SimpleCustomScrollView.m</p>
-<pre><code>#import &quot;SimpleCustomScrollView.h&quot;
-
-@implementation SimpleCustomScrollView
-
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-
-        // 给视图添加pan手势
-        UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-        [self addGestureRecognizer:gestureRecognizer];
-    }
-    return self;
-}
-
-
-
-- (void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer
-{
-    // translationInView 这个方法返回的是:在指定父视图坐标系统中, 横、纵坐标移动的坐标
-    CGPoint translation = [gestureRecognizer translationInView:self];
-    CGRect bounds = self.bounds;
-
-    // 动态改变bounds
-    CGFloat newBoundsOriginX = bounds.origin.x - translation.x;
-    CGFloat minBoundsOriginX = 0.0;
-    CGFloat maxBoundsOriginX = self.contentSize.width - bounds.size.width;
-    bounds.origin.x = fmax(minBoundsOriginX, fmin(newBoundsOriginX, maxBoundsOriginX));
-
-    CGFloat newBoundsOriginY = bounds.origin.y - translation.y;
-    CGFloat minBoundsOriginY = 0.0;
-    CGFloat maxBoundsOriginY = self.contentSize.height - bounds.size.height;
-    bounds.origin.y = fmax(minBoundsOriginY, fmin(newBoundsOriginY, maxBoundsOriginY));
-
-    self.bounds = bounds;
-
-    // 因为拖动起来一直是在递增, 所以每次都要用 setTranslation: 方法置0
-    [gestureRecognizer setTranslation:CGPointZero inView:self];
-
-    // 真相只有一个, 打印一下
-    NSLog(@&quot;self.view&apos;s bounds is : %@&quot;, NSStringFromCGRect(self.bounds));
-}
-
-@end
-</code></pre><p>ok. 到这, 咱们自定义的一个简单scrollView就完成了, 在viewController中测试一下</p>
-<p>在ViewController.m中</p>
-<pre><code>#import &quot;ViewController.h&quot;
-#import &quot;SimpleCustomScrollView.h&quot;
-
-@interface ViewController ()
-
-@property (nonatomic, strong) SimpleCustomScrollView *customScroll;
-
-@end
-
-@implementation ViewController
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor whiteColor];
-
-    self.customScroll = [[SimpleCustomScrollView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.customScroll];
-
-    // 跟系统的一样, 在这我们也必须要设置contentSize的大小, 否则无法滚动
-    self.customScroll.contentSize = CGSizeMake(0, 800);
-
-    [self p_setupSubviews];
-
-}
-
-
-// 创建视图
-- (void)p_setupSubviews
-{
-    // 因为老喝橙汁么, 所以就报答一下橙色了
-    UIView *orangeView = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
-orangeView.backgroundColor = [UIColor orangeColor];
-
-[self.customScroll addSubview:orangeView];
-}
-
-@end
-</code></pre><p>运行一下, 是不是跟系统的一样可以滚动. ☀️ 最后附上<a href="https://github.com/BraveMatchstickMen/SimpleCustomScrollView" target="_blank" rel="noopener">git地址</a></p>
+<p>先上神兵利器—- “command + F”, 搜索快捷键可以帮助我们快速查找所需要的东西. 不知道的同学可以随便找个地方试试…</p>
+<p>进入今天的正题, 看过头文件的同学都应该知道, 少的有三十多行, 多的有上千行, 各种属性, 各种方法, 琳琅满目, “人山人海”啊, 单靠记忆恐怕是记不完的, 所以查很好的解决了我们的问题, 那么如何来查呢?</p>
+<p>举个例子, 如果我们遇到没见过的控件, 不明白的方法, 怎么办, 查, 怎么查, 在xcode中, 按住command, 点击控件名或者方法(只要是能点进去的都可以), 然后就会进入头文件, 此时就可以按照”三步走战略”来快速查看头文件了.</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png?imageView2/2/w/1240/q/100" alt=""></p>
+<p>第一步: 看它继承于谁(继承关系很重要的)</p>
+<p>第二步: 看它有没有自己的初始化方法, 如果没有就用父类的</p>
+<p>第三步: 看它是否有代理, 如果有, 看哪些方法是必须实现的</p>
+<p>以UIActionSheet为例:</p>
+<p>在Xcode中输入UIActionSheet, 按住command点击, 进入到头文件, 执行 “三步走战略” :</p>
+<p>第一步: 继承于UIView, 立马想到UIView的所有东西它都可以用.(OC三大特征中的继承 , 必须要掌握的 )</p>
+<p>第二步: 继续往下看, 发现它有自己的初始化方法, 比较长的一个初始化方法. (如果没有找到它自己的初始化方法, 咱们就用它父类的初始化方法) 有的时候头文件里的内容特别多, 很难找到初始化方法, 这时, 就需要我们的神兵利器 “command + F “了, 按下后, 在弹出来的搜索框里输入”init”, 回车, 就会看到, 快速跳转到包含”init”的方法了. 以此类推, 对于很多方法, 没必要死记硬背, 只要记住它里面的关键词, 如果需要调用此方法, 就进入对应的头文件, 利用我们的神兵利器, 快速查找.</p>
+<p>第三步: 继续往下看, 发现了什么, id<uiactionsheetdelegate> delegate 说明有代理方法, 怎么办, 继续 按住command + 点击UIActionSheetDelegate点进去进去看, 发现是@optional, 说明不是必须要实现的方法, 咱们可以暂时不用签订协议.</uiactionsheetdelegate></p>
+<p>ok. 现在三步走战略完了, 回到咱们的viewController里, 建一个UIActionSheet, 既然它继承于UIView, 无非也就是创建一view那几步 (继承关系)</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UIActionSheet的初始化方法</span></span><br><span class="line"></span><br><span class="line">UIActionSheet *actionSheet = [[UIActionSheet alloc] <span class="string">initWithTitle:</span>@<span class="string">"分享"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"取消"</span> <span class="string">destructiveButtonTitle:</span>@<span class="string">"微博分享"</span> <span class="string">otherButtonTitles:</span>@<span class="string">"微信分享"</span>, nil];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不需要设置frame和backgroundColor</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加到view上</span></span><br><span class="line"></span><br><span class="line">[self.view <span class="string">addSubview:</span>actionSheet];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果是MRC下需要release</span></span><br></pre></td></tr></table></figure>
+<p>好了, 运行一下, 发现了什么, 对, 什么都没出来, 怎么办, 继续点进去看, 肯定是有什么属性或者方法是需要咱们必须要写上的, 一行一行的找, 找到了什么, 好几条跟show有关的方法, 柳暗花明又一村啊.</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-6e312800a435f887.png?imageView2/2/w/1240/q/100" alt=""></p>
+<p>发现了吧, 要让咱们的actionSheet显示出来还需要加一条方法, 咱们就选择最后一个方法</p>
+<p>// 必须要写的方法, 否则不会显示出来</p>
+<p>[actionSheet showInView:self.view];</p>
+<p>运行一下, 一个简单的UIActionSheet就出来了, 当然了, UIActionSheet还有很多的属性和方法, 咱们都可以通过”查”来一一学习.</p>
+<p>最后, 不论是查看头文件还是Xcode帮助文档, 都应该把握”三步走战略”, 以此为主线, 展开调研.</p>
 
       
     </div>
@@ -450,16 +375,12 @@ orangeView.backgroundColor = [UIColor orangeColor];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/09/UITableView-Tips/" rel="next" title="UITableView-Tips">
-                <i class="fa fa-chevron-left"></i> UITableView-Tips
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/13/UITableView景深效果/" rel="prev" title="UITableView 景深效果">
-                UITableView 景深效果 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/01/28/iOS开发内存管理之番外篇/" rel="prev" title="iOS 开发内存管理之番外篇">
+                iOS 开发内存管理之番外篇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
