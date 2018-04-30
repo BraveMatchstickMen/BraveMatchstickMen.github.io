@@ -1777,7 +1777,7 @@ self.tableView.tableFooterView = [[UIView alloc] init];
     <link href="http://blog.chusaikeji.com/2015/02/05/%E2%80%9C%E4%B8%8D%E6%B1%82%E7%94%9A%E8%A7%A3%E2%80%9D%E4%B9%8BUIView/"/>
     <id>http://blog.chusaikeji.com/2015/02/05/“不求甚解”之UIView/</id>
     <published>2015-02-05T03:50:00.000Z</published>
-    <updated>2018-04-30T16:56:43.000Z</updated>
+    <updated>2018-04-30T17:06:17.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;em&gt;inheritance&lt;/em&gt;&lt;br&gt;&lt;img src=&quot;http://pic002.cnblogs.com/images/2012/12069/2012080209370777.jpg&quot; alt=&quot;来自于网络&quot;&gt;&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -1903,7 +1903,7 @@ self.tableView.tableFooterView = [[UIView alloc] init];
     <link href="http://blog.chusaikeji.com/2015/02/03/%E2%80%9C%E4%B8%8D%E6%B1%82%E7%94%9A%E8%A7%A3%E2%80%9D%E4%B9%8BUIScrollView/"/>
     <id>http://blog.chusaikeji.com/2015/02/03/“不求甚解”之UIScrollView/</id>
     <published>2015-02-02T16:59:00.000Z</published>
-    <updated>2018-04-30T16:55:41.000Z</updated>
+    <updated>2018-04-30T17:06:29.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;em&gt;Inheritance: UIView&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;是所有滑动视图的基类, 如UITableView, UICollectionView, UITextView&lt;/em&gt;&lt;/p&gt;
