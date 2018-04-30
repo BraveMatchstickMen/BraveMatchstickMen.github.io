@@ -250,7 +250,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -262,8 +262,8 @@
             
               
                 
-                <a class="post-title-link" href="/2018/04/30/UITableView景深效果/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2015/07/03/iOS歌词解析/" itemprop="url">
+                  iOS 歌词解析
                 </a>
               
             
@@ -276,11 +276,30 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-30T22:24:08+08:00" content="2018-04-30">
-              2018-04-30
+            <time itemprop="dateCreated" datetime="2015-07-03T17:35:00+08:00" content="2015-07-03">
+              2015-07-03
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -305,8 +324,489 @@
 
       
         
+          <p>之前,写了一个关于莫文蔚的app,因为版权的问题被苹果拒了,然后也再没动,这几天又拿出来看了看,感觉歌词解析这部分挺有意思的,拿出来说一说.</p>
+<p>这个是做好的效果<br><img src="http://upload-images.jianshu.io/upload_images/193863-d999b1e2b70ffa59.gif?imageMogr2/auto-orient/strip" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/03/iOS歌词解析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/15/KVO-NSNotification/" itemprop="url">
+                  KVO-NSNotification
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-15T19:48:00+08:00" content="2015-03-15">
+              2015-03-15
+            </time>
+          </span>
+
           
-            <p>景深效果在很多的app中都可以看到, 比较fashion. 他跟咱们在前几篇文章中提到的对UIScrollView和UITableView的理解息息相关. 下面具体来看看他是怎么实现的.</p>
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p></p><p></p>
+<h2 id="NSNotification-通知中心"><a href="#NSNotification-通知中心" class="headerlink" title="NSNotification 通知中心"></a>NSNotification 通知中心</h2><p></p><p></p>
+<p>苹果提供的一种消息机制, 观察者只要向消息中心注册， 即可接受其他对象发送来的消息，消息发送者和消息接受者两者可以互相一无所知，完全解耦。NSNotification可以应用于任意时间和任何对象，观察者可以有多个, 这也正是他跟delegate的区别.</p>
+<p>####使用步骤:</p>
+<ol>
+<li>注册一个观察者</li>
+<li>给通知中心发送一个消息</li>
+<li>清除观察者</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/15/KVO-NSNotification/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/03/07/高屋建瓴,-iOS地图开发/" itemprop="url">
+                  高屋建瓴，iOS 地图开发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-07T16:49:00+08:00" content="2015-03-07">
+              2015-03-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在 iOS 中, 地图开发经常会用到的三个框架, 一个是苹果系统自带的 MapKit 框架, 另外两个, 一个是百度地图 BMKMapView, 另一个是高德地图 MAMapView. 当时我莫名的对一个问题产生了浓厚的兴趣, 就是百度地图和高德地图英文命名是什么意思!? 于是我就毫不蛋疼的去 google 了, 而且还在他俩的社区提了这个问题! 终于, 在我的努力下弄明白他俩代表的意思了.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/07/高屋建瓴,-iOS地图开发/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/02/28/SQLite封装/" itemprop="url">
+                  SQLite 封装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-02-28T15:04:00+08:00" content="2015-02-28">
+              2015-02-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><br></p>
+<p>iOS中的数据存储方式主要有:</p>
+<ul>
+<li><p>Plist (NSArray/NSDictionary)</p>
+</li>
+<li><p>Preference(偏好设置/NSUserDefaults)</p>
+</li>
+<li><p>NSCoding (NSKeyedArchiver/NSkeyedUnarchiver)</p>
+</li>
+<li><p>SQLite3</p>
+</li>
+<li><p>Core Data</p>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/02/28/SQLite封装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/02/13/UITableView景深效果/" itemprop="url">
+                  UITableView 景深效果
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-02-13T00:58:00+08:00" content="2015-02-13">
+              2015-02-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>景深效果在很多的app中都可以看到, 比较fashion. 他跟咱们在前几篇文章中提到的对UIScrollView和UITableView的理解息息相关. 下面具体来看看他是怎么实现的.</p>
 <p>要实现景深效果, 主要是理解两个方面:</p>
 <ol>
 <li>搞明白视图层级关系</li>
@@ -314,612 +814,11 @@
 </ol>
 <p>首先, 来看一下视图的层级关系</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/193863-42a1f1c50b012cda.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>从上图中, 我们可以很清楚的看到整个景深效果的层级关系. 我们发现他的imageView整个是, 先放在view上的, 并且头部是超出屏幕一定距离的. 然后再放tableView, 那tableView不是把imageView给挡住了吗? 按照正常的话, 没错, 肯定是会给imageView挡上的, 此时就需要我们做一个小的调整, 给tableView设置headview, 并且让headview是透明的. 明白了吧, 我们一开始看见的imageView, 就是headview这一块内容.</p>
-<p>到这, 我们的景深效果就完成了一半, 剩下的一半就到了根据tableView的偏移量, 来调整imageView的位置, 看代码.</p>
-<pre><code>func scrollViewDidScroll(scrollView: UIScrollView) {
-
-    var content = scrollView.contentOffset.y     
-    var newRect = self.imageView!.frame
-
-    // 判断当前偏移状态
-    if content &lt; 0 {            
-        newRect.origin.y = -120 - content / 3            
-    } else if content &gt; 0 &amp;&amp; content &lt; 200 {            
-        newRect.origin.y = -120 - content
-    }
-    self.imageView!.frame = newRect 
-}
-</code></pre><p>这样, 我们整个的原理就讲完了, 最后, 附上完整的代码.</p>
-<pre><code>import UIKit
-
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,     UIScrollViewDelegate {
-
-// 定义为属性
-var imageView : UIImageView?
-
-// override关键字代表重写
-override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
-
-    // 创建一个imageView
-    self.imageView = UIImageView(frame: CGRect(x: self.view.frame.origin.x, y:-90, width: self.view.frame.size.width, height: 600))
-
-    self.imageView!.image = UIImage(named:&quot;beautiful.png&quot;)
-    self.view.addSubview(self.imageView!)
-
-    // 创建tableView
-    var tableView = UITableView(frame: CGRect(x: 0, y: 90, width: UIScreen.mainScreen().bounds.size.width, height: self.view.frame.size.height - 90), style: .Plain)
-    tableView.backgroundColor = UIColor.clearColor()
-    tableView.showsVerticalScrollIndicator = false;
-    tableView.delegate = self
-    tableView.dataSource = self
-    self.view.addSubview(tableView)
-
-    // 创建一块透明的区域来显示图片, 并且作为tableView的headview
-    var view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 200))
-    view.backgroundColor = UIColor.clearColor()
-    view.opaque = false;
-    tableView.tableHeaderView = view        
-}
-
-func scrollViewDidScroll(scrollView: UIScrollView) {
-
-    var content = scrollView.contentOffset.y
-
-    var newRect = self.imageView!.frame
-
-    // 判断当前偏移状态
-    if content &lt; 0 {
-
-        newRect.origin.y = -120 - content / 3
-
-    } else if content &gt; 0 &amp;&amp; content &lt; 200{
-
-        newRect.origin.y = -120 - content            
-    }        
-    self.imageView!.frame = newRect        
-}    
-
-// 创建表示图
-func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {        
-    return 3        
-}    
-
-func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {        
-    return 20        
-}
-
-
-func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {
-
-    var cell : UITableViewCell?
-
-    // as强转类型
-    cell = tableView.dequeueReusableCellWithIdentifier(&quot;cell&quot;) as? UITableViewCell
-
-    if cell == nil {            
-        cell = UITableViewCell(style: .Subtitle, reuseIdentifier: &quot;cell&quot;)            
-    }        
-    cell!.detailTextLabel!.text = &quot;\(indexPath.row)&quot;
-
-    return cell!        
-}
-</code></pre><p>分享使人快乐, 分享使人进步. 转载请注明出处<a href="http://www.jianshu.com/p/3aea30ad0ff4" target="_blank" rel="noopener">柴茝</a></p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/30/iOS-时间编程/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-30T22:24:08+08:00" content="2018-04-30">
-              2018-04-30
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>时间编程是我们在开发中经常要遇到,比如说时间戳的转换,根据日期更新数据,是否清除一周缓存,时间间隔计算等等,而这些点又比较零散,不容易系统的掌握iOS时间编程.此文就是通过一些经常要用到的方法作为例子,从上到下,系统的对时间编程总结.</p>
-<p>首先,从总体上把握一下跟时间编程有关的类</p>
-<p>NSDate<br>NSDateFormatter<br>NSDateComponents<br>NSDateComponentFormatter<br>NSCalendar</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/193863-21f3ef0f32f35910.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><a href="http://edsioon.me/about-nsdate/" target="_blank" rel="noopener">图片来自@EDSIOON</a>包含了iOS时间编程的所有类,能看懂这个图基本上说明你已经掌握了时间编程.</p>
-<p>上图可以从<code>NSDate</code>分成左右两边来看,你会发现无论从哪一点走都能走通,如果只有右边的话也是没有问题的.那么左边的NSCalendar是什么? NSCalendar是时间编程中的日历体系,它结合NSDateComponents把时间分解为方便我们管理的组件,使我们更直观更容易处理时间.在后面的一些例子中还会做进一步说明.</p>
-<h2 id="NSDate和字符串相互转换"><a href="#NSDate和字符串相互转换" class="headerlink" title="NSDate和字符串相互转换"></a>NSDate和字符串相互转换</h2><p>NSDate对象是对一个简单时间点的封装,表示公历的GMT时间(格林威治时间),其实就是表示距离特定参考时间点(2001-01-01 GMT)已过去的秒数.它不但用于日期,也用于时间处理.</p>
-<p>NSDate和字符串相互转换时,我们要用到格式化的概念,既NSDateFormatter类.NSDateFormatter是NSFormatter的子类,NSFormatter的用途是将数据在字符串与特定类型的对象之间转换.那么在NSDate和字符串相互转换时,要根据需求设置相对应的格式.</p>
-<p>使用date formatter style格式化输出字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NSDate *currentDate = [NSDate date];</span><br><span class="line">    </span><br><span class="line">NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    </span><br><span class="line">dateFormatter.locale = [NSLocale currentLocale];</span><br><span class="line">    </span><br><span class="line">dateFormatter.dateStyle = kCFDateFormatterFullStyle;</span><br><span class="line">    </span><br><span class="line">NSString *convertedDate = [dateFormatter stringFromDate:currentDate];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, convertedDate);</span><br></pre></td></tr></table></figure>
-<p><code>Monday, February 1, 2016</code></p>
-<p>dateFormatter有两种方式可以设置格式:一种是通过一些系统预定义的日期格式化样式(style);另外一种是通过某些说明符来手动设置日期格式,也就是由开发者自定义格式。上面我们用到的就是系统自带的格式化样式.</p>
-<blockquote>
-<p>使用日期格式说明符</p>
-<ul>
-<li>EEEE：“星期”的全名（比如Monday）。如需缩写，指定1-3个字符（如E，EE，EEE代表Mon）。</li>
-<li>MMMM：“月份”的全名（比如October）。如需缩写，指定1-3个字符（如M，MM，MMM代表Oct）。</li>
-<li>dd：某月的第几天（例如，09或15）</li>
-<li>yyyy：四位字符串表示“年”（例如2015）</li>
-<li>HH：两位字符串表示“小时”（例如08或19）</li>
-<li>mm：两位字符串表示“分钟”（例如05或54）</li>
-<li>ss：两位字符串表示“秒”</li>
-<li>zzz：三位字符串表示“时区”（例如GMT）</li>
-<li>GGG：公元前BC或公元后AD</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dateFormatter.dateFormat = @&quot;yyyy-MM-dd HH:mm:ss&quot;;</span><br></pre></td></tr></table></figure>
-<p><code>2016-02-01 15:54:43</code></p>
-<p>Converting from String to NSDate</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSString *dateString = @&quot;2016-02-01 15:54:43&quot;;</span><br><span class="line">    </span><br><span class="line">NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    </span><br><span class="line">dateFormatter.dateFormat = @&quot;yyyy-MM-dd HH:mm:ss&quot;;</span><br><span class="line">    </span><br><span class="line">NSDate *newDate = [dateFormatter dateFromString:dateString];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br></pre></td></tr></table></figure>
-<p><code>2016-02-01 07:54:43 +0000</code></p>
-<p><strong>注意:</strong> 过多使用NSDateFormatter将影响程序的性能,且程序中NSDateFormatter对象的时间格式基本一致,所以使用NSDateFormatter的时候尽量使用单例模式.</p>
-<h2 id="时间戳和日期的相互转化"><a href="#时间戳和日期的相互转化" class="headerlink" title="时间戳和日期的相互转化"></a>时间戳和日期的相互转化</h2><p>开发中,后台给我们的时间是以时间戳的格式,拿到这个时间戳后我们可能要转换成日期格式再进行其他操作,最后要给服务器上传数据的时候我们又要把日期转换成时间戳格式传给后台.</p>
-<p>时间戳转换日期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// timestamp是后台返回给我们的时间戳</span><br><span class="line">double dateStampInterval = timestamp/1000;</span><br><span class="line">expectedDate = [NSDate dateWithTimeIntervalSince1970:dateStampInterval];</span><br></pre></td></tr></table></figure></p>
-<p>日期转换成时间戳<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">long long  expectedInterval = [currentDate timeIntervalSince1970]*1000;</span><br><span class="line">timeStamp = [NSString stringWithFormat:@&quot;%lld&quot;,expectedInterval];</span><br></pre></td></tr></table></figure></p>
-<h2 id="NSDateComponents的使用"><a href="#NSDateComponents的使用" class="headerlink" title="NSDateComponents的使用"></a>NSDateComponents的使用</h2><p>NSDateComponents类是一个面向对象的日期组件,封装了具体年月日、时秒分、周、季度等.我们既可以很方便的取得一个日期的具体组件,比如小时、分钟、秒、日、月、年等等,又可以指定一个日期组件.</p>
-<p>NSDateComponents类经常和NSCalendar类搭配使用，NSCalendar真正执行NSDate和NSDateComponents间的转换。这样，我们先要获取当前的calendar。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCalendar *calendar = [NSCalendar currentCalendar];</span><br><span class="line">    </span><br><span class="line">NSDateComponents *dateComponents = [calendar components:NSCalendarUnitDay|NSCalendarUnitMonth fromDate:currentDate];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;day=%zd, month=%zd&quot;, dateComponents.day, dateComponents.month);</span><br></pre></td></tr></table></figure>
-<p><code>day=1, month=2</code></p>
-<p>date components到date对象的转换</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSDateComponents *components = [[NSDateComponents alloc] init];</span><br><span class="line">    </span><br><span class="line">components.day = 7;</span><br><span class="line">components.month = 2;</span><br><span class="line">components.year = 2016;</span><br><span class="line">    </span><br><span class="line">NSDate *newDate = [calendar dateFromComponents:components];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br></pre></td></tr></table></figure>
-<p><code>2016-02-06 16:00:00 +0000</code></p>
-<blockquote>
-<p>GMT = Greenwich Mean Time（格林尼治标准时间）<br>CST = China Standard Time（中国标准时间）<br>CET = Central European Time(欧洲中部时间）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">components.timeZone = [NSTimeZone timeZoneWithAbbreviation:@&quot;GMT&quot;];</span><br></pre></td></tr></table></figure>
-<p><code>2016-02-07 00:00:00 +0000</code></p>
-<h2 id="比较日期和时间"><a href="#比较日期和时间" class="headerlink" title="比较日期和时间"></a>比较日期和时间</h2><p>先创建两个日期,date1和date2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dateFormatter.dateFormat = @&quot;MM dd, yyyy zzz&quot;;</span><br><span class="line">dateString = @&quot;02 1, 2016 GMT&quot;;</span><br><span class="line">NSDate *date1 = [dateFormatter dateFromString:dateString];</span><br><span class="line">    </span><br><span class="line">dateString = @&quot;01 31, 2016 GMT&quot;;</span><br><span class="line">NSDate *date2 = [dateFormatter dateFromString:dateString];</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;date1:%@, date2:%@&quot;, date1, date2);</span><br><span class="line">// date1:2016-02-01 00:00:00 +0000, date2:2016-01-31 00:00:00 +0000</span><br></pre></td></tr></table></figure></p>
-<p>earlierDate 和 laterDate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 与anotherDate比较，返回较早的那个日期</span><br><span class="line">// - (NSDate *)earlierDate:(NSDate *)anotherDate;</span><br><span class="line"></span><br><span class="line">// 与anotherDate比较，返回较晚的那个日期</span><br><span class="line">// - (NSDate *)laterDate:(NSDate *)anotherDate;</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;Earlier date is:%@&quot;, [date1 earlierDate:date2]);</span><br><span class="line">// Earlier date is:2016-01-31 00:00:00 +0000</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;Later date is:%@&quot;, [date1 laterDate:date2]);</span><br><span class="line">// Later date is:2016-02-01 00:00:00 +0000</span><br></pre></td></tr></table></figure></p>
-<p>另外一个日期比较方法是 NSDate 的 compare: 方法，它需要搭配使用 NSComparisonResult 枚举体。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if ([date1 compare:date2] == NSOrderedSame) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Same dates&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 compare:date2] == NSOrderedAscending) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Earlier than Date2&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 compare:date2] == NSOrderedDescending) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Later than Date2&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>Date1 is Later than Date2</code></p>
-<p>第三个比对方法有点不同，因为它用到了时间间隔（time interval)的概念。这个方法也很简单，它可以查找到每个日期（到现在）的时间间隔，接下来就可以进行比对。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if ([date1 timeIntervalSinceReferenceDate] &gt; [date2 timeIntervalSinceReferenceDate]) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Later than Date2&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 timeIntervalSinceReferenceDate] &lt; [date2 timeIntervalSinceReferenceDate]) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Earlier than Date2&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 timeIntervalSinceReferenceDate] == [date2 timeIntervalSinceReferenceDate]) &#123;</span><br><span class="line">        </span><br><span class="line">      NSLog(@&quot;Same dates&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Date1 is Later than Date2</span><br></pre></td></tr></table></figure>
-<h2 id="计算未来和过去的日期"><a href="#计算未来和过去的日期" class="headerlink" title="计算未来和过去的日期"></a>计算未来和过去的日期</h2><p>第一种做法用到的是 NSCAlendar 类的<br>dateByAddingUnit:value:toDate:options: 方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSInteger monthsToAdd = 2;</span><br><span class="line">NSInteger daysToAdd = 5;</span><br><span class="line">    </span><br><span class="line">newDate = [calendar dateByAddingUnit:NSCalendarUnitMonth value:monthsToAdd toDate:currentDate options:NSCalendarWrapComponents];</span><br><span class="line">newDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:daysToAdd toDate:newDate options:NSCalendarWrapComponents];</span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br><span class="line">// 2016-04-06 12:54:02 +0000</span><br></pre></td></tr></table></figure>
-<p>第二种是用NSDateComponents类.具体做法是初始化一个 NSDateComponents 对象,并设置月份和天的信息.然后我们调用 NSCalendar 的另一个方法 dateByAddingComponents:toDate:options:,并最终获得我们需要的日期对象.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">components.month = monthsToAdd;</span><br><span class="line">components.day = daysToAdd;</span><br><span class="line">    </span><br><span class="line">newDate = [calendar dateByAddingComponents:components toDate:currentDate options:NSCalendarWrapComponents];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br><span class="line">// 2016-04-06 12:57:54 +0000</span><br></pre></td></tr></table></figure>
-<p>第三种用到 NSDate 的 dateByAddingTimeInterval: 方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSTimeInterval hoursToAddInSeconds = 90 * 60;</span><br><span class="line">newDate = [currentDate dateByAddingTimeInterval:hoursToAddInSeconds];</span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br><span class="line">// currentDate: 2016-02-02 03:29:09 +0000</span><br><span class="line">// 2016-02-02 04:59:09 +0000</span><br></pre></td></tr></table></figure>
-<p>注意:因为闰秒、闰年或日光节约时间的缘故，它经常会得到错误的结果.</p>
-<h2 id="计算日期间隔"><a href="#计算日期间隔" class="headerlink" title="计算日期间隔"></a>计算日期间隔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//定义两个日期</span><br><span class="line">dateFormatter.dateFormat = @&quot;HH:mm:ss MM dd, yyyy zzz&quot;;</span><br><span class="line">dateString = @&quot;09:49:20 02 1, 2016 GMT&quot;;</span><br><span class="line">NSDate *date1 = [dateFormatter dateFromString:dateString];</span><br><span class="line"></span><br><span class="line">dateString = @&quot;12:22:49 01 31, 2016 GMT&quot;;</span><br><span class="line">NSDate *date2 = [dateFormatter dateFromString:dateString];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;date1:%@, date2:%@&quot;, date1, date2);</span><br></pre></td></tr></table></figure>
-<p>第一种计算方法是利用calendar的<br>- (NSDateComponents <em>)components:<br>(NSCalendarUnit)unitFlags fromDate:(NSDate </em>)startingDate<br>toDate:(NSDate *)resultDate options:(NSCalendarOptions)opts;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSDateComponents *diffDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:date1 toDate:date2 options:NSCalendarWrapComponents];</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;The difference between dates is:%zd year,%zd month,%zd day,%zd hour, %zd minute, %zd second&quot;, diffDateComponents.year, diffDateComponents.month, diffDateComponents.day, diffDateComponents.hour, diffDateComponents.minute, diffDateComponents.second);</span><br><span class="line"></span><br><span class="line">// The difference between dates is:0 year,0 month,0 day,-21 hour, -26 minute, -31 second</span><br></pre></td></tr></table></figure>
-<p>第二种方法NSDateComponentsFormatter</p>
-<p>NSDateComponentsFormatter 类，它提供了多种用于自动计算日期间隔的方法,并可以返回格式化字符串结果.</p>
-<p>初始化一个NSDateComponentsFormatter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];</span><br><span class="line">dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;</span><br></pre></td></tr></table></figure></p>
-<p>stringFromTimeInterval<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> interval = [date2 timeIntervalSinceDate:date1];</span><br><span class="line"><span class="built_in">NSString</span> *diffDateString = [dateComponentsFormatter stringFromTimeInterval:interval];</span><br><span class="line">    </span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, diffDateString);</span><br><span class="line"><span class="comment">// -21 hours, 26 minutes, 31 seconds</span></span><br></pre></td></tr></table></figure></p>
-<p>stringFromDate:(NSDate <em>)startDate toDate:(NSDate </em>)endDate;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dateComponentsFormatter.allowedUnits = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;</span><br><span class="line">NSString *autoFormattedDifference = [dateComponentsFormatter stringFromDate:date2 toDate:date1];</span><br><span class="line">NSLog(@&quot;%@&quot;, autoFormattedDifference);</span><br><span class="line">// 0 years</span><br></pre></td></tr></table></figure>
-<p>上面这种写法有问题, 会crush, 报错”Specifying positional units with gaps is ambiguous, and therefore unsupported”,正确写法如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSInteger unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;</span><br><span class="line">    </span><br><span class="line">dateComponentsFormatter.allowedUnits = unitFlags;</span><br><span class="line">NSString *autoFormattedDifference = [dateComponentsFormatter stringFromDate:date1 toDate:date2];</span><br><span class="line">NSLog(@&quot;%@&quot;, autoFormattedDifference);</span><br><span class="line"></span><br><span class="line">// -21 hours, 26 minutes, 31 seconds</span><br></pre></td></tr></table></figure>
-<p>当然还有一种方法,上面也有提到过,利用 timeIntervalSinceDate:全部转换成秒数,再通过一些单位换算比较也可算出间隔日期.</p>
-<p>除了掌握这些基本知识,还应该注意到时间编程的效率问题,比如过多使用NSDateFormatter将影响程序的性能等等问题.</p>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/30/iOS开发内存管理之番外篇/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-30T22:24:08+08:00" content="2018-04-30">
-              2018-04-30
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iOS开发内存管理之番外篇</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">iOS开发内存管理之番外篇</h1>
-        <div class="show-content">
-          <p>内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.</p><p>内存管理现在大致可以分为两类, 一类是从始至终存在的MRC, 一类是Xcode4.2及以上版本有了的自动管理内存, 也就是ARC. 关于MRC和ARC选择哪一个, @唐巧 的<a href="http://tangqiaoboy.gitcafe.com/blog/2013/03/27/should-we-use-arc/" target="_blank">&lt;是否应该使用ARC?&gt;</a>文章已经有了很详细的探讨. </p><p>内存管理, What? Why? How? 这都不是本文讨论的内容, 因为已经有很多非常好的文章来解释这些问题了, 本文将从另外一个角度出发, 教给大家如何调试-解决内存中的问题. 关于What-Why-How本文也会分享一些比较好的文章, 对于不理解内存管理的同学会有很大的帮助.</p><h2>一. 开启"僵尸模式” 🍆 🌽 (环境变量)</h2><p>通常情况下，一旦内存中的对象被释放，其只能就此消失。但当“僵尸”方案启动时，该对象只会被标记为“释放”但却仍然被保留在内存当中。如此一来，当我们访问某个僵尸对象时，Xcode会提醒我们该对象虽然能够被访问、但在实际环境中已经不应存在。在这种模式下，我们将能够了解到正常情况下无法获得的实时状态与对象位置。</p><p>Zombie环境变量对于处理EXC_BAD_ACCESS类型崩溃很有效。 当这个zombie工具被启用之后，即使这个对象被释放了，这个对象的内存也不会被清理。这个工具将永远不会释放内存，只是简单标记一下这个内存是不死的(“僵尸"的来历)，你最终将会在某个时候耗尽所有的内存。<br></p><p>开启"僵尸模式”的步骤:</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png?imageView2/2/w/1240/q/100" data-image-slug="0c57b79045a9048d" data-width="798" data-height="478" data-original-src="http://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png"><br><div class="image-caption"></div>
-</div><p>依次选择</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-970f6c7161730b0f.png?imageView2/2/w/1240/q/100" data-image-slug="970f6c7161730b0f" data-width="897" data-height="505" data-original-src="http://upload-images.jianshu.io/upload_images/193863-970f6c7161730b0f.png"><br><div class="image-caption"></div>
-</div><p>勾选上红色区域, 这样就开启了"僵尸模式”.</p><h2>二. 静态分析器 (command + shift + B)</h2><p>1. 第一种方法, 直接快捷键, 点击左边导航栏中的警告栏</p><p>2. 第二种方法, 按下图以此点击</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-29a976a408ea098a.png?imageView2/2/w/1240/q/100" data-image-slug="29a976a408ea098a" data-width="468" data-height="364" data-original-src="http://upload-images.jianshu.io/upload_images/193863-29a976a408ea098a.png"><br><div class="image-caption"></div>
-</div><p>ps...这个方法有的时候不是特别靠谱, 看情况的啊, 哈哈~</p><h2>三. Instruments 工具</h2><p>Instruments工具可谓是神兵利器了, 功能很强大, 可谓是咱们每个程序员"居家过日子的好帮手”. 以下主要讲解利用Instruments调试内存泄露和循环引用的问题.</p><p>1. 打开Instruments</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-82173475f2b86e69.png?imageView2/2/w/1240/q/100" data-image-slug="82173475f2b86e69" data-width="587" data-height="433" data-original-src="http://upload-images.jianshu.io/upload_images/193863-82173475f2b86e69.png"><br><div class="image-caption"></div>
-</div><p>很简单两步, 然后就会看到它的主界面</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-a546fb3c195fcd50.png?imageView2/2/w/1240/q/100" data-image-slug="a546fb3c195fcd50" data-width="773" data-height="434" data-original-src="http://upload-images.jianshu.io/upload_images/193863-a546fb3c195fcd50.png"><br><div class="image-caption"></div>
-</div><p>选择leaks --&gt; 点击左上角的大红点 --&gt; 这个时候就开始检测了 ( 这个时候模拟器也会运行起来, 切记一定在模拟器中对你的当前程序进行操作, 以便检测 ) --&gt; 等待检测结束..🐦🐦🐦..</p><p>检测过程中如果出现红色的线, 就证明内存泄露, 如下图</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-6eac128791808805.png?imageView2/2/w/1240/q/100" data-image-slug="6eac128791808805" data-width="1003" data-height="650" data-original-src="http://upload-images.jianshu.io/upload_images/193863-6eac128791808805.png"><br><div class="image-caption"></div>
-</div><p>如果要检测循环引用, 就选择Cycles &amp; Roots, 就可以看到以图形方式显示出来的循环引用了.</p><p>如果要查看内存泄露, 选择Call Tree</p><p>勾选上右边红色方框里的两项, Invert Call Tree 和Hide System Libraries</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-50ffc12b93208d43.png?imageView2/2/w/1240/q/100" data-image-slug="50ffc12b93208d43" data-width="1010" data-height="653" data-original-src="http://upload-images.jianshu.io/upload_images/193863-50ffc12b93208d43.png"><br><div class="image-caption"></div>
-</div><p>这时候内存泄露的具体代码找到了，你只在绿色框里的方法上双击，就会跳转到具体的代码, 一针见血.</p><p>分享使人快乐, 分享使人进步</p><p><a href="http://www.jianshu.com/p/db3c404c7067" target="_blank">http://www.jianshu.com/p/db3c404c7067</a><br></p><p>****** 以上基于Xcode6.1.1 ******</p><p>参考的文章:</p><p>1. 《iOS开发进阶》老师 第十章《理解内存管理》</p><p>2. 《Object-C基础教程》第十章《内存管理》</p><p>3. 《OC内存管理》 <a href="http://www.cnblogs.com/wendingding/tag/UI%E5%9F%BA%E7%A1%80/" target="_blank">http://www.cnblogs.com/wendingding/tag/UI基础/</a></p><p>4. 《IOS开发系列—Objective-C之内存管理》</p><p><a href="http://www.cnblogs.com/kenshincui/p/3870325.html" target="_blank">http://www.cnblogs.com/kenshincui/p/3870325.html</a></p><p>5. <a href="http://blog.csdn.net/totogo2010/article/details/8233565" target="_blank">http://blog.csdn.net/totogo2010/article/details/8233565</a> </p><p>6. 《iOS故障排除指南》 <a href="http://mobile.51cto.com/iphone-377138.htm" target="_blank">http://mobile.51cto.com/iphone-377138.htm</a></p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-          
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/04/30/如果说-苹果Xcode帮助文档阅读指南-是屠龙刀,那我这就是倚天剑!/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-04-30T22:24:08+08:00" content="2018-04-30">
-              2018-04-30
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>如果说&lt;苹果Xcode帮助文档阅读指南&gt;是屠龙刀,那我这就是倚天剑!</title>
-    <style type="text/css" media="all">
-      body {
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
-        font-size: 14px;
-        line-height: 20px;
-        color: #777;
-        background-color: white;
-      }
-      .container {
-        width: 700px;
-        margin-right: auto;
-        margin-left: auto;
-      }
-
-      .post {
-        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
-        position: relative;
-        padding: 70px;
-        bottom: 0;
-        overflow-y: auto;
-        font-size: 16px;
-        font-weight: normal;
-        line-height: 25px;
-        color: #515151;
-      }
-
-      .post h1{
-        font-size: 50px;
-        font-weight: 500;
-        line-height: 60px;
-        margin-bottom: 40px;
-        color: inherit;
-      }
-
-      .post p {
-        margin: 0 0 35px 0;
-      }
-
-      .post img {
-        border: 1px solid #D9D9D9;
-      }
-
-      .post a {
-        color: #28A1C5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="post">
-        <h1 class="title">如果说&lt;苹果Xcode帮助文档阅读指南&gt;是屠龙刀,那我这就是倚天剑!</h1>
-        <div class="show-content">
-          <p>如果说&lt;苹果Xcode帮助文档阅读指南&gt;是屠龙刀,那我这就是倚天剑.哈哈~,总结了一点iOS开发学习的小技巧,希望能对同学们有点帮助.<br></p><p>阅读苹果Xcode帮助文档无疑是提高开发水平最好方法之一, @tinyfool总结的<a href="http://ourcoders.com/thread/show/117/" target="_blank">&lt;苹果Xcode帮助文档阅读指南&gt;</a>, 非常实用, 推荐给现在还不知道如何看文档的同学.</p><p>今天我们要总结的是, 利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字----"<b>查</b>".</p><p>先上神兵利器---- "command + F", 搜索快捷键可以帮助我们快速查找所需要的东西. 不知道的同学可以随便找个地方试试...</p><p>进入今天的正题, 看过头文件的同学都应该知道, 少的有三十多行, 多的有上千行, 各种属性, 各种方法, 琳琅满目, “人山人海”啊, 单靠记忆恐怕是记不完的, 所以查很好的解决了我们的问题, 那么如何来查呢?</p><p>举个例子, 如果我们遇到没见过的控件, 不明白的方法, 怎么办, 查, 怎么查, 在xcode中, 按住command, 点击控件名或者方法(只要是能点进去的都可以), 然后就会进入头文件, 此时就可以按照”三步走战略"来快速查看头文件了.</p><p>第一步: 看它继承于谁(继承关系很重要的)</p><p>第二步: 看它有没有自己的初始化方法, 如果没有就用父类的</p><p>第三步: 看它是否有代理, 如果有, 看哪些方法是必须实现的</p><p>以UIActionSheet为例:</p><p>在Xcode中输入UIActionSheet, 按住command点击, 进入到头文件, 执行 “三步走战略” :</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png?imageView2/2/w/1240/q/100" data-image-slug="d9224943fc867409" data-width="854" data-height="389" data-original-src="http://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png"><br><div class="image-caption"></div>
-</div><p>第一步: 继承于UIView, 立马想到UIView的所有东西它都可以用.(OC三大特征中的<i>继承 , 必须要掌握的 </i>)</p><p>第二步: 继续往下看, 发现它有自己的初始化方法, 比较长的一个初始化方法. (如果没有找到它自己的初始化方法, 咱们就用它父类的初始化方法) 有的时候头文件里的内容特别多, 很难找到初始化方法, 这时, 就需要我们的神兵利器 “command + F “了, 按下后, 在弹出来的搜索框里输入”init”, 回车, 就会看到, 快速跳转到包含”init”的方法了. 以此类推, 对于很多方法, 没必要死记硬背, 只要记住它里面的关键词, 如果需要调用此方法, 就进入对应的头文件, 利用我们的神兵利器, 快速查找.</p><p>第三步: 继续往下看, 发现了什么, id&lt;UIActionSheetDelegate&gt; delegate 说明有代理方法, 怎么办, 继续 按住command + 点击UIActionSheetDelegate点进去进去看, 发现是@optional, 说明不是必须要实现的方法, 咱们可以暂时不用签订协议.</p><p>ok. 现在三步走战略完了, 回到咱们的viewController里, 建一个UIActionSheet, 既然它继承于UIView, 无非也就是创建一view那几步 (<i>继承关系</i>)</p><blockquote>
-<p>// UIActionSheet的初始化方法</p>
-<p>UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"分享" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"微博分享" otherButtonTitles:@"微信分享", nil];</p>
-<p>// 不需要设置frame和backgroundColor</p>
-<p>// 添加到view上</p>
-<p>[self.view addSubview:actionSheet];</p>
-<p>// 如果是MRC下需要release</p>
-</blockquote><p>好了, 运行一下, 发现了什么, 对, 什么都没出来, 怎么办, 继续点进去看, 肯定是有什么属性或者方法是需要咱们必须要写上的, 一行一行的找, 找到了什么, 好几条跟show有关的方法, 柳暗花明又一村啊.</p><div class="image-package">
-<img src="http://upload-images.jianshu.io/upload_images/193863-6e312800a435f887.png?imageView2/2/w/1240/q/100" data-image-slug="6e312800a435f887" data-width="853" data-height="311" data-original-src="http://upload-images.jianshu.io/upload_images/193863-6e312800a435f887.png"><br><div class="image-caption"></div>
-</div><p>发现了吧, 要让咱们的actionSheet显示出来还需要加一条方法, 咱们就选择最后一个方法</p><blockquote>
-<p>// 必须要写的方法, 否则不会显示出来</p>
-<p>[actionSheet showInView:self.view];</p>
-</blockquote><p>运行一下, 一个简单的UIActionSheet就出来了, 当然了, UIActionSheet还有很多的属性和方法, 咱们都可以通过"查"来一一学习.</p><p>最后, 不论是查看头文件还是Xcode帮助文档, 都应该把握”三步走战略”, 以此为主线, 展开调研.总结为一首诗:</p><p>                              武林至尊,</p><p>                              宝刀屠龙.</p><p>                              号令天下,</p><p>                              莫敢不从.</p><p>                              倚天不出,</p><p>                              谁与争锋.</p><p>                              倚天屠龙,</p><p>                              天下我有.</p><p>分享使人快乐, 分享使人进步, 转载请注明出处<a href="http://www.jianshu.com/p/2d4693cbdbd7" target="_blank">http://www.jianshu.com/p/2d4693cbdbd7</a></p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/02/13/UITableView景深效果/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -967,8 +866,8 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
             
               
                 
-                <a class="post-title-link" href="/2016/07/01/Runtime/" itemprop="url">
-                  Runtime
+                <a class="post-title-link" href="/2015/02/11/Simple-Custom-ScrollView/" itemprop="url">
+                  Simple-Custom-ScrollView
                 </a>
               
             
@@ -981,8 +880,8 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-01T18:13:04+08:00" content="2016-07-01">
-              2016-07-01
+            <time itemprop="dateCreated" datetime="2015-02-11T11:00:00+08:00" content="2015-02-11">
+              2015-02-11
             </time>
           </span>
 
@@ -1029,11 +928,9 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
       
         
-          <p><img src="http://ww3。sinaimg。cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405。jpg" alt="图片来自网络"></p>
-<p>故事要从一次崩溃开始。。。</p>
-<p>由于你的粗心大意，调用了一个只声明没有实现的方法，结果你肯定知道了。是的，程序崩溃了。如果你打了全局断点，很容易找到问题出在哪了。但是，我们的讨论不止于此，我们要深入方法调用的背后，看看这期间到底发生了哪些事情。</p>
+          <p><a href="http://www.jianshu.com/p/7631a5b1dec5" target="_blank" rel="noopener">上一篇文章</a>对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过<em>自定义</em>, 来实现一个简单的scrollView, 再次加深对其理解. </p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/01/Runtime/#more" rel="contents">
+            <a class="btn" href="/2015/02/11/Simple-Custom-ScrollView/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1084,8 +981,8 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
             
               
                 
-                <a class="post-title-link" href="/2016/06/15/读源码系列之WebViewJavascriptBridge/" itemprop="url">
-                  读源码系列之 WebViewJavascriptBridge
+                <a class="post-title-link" href="/2015/02/09/UITableView-Tips/" itemprop="url">
+                  UITableView-Tips
                 </a>
               
             
@@ -1098,344 +995,8 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-15T09:00:36+08:00" content="2016-06-15">
-              2016-06-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Object-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Object-C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a>是我们经常会用到的一个Objective-C与JavaScript交互的第三方.</p>
-<p>想想我们如果不用这个第三方是怎么交互的:</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/15/读源码系列之WebViewJavascriptBridge/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/深入理解Block/" itemprop="url">
-                  深入理解Block
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T17:37:24+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Object-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Object-C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww4.sinaimg.cn/mw690/8edca89bgw1f2vzgz0qijj20qo0ez0wj.jpg" alt="来自 Lili Popper 的作品"></p>
-<h3 id="Block概要"><a href="#Block概要" class="headerlink" title="Block概要"></a>Block概要</h3><h4 id="什么是Block"><a href="#什么是Block" class="headerlink" title="什么是Block"></a>什么是Block</h4><blockquote>
-<p>Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to automatic (stack) or managed (heap) memory. A block can therefore maintain a set of state (data) that it can use to impact behavior when executed.</p>
-<p>怎么理解这段话? 可以分成两段来理解:</p>
-<ul>
-<li>Block 对象是一个C语言级别的语法和运行时特征: Block的形式跟C语言中函数指针的形式基本相似(后文会有讲到)</li>
-<li>包含stack或者heap中的内存的变量: Block带有自动变量</li>
-</ul>
-</blockquote>
-<p>所以, 可以用一句话来表示Block:<strong>带有自动变量(局部变量)的匿名函数</strong>.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/深入理解Block/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/10/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T15:33:43+08:00" content="2016-04-10">
-              2016-04-10
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/10/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/22/HTTP-总结/" itemprop="url">
-                  HTTP 知识点总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-22T17:34:00+08:00" content="2016-03-22">
-              2016-03-22
+            <time itemprop="dateCreated" datetime="2015-02-09T00:11:00+08:00" content="2015-02-09">
+              2015-02-09
             </time>
           </span>
 
@@ -1482,9 +1043,11 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
       
         
-          <p>本文总结了HTTP相关的基础知识,也可算作是《图解HTTP》一书读书笔记,其中图片均来自《图解HTTP》.</p>
+          <p>UITabelView是iOS开发中最常用, 也是最灵活的控件, 所以, 如何打造出更符合用户体验的tableView, 是我们不断去思考的一个问题. 本文不去详细讲述tableView的基本属性和方法, 而是从tableView各种不同的用法和效果, 侧面阐述tableView.</p>
+
+<hr>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/22/HTTP-总结/#more" rel="contents">
+            <a class="btn" href="/2015/02/09/UITableView-Tips/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1597,141 +1160,132 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
       
         
-          
-            <p><em>inheritance</em><br><img src="http://pic002.cnblogs.com/images/2012/12069/2012080209370777.jpg" alt="来自于网络"></p>
+          <p><em>inheritance</em><br><img src="http://pic002.cnblogs.com/images/2012/12069/2012080209370777.jpg" alt="来自于网络"></p>
 <hr>
-<p></p><p></p>
-<p>##常用属性</p>
 <p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/02/05/“不求甚解”之UIView/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
 
-<ul>
-<li><p>区分 frame, bounds, center</p>
-<ul>
-<li><p>frame</p>
-<ul>
-<li><em>The frame rectangle, which describes the view’s location and size in its superview’s coordinate system.</em></li>
-<li>一句话总结: 子视图相对于其父视图坐标原点的位置</li>
-</ul>
-</li>
-<li><p>bounds </p>
-<ul>
-<li><em>The bounds rectangle, which describes the view’s location and size in its own coordinate system.</em></li>
-<li>一句话总结: 视图在其自身坐标系中的位置和大小</li>
-</ul>
-</li>
-<li><p>center </p>
-<ul>
-<li><em>The center of the frame.</em></li>
-<li>一句话总结: 子视图相对于父视图的中心点位置</li>
-</ul>
-</li>
-<li><p><strong>改变bounds, 改变的就是视图自身坐标系的原点数值</strong>, 所以我们可以通过改变视图的bounds, 来达到调整视图子视图位置的目的, UIScrollView<a href="http://www.jianshu.com/p/7631a5b1dec5" target="_blank" rel="noopener">滚动原理</a>正是此原理</p>
-</li>
-<li><p>对 <em>frame.size = bounds.size</em> 的纠正, 看下图<br><img src="http://i.stack.imgur.com/3jcne.jpg" alt="来自于stackOverflow"></p>
-</li>
-</ul>
-<p>从上图中, 可以清楚的看出, 当视图发生旋转的时候, frame.size != bounds.size</p>
-</li>
-</ul>
-<hr>
-<ul>
-<li>@property (nonatomic) CGAffineTransform transform;<ul>
-<li>控件矩阵变化, 包括平移、缩放、旋转, 默认为CGAffineTransformldentity<br><a href="http://blog.csdn.net/lc_obj/article/details/17454825" target="_blank" rel="noopener">http://blog.csdn.net/lc_obj/article/details/17454825</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>其他常用属性、方法</li>
-</ul>
-</p><p>object-c: </p>
-<pre><code>// 如何调整自己的大小, 当superviews的bounds发生改变时 默认为UIViewAutoresizingNone
-// UIViewAutoresizingNone                 = 0,          视图将不进行自动尺寸调整
-   UIViewAutoresizingFlexibleLeftMargin   = 1 &lt;&lt; 0,     视图的左边界将随着父视图宽度的变化而按比例进行调整. 否则, 视图和其父视图的左边界的相对位置将保持不变.
-   UIViewAutoresizingFlexibleWidth        = 1 &lt;&lt; 1,     视图的宽度将和父视图的宽度成比例变化
-   UIViewAutoresizingFlexibleRightMargin  = 1 &lt;&lt; 2,     视图的右边界将随着父视图宽度的变化而按比例变化
-   UIViewAutoresizingFlexibleTopMargin    = 1 &lt;&lt; 3,     视图的上边界将随着父视图的高度而成比例变化
-   UIViewAutoresizingFlexibleHeight       = 1 &lt;&lt; 4,     视图的高度将和父视图的高度一起成比例变化
-   UIViewAutoresizingFlexibleBottomMargin = 1 &lt;&lt; 5      视图的底边界将随着父视图高度的变化而按比例进行变化
-@property (nonatomic) UIViewAutoresizing autoresizingMask;
+    <div>
+      
+    </div>
 
-// 当前控件的父控件
-@property (nonatomic, readonly) UIView *superview;
+    <footer class="post-footer">
+      
 
-// 当前控件的所有一级子控件, 注意其子控件的子控件并不包含在内
-@property (nonatomic, readonly, copy) NSArray subviews;
+      
 
-// 是否隐藏, 默认为NO
-@property (nonatomic, getter = isHidden) BOOL hidden;
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 
-// BOOL类型, 是否让一个视图裁剪其子视图
-@property (nonatomic) BOOL clipsToBounds;
 
-// 内容模式, 主要用于指定控件内容(注意不是子控件)如何填充, 一般UIImageView经常使用, 默认为UIViewContentModeScaleToFill
-@property (nonatomic) UIViewContentMode contentMode;
+    
+      
 
-// 控件的标示, 可以存储一些和当前控件有关的信息(但是注意只能是整形), 默认为0
-@property (nonatomic) NSInteger tag; 
-</code></pre><p><em>(ps. 还是用表格的形式吧, 代码的形式看着不是特别舒服…)</em></p>
-<ul>
-<li>主要的一些方法</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>- (void)addSubview:(UIView *)view;</td>
-<td>添加子控件</td>
-</tr>
-<tr>
-<td>- (void)removeFromSuperview;</td>
-<td>从父控件中移除当前控件</td>
-</tr>
-<tr>
-<td>- (void)insertSubview:(UIView *)view atIndex:(NSInteger)index;</td>
-<td>在指定位置插入子控件</td>
-</tr>
-<tr>
-<td>- (void)bringSubviewToFront:(UIView *)view;</td>
-<td>把指定的子视图移动到最前面</td>
-</tr>
-<tr>
-<td>- (void)sendSubviewToBack:(UIView *)view;</td>
-<td>把指定的子视图移动到最后面</td>
-</tr>
-<tr>
-<td>- (void)exchangeSubviewAtIndex:(NSInteger)index1 withSubviewAtIndex:(NSInteger)index2;</td>
-<td>交换两个指定索引位置的子视图</td>
-</tr>
-<tr>
-<td>+ (void)beginAnimations:(NSString <em>)animationID context:(void </em>)context;</td>
-<td>开始一段动画</td>
-</tr>
-<tr>
-<td>+ (void)commitAnimations;</td>
-<td>结束一段动画，注意在开始和结束之间如果控件的某些属性发生变化iOS将以动画方式进行改变</td>
-</tr>
-<tr>
-<td>+ (void)animateWithDuration:(NSTimeInterval)duration animations:(void (^)(void))animations NS_AVAILABLE_IOS(4_0);</td>
-<td>以block的形式执行一段动画，注意这个方法有几种相关的重载</td>
-</tr>
-<tr>
-<td>- (void)addGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer NS_AVAILABLE_IOS(3_2);</td>
-<td>添加手势操作</td>
-</tr>
-<tr>
-<td>- (void)removeGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer NS_AVAILABLE_IOS(3_2);</td>
-<td>移除手势操作</td>
-</tr>
-</tbody>
-</table>
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/02/03/“不求甚解”之UIScrollView/" itemprop="url">
+                  ”不求甚解“之 UIScrollView
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-02-03T00:59:00+08:00" content="2015-02-03">
+              2015-02-03
+            </time>
+          </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><em>Inheritance: UIView</em></p>
+<p><em>是所有滑动视图的基类, 如UITableView, UICollectionView, UITextView</em></p>
+<hr>
+<p>##<strong>理解UIScrollView, 必须理解以下三点:</strong></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/02/03/“不求甚解”之UIScrollView/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1762,7 +1316,7 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 
@@ -1803,7 +1357,7 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

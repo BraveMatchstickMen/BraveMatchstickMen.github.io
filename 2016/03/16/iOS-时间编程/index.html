@@ -1,0 +1,734 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时空人" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="时间编程是我们在开发中经常要遇到,比如说时间戳的转换,根据日期更新数据,是否清除一周缓存,时间间隔计算等等,而这些点又比较零散,不容易系统的掌握iOS时间编程.此文就是通过一些经常要用到的方法作为例子,从上到下,系统的对时间编程总结.">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 时间编程">
+<meta property="og:url" content="http://blog.chusaikeji.com/2016/03/16/iOS-时间编程/index.html">
+<meta property="og:site_name" content="时空人">
+<meta property="og:description" content="时间编程是我们在开发中经常要遇到,比如说时间戳的转换,根据日期更新数据,是否清除一周缓存,时间间隔计算等等,而这些点又比较零散,不容易系统的掌握iOS时间编程.此文就是通过一些经常要用到的方法作为例子,从上到下,系统的对时间编程总结.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/193863-21f3ef0f32f35910.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-30T15:09:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 时间编程">
+<meta name="twitter:description" content="时间编程是我们在开发中经常要遇到,比如说时间戳的转换,根据日期更新数据,是否清除一周缓存,时间间隔计算等等,而这些点又比较零散,不容易系统的掌握iOS时间编程.此文就是通过一些经常要用到的方法作为例子,从上到下,系统的对时间编程总结.">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/193863-21f3ef0f32f35910.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> iOS 时间编程 | 时空人 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时空人</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 时间编程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-16T16:06:00+08:00" content="2016-03-16">
+              2016-03-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>时间编程是我们在开发中经常要遇到,比如说时间戳的转换,根据日期更新数据,是否清除一周缓存,时间间隔计算等等,而这些点又比较零散,不容易系统的掌握iOS时间编程.此文就是通过一些经常要用到的方法作为例子,从上到下,系统的对时间编程总结.</p>
+<a id="more"></a>
+<p>首先,从总体上把握一下跟时间编程有关的类</p>
+<p>NSDate<br>NSDateFormatter<br>NSDateComponents<br>NSDateComponentFormatter<br>NSCalendar</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/193863-21f3ef0f32f35910.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><a href="http://edsioon.me/about-nsdate/" target="_blank" rel="noopener">图片来自@EDSIOON</a>包含了iOS时间编程的所有类,能看懂这个图基本上说明你已经掌握了时间编程.</p>
+<p>上图可以从<code>NSDate</code>分成左右两边来看,你会发现无论从哪一点走都能走通,如果只有右边的话也是没有问题的.那么左边的NSCalendar是什么? NSCalendar是时间编程中的日历体系,它结合NSDateComponents把时间分解为方便我们管理的组件,使我们更直观更容易处理时间.在后面的一些例子中还会做进一步说明.</p>
+<h2 id="NSDate和字符串相互转换"><a href="#NSDate和字符串相互转换" class="headerlink" title="NSDate和字符串相互转换"></a>NSDate和字符串相互转换</h2><p>NSDate对象是对一个简单时间点的封装,表示公历的GMT时间(格林威治时间),其实就是表示距离特定参考时间点(2001-01-01 GMT)已过去的秒数.它不但用于日期,也用于时间处理.</p>
+<p>NSDate和字符串相互转换时,我们要用到格式化的概念,既NSDateFormatter类.NSDateFormatter是NSFormatter的子类,NSFormatter的用途是将数据在字符串与特定类型的对象之间转换.那么在NSDate和字符串相互转换时,要根据需求设置相对应的格式.</p>
+<p>使用date formatter style格式化输出字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NSDate *currentDate = [NSDate date];</span><br><span class="line">    </span><br><span class="line">NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    </span><br><span class="line">dateFormatter.locale = [NSLocale currentLocale];</span><br><span class="line">    </span><br><span class="line">dateFormatter.dateStyle = kCFDateFormatterFullStyle;</span><br><span class="line">    </span><br><span class="line">NSString *convertedDate = [dateFormatter stringFromDate:currentDate];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, convertedDate);</span><br></pre></td></tr></table></figure>
+<p><code>Monday, February 1, 2016</code></p>
+<p>dateFormatter有两种方式可以设置格式:一种是通过一些系统预定义的日期格式化样式(style);另外一种是通过某些说明符来手动设置日期格式,也就是由开发者自定义格式。上面我们用到的就是系统自带的格式化样式.</p>
+<blockquote>
+<p>使用日期格式说明符</p>
+<ul>
+<li>EEEE：“星期”的全名（比如Monday）。如需缩写，指定1-3个字符（如E，EE，EEE代表Mon）。</li>
+<li>MMMM：“月份”的全名（比如October）。如需缩写，指定1-3个字符（如M，MM，MMM代表Oct）。</li>
+<li>dd：某月的第几天（例如，09或15）</li>
+<li>yyyy：四位字符串表示“年”（例如2015）</li>
+<li>HH：两位字符串表示“小时”（例如08或19）</li>
+<li>mm：两位字符串表示“分钟”（例如05或54）</li>
+<li>ss：两位字符串表示“秒”</li>
+<li>zzz：三位字符串表示“时区”（例如GMT）</li>
+<li>GGG：公元前BC或公元后AD</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dateFormatter.dateFormat = @&quot;yyyy-MM-dd HH:mm:ss&quot;;</span><br></pre></td></tr></table></figure>
+<p><code>2016-02-01 15:54:43</code></p>
+<p>Converting from String to NSDate</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSString *dateString = @&quot;2016-02-01 15:54:43&quot;;</span><br><span class="line">    </span><br><span class="line">NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">    </span><br><span class="line">dateFormatter.dateFormat = @&quot;yyyy-MM-dd HH:mm:ss&quot;;</span><br><span class="line">    </span><br><span class="line">NSDate *newDate = [dateFormatter dateFromString:dateString];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br></pre></td></tr></table></figure>
+<p><code>2016-02-01 07:54:43 +0000</code></p>
+<p><strong>注意:</strong> 过多使用NSDateFormatter将影响程序的性能,且程序中NSDateFormatter对象的时间格式基本一致,所以使用NSDateFormatter的时候尽量使用单例模式.</p>
+<h2 id="时间戳和日期的相互转化"><a href="#时间戳和日期的相互转化" class="headerlink" title="时间戳和日期的相互转化"></a>时间戳和日期的相互转化</h2><p>开发中,后台给我们的时间是以时间戳的格式,拿到这个时间戳后我们可能要转换成日期格式再进行其他操作,最后要给服务器上传数据的时候我们又要把日期转换成时间戳格式传给后台.</p>
+<p>时间戳转换日期<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// timestamp是后台返回给我们的时间戳</span><br><span class="line">double dateStampInterval = timestamp/1000;</span><br><span class="line">expectedDate = [NSDate dateWithTimeIntervalSince1970:dateStampInterval];</span><br></pre></td></tr></table></figure></p>
+<p>日期转换成时间戳<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">long long  expectedInterval = [currentDate timeIntervalSince1970]*1000;</span><br><span class="line">timeStamp = [NSString stringWithFormat:@&quot;%lld&quot;,expectedInterval];</span><br></pre></td></tr></table></figure></p>
+<h2 id="NSDateComponents的使用"><a href="#NSDateComponents的使用" class="headerlink" title="NSDateComponents的使用"></a>NSDateComponents的使用</h2><p>NSDateComponents类是一个面向对象的日期组件,封装了具体年月日、时秒分、周、季度等.我们既可以很方便的取得一个日期的具体组件,比如小时、分钟、秒、日、月、年等等,又可以指定一个日期组件.</p>
+<p>NSDateComponents类经常和NSCalendar类搭配使用，NSCalendar真正执行NSDate和NSDateComponents间的转换。这样，我们先要获取当前的calendar。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSCalendar *calendar = [NSCalendar currentCalendar];</span><br><span class="line">    </span><br><span class="line">NSDateComponents *dateComponents = [calendar components:NSCalendarUnitDay|NSCalendarUnitMonth fromDate:currentDate];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;day=%zd, month=%zd&quot;, dateComponents.day, dateComponents.month);</span><br></pre></td></tr></table></figure>
+<p><code>day=1, month=2</code></p>
+<p>date components到date对象的转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSDateComponents *components = [[NSDateComponents alloc] init];</span><br><span class="line">    </span><br><span class="line">components.day = 7;</span><br><span class="line">components.month = 2;</span><br><span class="line">components.year = 2016;</span><br><span class="line">    </span><br><span class="line">NSDate *newDate = [calendar dateFromComponents:components];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br></pre></td></tr></table></figure>
+<p><code>2016-02-06 16:00:00 +0000</code></p>
+<blockquote>
+<p>GMT = Greenwich Mean Time（格林尼治标准时间）<br>CST = China Standard Time（中国标准时间）<br>CET = Central European Time(欧洲中部时间）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">components.timeZone = [NSTimeZone timeZoneWithAbbreviation:@&quot;GMT&quot;];</span><br></pre></td></tr></table></figure>
+<p><code>2016-02-07 00:00:00 +0000</code></p>
+<h2 id="比较日期和时间"><a href="#比较日期和时间" class="headerlink" title="比较日期和时间"></a>比较日期和时间</h2><p>先创建两个日期,date1和date2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dateFormatter.dateFormat = @&quot;MM dd, yyyy zzz&quot;;</span><br><span class="line">dateString = @&quot;02 1, 2016 GMT&quot;;</span><br><span class="line">NSDate *date1 = [dateFormatter dateFromString:dateString];</span><br><span class="line">    </span><br><span class="line">dateString = @&quot;01 31, 2016 GMT&quot;;</span><br><span class="line">NSDate *date2 = [dateFormatter dateFromString:dateString];</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;date1:%@, date2:%@&quot;, date1, date2);</span><br><span class="line">// date1:2016-02-01 00:00:00 +0000, date2:2016-01-31 00:00:00 +0000</span><br></pre></td></tr></table></figure></p>
+<p>earlierDate 和 laterDate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 与anotherDate比较，返回较早的那个日期</span><br><span class="line">// - (NSDate *)earlierDate:(NSDate *)anotherDate;</span><br><span class="line"></span><br><span class="line">// 与anotherDate比较，返回较晚的那个日期</span><br><span class="line">// - (NSDate *)laterDate:(NSDate *)anotherDate;</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;Earlier date is:%@&quot;, [date1 earlierDate:date2]);</span><br><span class="line">// Earlier date is:2016-01-31 00:00:00 +0000</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;Later date is:%@&quot;, [date1 laterDate:date2]);</span><br><span class="line">// Later date is:2016-02-01 00:00:00 +0000</span><br></pre></td></tr></table></figure></p>
+<p>另外一个日期比较方法是 NSDate 的 compare: 方法，它需要搭配使用 NSComparisonResult 枚举体。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">if ([date1 compare:date2] == NSOrderedSame) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Same dates&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 compare:date2] == NSOrderedAscending) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Earlier than Date2&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 compare:date2] == NSOrderedDescending) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Later than Date2&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Date1 is Later than Date2</code></p>
+<p>第三个比对方法有点不同，因为它用到了时间间隔（time interval)的概念。这个方法也很简单，它可以查找到每个日期（到现在）的时间间隔，接下来就可以进行比对。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">if ([date1 timeIntervalSinceReferenceDate] &gt; [date2 timeIntervalSinceReferenceDate]) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Later than Date2&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 timeIntervalSinceReferenceDate] &lt; [date2 timeIntervalSinceReferenceDate]) &#123;</span><br><span class="line">        </span><br><span class="line">    NSLog(@&quot;Date1 is Earlier than Date2&quot;);</span><br><span class="line">        </span><br><span class="line">&#125; else if ([date1 timeIntervalSinceReferenceDate] == [date2 timeIntervalSinceReferenceDate]) &#123;</span><br><span class="line">        </span><br><span class="line">      NSLog(@&quot;Same dates&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Date1 is Later than Date2</span><br></pre></td></tr></table></figure>
+<h2 id="计算未来和过去的日期"><a href="#计算未来和过去的日期" class="headerlink" title="计算未来和过去的日期"></a>计算未来和过去的日期</h2><p>第一种做法用到的是 NSCAlendar 类的<br>dateByAddingUnit:value:toDate:options: 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSInteger monthsToAdd = 2;</span><br><span class="line">NSInteger daysToAdd = 5;</span><br><span class="line">    </span><br><span class="line">newDate = [calendar dateByAddingUnit:NSCalendarUnitMonth value:monthsToAdd toDate:currentDate options:NSCalendarWrapComponents];</span><br><span class="line">newDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:daysToAdd toDate:newDate options:NSCalendarWrapComponents];</span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br><span class="line">// 2016-04-06 12:54:02 +0000</span><br></pre></td></tr></table></figure>
+<p>第二种是用NSDateComponents类.具体做法是初始化一个 NSDateComponents 对象,并设置月份和天的信息.然后我们调用 NSCalendar 的另一个方法 dateByAddingComponents:toDate:options:,并最终获得我们需要的日期对象.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">components.month = monthsToAdd;</span><br><span class="line">components.day = daysToAdd;</span><br><span class="line">    </span><br><span class="line">newDate = [calendar dateByAddingComponents:components toDate:currentDate options:NSCalendarWrapComponents];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br><span class="line">// 2016-04-06 12:57:54 +0000</span><br></pre></td></tr></table></figure>
+<p>第三种用到 NSDate 的 dateByAddingTimeInterval: 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSTimeInterval hoursToAddInSeconds = 90 * 60;</span><br><span class="line">newDate = [currentDate dateByAddingTimeInterval:hoursToAddInSeconds];</span><br><span class="line">NSLog(@&quot;%@&quot;, newDate);</span><br><span class="line">// currentDate: 2016-02-02 03:29:09 +0000</span><br><span class="line">// 2016-02-02 04:59:09 +0000</span><br></pre></td></tr></table></figure>
+<p>注意:因为闰秒、闰年或日光节约时间的缘故，它经常会得到错误的结果.</p>
+<h2 id="计算日期间隔"><a href="#计算日期间隔" class="headerlink" title="计算日期间隔"></a>计算日期间隔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//定义两个日期</span><br><span class="line">dateFormatter.dateFormat = @&quot;HH:mm:ss MM dd, yyyy zzz&quot;;</span><br><span class="line">dateString = @&quot;09:49:20 02 1, 2016 GMT&quot;;</span><br><span class="line">NSDate *date1 = [dateFormatter dateFromString:dateString];</span><br><span class="line"></span><br><span class="line">dateString = @&quot;12:22:49 01 31, 2016 GMT&quot;;</span><br><span class="line">NSDate *date2 = [dateFormatter dateFromString:dateString];</span><br><span class="line">    </span><br><span class="line">NSLog(@&quot;date1:%@, date2:%@&quot;, date1, date2);</span><br></pre></td></tr></table></figure>
+<p>第一种计算方法是利用calendar的<br>- (NSDateComponents <em>)components:<br>(NSCalendarUnit)unitFlags fromDate:(NSDate </em>)startingDate<br>toDate:(NSDate *)resultDate options:(NSCalendarOptions)opts;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NSDateComponents *diffDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:date1 toDate:date2 options:NSCalendarWrapComponents];</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;The difference between dates is:%zd year,%zd month,%zd day,%zd hour, %zd minute, %zd second&quot;, diffDateComponents.year, diffDateComponents.month, diffDateComponents.day, diffDateComponents.hour, diffDateComponents.minute, diffDateComponents.second);</span><br><span class="line"></span><br><span class="line">// The difference between dates is:0 year,0 month,0 day,-21 hour, -26 minute, -31 second</span><br></pre></td></tr></table></figure>
+<p>第二种方法NSDateComponentsFormatter</p>
+<p>NSDateComponentsFormatter 类，它提供了多种用于自动计算日期间隔的方法,并可以返回格式化字符串结果.</p>
+<p>初始化一个NSDateComponentsFormatter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NSDateComponentsFormatter *dateComponentsFormatter = [[NSDateComponentsFormatter alloc] init];</span><br><span class="line">dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;</span><br></pre></td></tr></table></figure></p>
+<p>stringFromTimeInterval<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> interval = [date2 timeIntervalSinceDate:date1];</span><br><span class="line"><span class="built_in">NSString</span> *diffDateString = [dateComponentsFormatter stringFromTimeInterval:interval];</span><br><span class="line">    </span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, diffDateString);</span><br><span class="line"><span class="comment">// -21 hours, 26 minutes, 31 seconds</span></span><br></pre></td></tr></table></figure></p>
+<p>stringFromDate:(NSDate <em>)startDate toDate:(NSDate </em>)endDate;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dateComponentsFormatter.allowedUnits = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;</span><br><span class="line">NSString *autoFormattedDifference = [dateComponentsFormatter stringFromDate:date2 toDate:date1];</span><br><span class="line">NSLog(@&quot;%@&quot;, autoFormattedDifference);</span><br><span class="line">// 0 years</span><br></pre></td></tr></table></figure>
+<p>上面这种写法有问题, 会crush, 报错”Specifying positional units with gaps is ambiguous, and therefore unsupported”,正确写法如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NSInteger unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;</span><br><span class="line">    </span><br><span class="line">dateComponentsFormatter.allowedUnits = unitFlags;</span><br><span class="line">NSString *autoFormattedDifference = [dateComponentsFormatter stringFromDate:date1 toDate:date2];</span><br><span class="line">NSLog(@&quot;%@&quot;, autoFormattedDifference);</span><br><span class="line"></span><br><span class="line">// -21 hours, 26 minutes, 31 seconds</span><br></pre></td></tr></table></figure>
+<p>当然还有一种方法,上面也有提到过,利用 timeIntervalSinceDate:全部转换成秒数,再通过一些单位换算比较也可算出间隔日期.</p>
+<p>除了掌握这些基本知识,还应该注意到时间编程的效率问题,比如过多使用NSDateFormatter将影响程序的性能等等问题.</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/29/《Clean-Code》/" rel="next" title="<<Clean-Code>>">
+                <i class="fa fa-chevron-left"></i> <<Clean-Code>>
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/22/HTTP-总结/" rel="prev" title="HTTP 知识点总结">
+                HTTP 知识点总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww1.sinaimg.cn/mw690/8edca89bgw1f2rp95fpbjj208c08ct9y.jpg"
+               alt="Brave" />
+          <p class="site-author-name" itemprop="name">Brave</p>
+          <p class="site-description motion-element" itemprop="description">只要思想不滑坡 办法总比困难多</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/BraveMatchstickMen" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2396825755" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/fddb055efe32/latest_articles" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xingren.com" target="_blank">杏仁医生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hack.xingren.com/2016/03/29/webpack%E5%85%A5%E9%97%A8/" target="_blank">杏仁技术博客</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NSDate和字符串相互转换"><span class="nav-number">1.</span> <span class="nav-text">NSDate和字符串相互转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间戳和日期的相互转化"><span class="nav-number">2.</span> <span class="nav-text">时间戳和日期的相互转化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSDateComponents的使用"><span class="nav-number">3.</span> <span class="nav-text">NSDateComponents的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较日期和时间"><span class="nav-number">4.</span> <span class="nav-text">比较日期和时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算未来和过去的日期"><span class="nav-number">5.</span> <span class="nav-text">计算未来和过去的日期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算日期间隔"><span class="nav-number">6.</span> <span class="nav-text">计算日期间隔</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brave</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

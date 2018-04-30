@@ -85,15 +85,15 @@
 <meta name="description" content="Block概要什么是Block Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to auto">
 <meta name="keywords" content="Block">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解Block">
+<meta property="og:title" content="深入理解 Block">
 <meta property="og:url" content="http://blog.chusaikeji.com/2016/04/10/深入理解Block/index.html">
 <meta property="og:site_name" content="时空人">
 <meta property="og:description" content="Block概要什么是Block Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to auto">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww4.sinaimg.cn/mw690/8edca89bgw1f2vzgz0qijj20qo0ez0wj.jpg">
-<meta property="og:updated_time" content="2016-04-14T01:42:01.000Z">
+<meta property="og:updated_time" content="2018-04-30T15:16:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解Block">
+<meta name="twitter:title" content="深入理解 Block">
 <meta name="twitter:description" content="Block概要什么是Block Block objects are a C-level syntactic and runtime feature. They are similar to standard C functions, but in addition to executable code they may also contain variable bindings to auto">
 <meta name="twitter:image" content="http://ww4.sinaimg.cn/mw690/8edca89bgw1f2vzgz0qijj20qo0ez0wj.jpg">
 
@@ -113,7 +113,7 @@
   };
 </script>
 
-  <title> 深入理解Block | 时空人 </title>
+  <title> 深入理解 Block | 时空人 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -263,7 +263,7 @@
             
             
               
-                深入理解Block
+                深入理解 Block
               
             
           </h1>
@@ -416,8 +416,7 @@
 </ul>
 <p>NSConcreteMallocBlock</p>
 </blockquote>
-<p>#####两个问题</p>
-<ul>
+<h5 id="两个问题"><a href="#两个问题" class="headerlink" title="两个问题"></a>两个问题</h5><ul>
 <li>Block超出变量作用域可存在的原因</li>
 <li><strong>block变量用结构体成员变量</strong>forwarding存在的原因</li>
 </ul>
@@ -573,7 +572,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -670,7 +669,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Block概要"><span class="nav-number">1.</span> <span class="nav-text">Block概要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Block"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Block</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block模式"><span class="nav-number">2.</span> <span class="nav-text">Block模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Block表达式语法-Block-Literal-Syntax"><span class="nav-number">2.1.</span> <span class="nav-text">Block表达式语法 (Block Literal Syntax)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block类型变量"><span class="nav-number">2.2.</span> <span class="nav-text">Block类型变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获自动变量值"><span class="nav-number">2.3.</span> <span class="nav-text">截获自动变量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block说明符"><span class="nav-number">2.4.</span> <span class="nav-text">__block说明符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获的自动变量"><span class="nav-number">2.5.</span> <span class="nav-text">截获的自动变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block的实现"><span class="nav-number">3.</span> <span class="nav-text">Block的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Block的实质"><span class="nav-number">3.1.</span> <span class="nav-text">Block的实质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获自动变量值-1"><span class="nav-number">3.2.</span> <span class="nav-text">截获自动变量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block说明符-1"><span class="nav-number">3.3.</span> <span class="nav-text">__block说明符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block存储域"><span class="nav-number">3.4.</span> <span class="nav-text">Block存储域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三种类型的Block"><span class="nav-number">3.4.1.</span> <span class="nav-text">三种类型的Block:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block变量存储域"><span class="nav-number">3.5.</span> <span class="nav-text">__block变量存储域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获对象"><span class="nav-number">3.6.</span> <span class="nav-text">截获对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block变量和对象"><span class="nav-number">3.7.</span> <span class="nav-text">__block变量和对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block循环引用"><span class="nav-number">3.8.</span> <span class="nav-text">Block循环引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#self循环引用"><span class="nav-number">3.8.1.</span> <span class="nav-text">self循环引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#self隐式循环引用"><span class="nav-number">3.8.2.</span> <span class="nav-text">self隐式循环引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#防止循环引用"><span class="nav-number">3.8.3.</span> <span class="nav-text">防止循环引用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Block概要"><span class="nav-number">1.</span> <span class="nav-text">Block概要</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Block"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Block</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block模式"><span class="nav-number">2.</span> <span class="nav-text">Block模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Block表达式语法-Block-Literal-Syntax"><span class="nav-number">2.1.</span> <span class="nav-text">Block表达式语法 (Block Literal Syntax)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block类型变量"><span class="nav-number">2.2.</span> <span class="nav-text">Block类型变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获自动变量值"><span class="nav-number">2.3.</span> <span class="nav-text">截获自动变量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block说明符"><span class="nav-number">2.4.</span> <span class="nav-text">__block说明符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获的自动变量"><span class="nav-number">2.5.</span> <span class="nav-text">截获的自动变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block的实现"><span class="nav-number">3.</span> <span class="nav-text">Block的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Block的实质"><span class="nav-number">3.1.</span> <span class="nav-text">Block的实质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获自动变量值-1"><span class="nav-number">3.2.</span> <span class="nav-text">截获自动变量值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block说明符-1"><span class="nav-number">3.3.</span> <span class="nav-text">__block说明符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block存储域"><span class="nav-number">3.4.</span> <span class="nav-text">Block存储域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#三种类型的Block"><span class="nav-number">3.4.1.</span> <span class="nav-text">三种类型的Block:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#两个问题"><span class="nav-number">3.4.2.</span> <span class="nav-text">两个问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block变量存储域"><span class="nav-number">3.5.</span> <span class="nav-text">__block变量存储域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#截获对象"><span class="nav-number">3.6.</span> <span class="nav-text">截获对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block变量和对象"><span class="nav-number">3.7.</span> <span class="nav-text">__block变量和对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block循环引用"><span class="nav-number">3.8.</span> <span class="nav-text">Block循环引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#self循环引用"><span class="nav-number">3.8.1.</span> <span class="nav-text">self循环引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#self隐式循环引用"><span class="nav-number">3.8.2.</span> <span class="nav-text">self隐式循环引用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#防止循环引用"><span class="nav-number">3.8.3.</span> <span class="nav-text">防止循环引用</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
