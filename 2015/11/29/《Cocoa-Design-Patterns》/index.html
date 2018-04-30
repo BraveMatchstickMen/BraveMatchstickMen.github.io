@@ -82,18 +82,18 @@
 
 
 
-<meta name="description" content="1.模型 - 视图 - 控制器 2.两阶段创建 3.模板方法 4.动态创建 5.通知 ###三个类一个方法模拟iOS通知实现 三个类:1234567891011121314/** *  @brief  关于通知的信息类 */@interface MyNotification : NSObject@property (nonatomic, strong, readwrite) NSString *">
+<meta name="description" content="1.模型 - 视图 - 控制器 2.两阶段创建 3.模板方法 4.动态创建 5.通知">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Cocoa-Design-Patterns》">
 <meta property="og:url" content="http://blog.chusaikeji.com/2015/11/29/《Cocoa-Design-Patterns》/index.html">
 <meta property="og:site_name" content="时空人">
-<meta property="og:description" content="1.模型 - 视图 - 控制器 2.两阶段创建 3.模板方法 4.动态创建 5.通知 ###三个类一个方法模拟iOS通知实现 三个类:1234567891011121314/** *  @brief  关于通知的信息类 */@interface MyNotification : NSObject@property (nonatomic, strong, readwrite) NSString *">
+<meta property="og:description" content="1.模型 - 视图 - 控制器 2.两阶段创建 3.模板方法 4.动态创建 5.通知">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T15:08:26.000Z">
+<meta property="og:updated_time" content="2018-04-30T15:28:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《Cocoa-Design-Patterns》">
-<meta name="twitter:description" content="1.模型 - 视图 - 控制器 2.两阶段创建 3.模板方法 4.动态创建 5.通知 ###三个类一个方法模拟iOS通知实现 三个类:1234567891011121314/** *  @brief  关于通知的信息类 */@interface MyNotification : NSObject@property (nonatomic, strong, readwrite) NSString *">
+<meta name="twitter:description" content="1.模型 - 视图 - 控制器 2.两阶段创建 3.模板方法 4.动态创建 5.通知">
 
 
 
@@ -320,12 +320,12 @@
       
 
       
-        <a id="more"></a>
-<p>1.模型 - 视图 - 控制器</p>
+        <p>1.模型 - 视图 - 控制器</p>
 <p>2.两阶段创建</p>
 <p>3.模板方法</p>
 <p>4.动态创建</p>
 <p>5.通知</p>
+<a id="more"></a>
 <p>###三个类一个方法模拟iOS通知实现</p>
 <h4 id="三个类"><a href="#三个类" class="headerlink" title="三个类:"></a>三个类:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  @brief  关于通知的信息类</span><br><span class="line"> */</span><br><span class="line">@interface MyNotification : NSObject</span><br><span class="line"></span><br><span class="line">@property (nonatomic, strong, readwrite) NSString *name;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, assign, readwrite) id object;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, strong, readwrite) NSDictionary *infoDictionary;</span><br><span class="line"></span><br><span class="line">- (id)initWithName:(NSString *)name object:(id)anObject userInfo:(NSDictionary *)someUserInfo;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  @brief  存储关于注册的观察者的信息</span><br><span class="line"> */</span><br><span class="line">@interface MYNotificationObserverRecord : NSObject</span><br><span class="line"></span><br><span class="line">@property (nonatomic, assign, readwrite) id object;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, assign, readwrite) id observer;</span><br><span class="line"></span><br><span class="line">@property (nonatomic, assign, readwrite) SEL selector;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
@@ -370,8 +370,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/11/29/《Clean-Code》/" rel="prev" title="<<Clean-Code>>">
-                <<Clean-Code>> <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/16/iOS-时间编程/" rel="prev" title="iOS 时间编程">
+                iOS 时间编程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -440,7 +440,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
