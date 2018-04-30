@@ -92,7 +92,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2012/12069/2012080209370777.jpg">
 <meta property="og:image" content="http://i.stack.imgur.com/3jcne.jpg">
-<meta property="og:updated_time" content="2018-04-30T15:07:27.000Z">
+<meta property="og:updated_time" content="2018-04-30T15:32:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="“不求甚解”之 UIView">
 <meta name="twitter:description" content="inheritance">
@@ -324,13 +324,8 @@
 
       
         <p><em>inheritance</em><br><img src="http://pic002.cnblogs.com/images/2012/12069/2012080209370777.jpg" alt="来自于网络"></p>
-<hr>
-<p>
-
 <a id="more"></a>
-</p><p>##常用属性</p>
-<p>
-
+<p>##常用属性</p>
 <ul>
 <li><p>区分 frame, bounds, center</p>
 <ul>
@@ -371,35 +366,8 @@
 <ul>
 <li>其他常用属性、方法</li>
 </ul>
-</p><p>object-c: </p>
-<pre><code>// 如何调整自己的大小, 当superviews的bounds发生改变时 默认为UIViewAutoresizingNone
-// UIViewAutoresizingNone                 = 0,          视图将不进行自动尺寸调整
-   UIViewAutoresizingFlexibleLeftMargin   = 1 &lt;&lt; 0,     视图的左边界将随着父视图宽度的变化而按比例进行调整. 否则, 视图和其父视图的左边界的相对位置将保持不变.
-   UIViewAutoresizingFlexibleWidth        = 1 &lt;&lt; 1,     视图的宽度将和父视图的宽度成比例变化
-   UIViewAutoresizingFlexibleRightMargin  = 1 &lt;&lt; 2,     视图的右边界将随着父视图宽度的变化而按比例变化
-   UIViewAutoresizingFlexibleTopMargin    = 1 &lt;&lt; 3,     视图的上边界将随着父视图的高度而成比例变化
-   UIViewAutoresizingFlexibleHeight       = 1 &lt;&lt; 4,     视图的高度将和父视图的高度一起成比例变化
-   UIViewAutoresizingFlexibleBottomMargin = 1 &lt;&lt; 5      视图的底边界将随着父视图高度的变化而按比例进行变化
-@property (nonatomic) UIViewAutoresizing autoresizingMask;
-
-// 当前控件的父控件
-@property (nonatomic, readonly) UIView *superview;
-
-// 当前控件的所有一级子控件, 注意其子控件的子控件并不包含在内
-@property (nonatomic, readonly, copy) NSArray subviews;
-
-// 是否隐藏, 默认为NO
-@property (nonatomic, getter = isHidden) BOOL hidden;
-
-// BOOL类型, 是否让一个视图裁剪其子视图
-@property (nonatomic) BOOL clipsToBounds;
-
-// 内容模式, 主要用于指定控件内容(注意不是子控件)如何填充, 一般UIImageView经常使用, 默认为UIViewContentModeScaleToFill
-@property (nonatomic) UIViewContentMode contentMode;
-
-// 控件的标示, 可以存储一些和当前控件有关的信息(但是注意只能是整形), 默认为0
-@property (nonatomic) NSInteger tag; 
-</code></pre><p><em>(ps. 还是用表格的形式吧, 代码的形式看着不是特别舒服…)</em></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如何调整自己的大小, 当superviews的bounds发生改变时 默认为UIViewAutoresizingNone</span></span><br><span class="line"><span class="comment">// UIViewAutoresizingNone                 = 0,          视图将不进行自动尺寸调整</span></span><br><span class="line">   <span class="built_in">UIViewAutoresizingFlexibleLeftMargin</span>   = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,     视图的左边界将随着父视图宽度的变化而按比例进行调整. 否则, 视图和其父视图的左边界的相对位置将保持不变.</span><br><span class="line">   <span class="built_in">UIViewAutoresizingFlexibleWidth</span>        = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,     视图的宽度将和父视图的宽度成比例变化</span><br><span class="line">   <span class="built_in">UIViewAutoresizingFlexibleRightMargin</span>  = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,     视图的右边界将随着父视图宽度的变化而按比例变化</span><br><span class="line">   <span class="built_in">UIViewAutoresizingFlexibleTopMargin</span>    = <span class="number">1</span> &lt;&lt; <span class="number">3</span>,     视图的上边界将随着父视图的高度而成比例变化</span><br><span class="line">   <span class="built_in">UIViewAutoresizingFlexibleHeight</span>       = <span class="number">1</span> &lt;&lt; <span class="number">4</span>,     视图的高度将和父视图的高度一起成比例变化</span><br><span class="line">   <span class="built_in">UIViewAutoresizingFlexibleBottomMargin</span> = <span class="number">1</span> &lt;&lt; <span class="number">5</span>      视图的底边界将随着父视图高度的变化而按比例进行变化</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIViewAutoresizing</span> autoresizingMask;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前控件的父控件</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIView</span> *superview;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当前控件的所有一级子控件, 注意其子控件的子控件并不包含在内</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>, <span class="keyword">copy</span>) <span class="built_in">NSArray</span> subviews;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否隐藏, 默认为NO</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">getter</span> = isHidden) <span class="built_in">BOOL</span> hidden;</span><br><span class="line"></span><br><span class="line"><span class="comment">// BOOL类型, 是否让一个视图裁剪其子视图</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> clipsToBounds;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 内容模式, 主要用于指定控件内容(注意不是子控件)如何填充, 一般UIImageView经常使用, 默认为UIViewContentModeScaleToFill</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">UIViewContentMode</span> contentMode;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 控件的标示, 可以存储一些和当前控件有关的信息(但是注意只能是整形), 默认为0</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> tag;</span><br></pre></td></tr></table></figure>
+<p><em>(ps. 还是用表格的形式吧, 代码的形式看着不是特别舒服…)</em></p>
 <ul>
 <li>主要的一些方法</li>
 </ul>
@@ -486,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/03/“不求甚解”之UIScrollView/" rel="next" title="”不求甚解“之 UIScrollView">
-                <i class="fa fa-chevron-left"></i> ”不求甚解“之 UIScrollView
+              <a href="/2015/02/03/“不求甚解”之UIScrollView/" rel="next" title="不求甚解之 UIScrollView">
+                <i class="fa fa-chevron-left"></i> 不求甚解之 UIScrollView
               </a>
             
           </div>
@@ -564,7 +532,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
