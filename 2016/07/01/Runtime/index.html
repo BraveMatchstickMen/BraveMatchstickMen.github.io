@@ -82,22 +82,22 @@
 
 
 
-<meta name="description" content="故事要从一次崩溃开始… 由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta name="description" content="故事要从一次崩溃开始。。。 由于你的粗心大意，调用了一个只声明没有实现的方法，结果你肯定知道了。是的，程序崩溃了。如果你打了全局断点，很容易找到问题出在哪了。但是，我们的讨论不止于此，我们要深入方法调用的背后，看看这期间到底发生了哪些事情。">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Runtime">
 <meta property="og:url" content="http://blog.chusaikeji.com/2016/07/01/Runtime/index.html">
 <meta property="og:site_name" content="时空人">
-<meta property="og:description" content="故事要从一次崩溃开始… 由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
+<meta property="og:description" content="故事要从一次崩溃开始。。。 由于你的粗心大意，调用了一个只声明没有实现的方法，结果你肯定知道了。是的，程序崩溃了。如果你打了全局断点，很容易找到问题出在哪了。但是，我们的讨论不止于此，我们要深入方法调用的背后，看看这期间到底发生了哪些事情。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/571495-5cd12b17d449bab1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-07-01T10:40:41.000Z">
+<meta property="og:image" content="http://ww3。sinaimg。cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405。jpg">
+<meta property="og:image" content="http://ww4。sinaimg。cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz。jpg">
+<meta property="og:image" content="http://upload-images。jianshu。io/upload_images/571495-5cd12b17d449bab1。png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-30T14:21:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runtime">
-<meta name="twitter:description" content="故事要从一次崩溃开始… 由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg">
+<meta name="twitter:description" content="故事要从一次崩溃开始。。。 由于你的粗心大意，调用了一个只声明没有实现的方法，结果你肯定知道了。是的，程序崩溃了。如果你打了全局断点，很容易找到问题出在哪了。但是，我们的讨论不止于此，我们要深入方法调用的背后，看看这期间到底发生了哪些事情。">
+<meta name="twitter:image" content="http://ww3。sinaimg。cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405。jpg">
 
 
 
@@ -291,8 +291,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Object-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Object-C</span>
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
 
@@ -324,39 +324,39 @@
       
 
       
-        <p><img src="http://ww3.sinaimg.cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405.jpg" alt="图片来自网络"></p>
-<p>故事要从一次崩溃开始…</p>
-<p>由于你的粗心大意,调用了一个只声明没有实现的方法,结果你肯定知道了.是的,程序崩溃了.如果你打了全局断点,很容易找到问题出在哪了.但是,我们的讨论不止于此,我们要深入方法调用的背后,看看这期间到底发生了哪些事情.</p>
+        <p><img src="http://ww3。sinaimg。cn/mw690/8edca89bgw1f2vzgvtsukj20qo0hs405。jpg" alt="图片来自网络"></p>
+<p>故事要从一次崩溃开始。。。</p>
+<p>由于你的粗心大意，调用了一个只声明没有实现的方法，结果你肯定知道了。是的，程序崩溃了。如果你打了全局断点，很容易找到问题出在哪了。但是，我们的讨论不止于此，我们要深入方法调用的背后，看看这期间到底发生了哪些事情。</p>
 <a id="more"></a>
-<h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p>正如你所知道的 Object-C 是一门动态语言,所以只有在运行时它才会做一些决定性工作.这也就是说为什么在编译阶段,你调用了一个没有声明的方法,编译器不会报红.对于这一点,C语言恰恰是相反的,他会在编译阶段就告诉你,你调用了一个没有实现过的方法.</p>
-<p>既然如此, Object-C 不仅仅需要一个编译器,而且也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发.这个运行时系统就是我们今天的主人公 <strong>Runtime</strong> .</p>
-<p>Runtime 是用C和汇编写的,而且是开源的,点击<a href="http://opensource.apple.com" target="_blank" rel="noopener">这里</a>可以下载到它.</p>
-<h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p>当我们在屏幕上敲出<code>[self doSomething]</code>这一行代码时,编译器会对 Objective-C 代码做分析检查, 并把它翻译成一个C的函数调用,如下</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">objc_msgSend</span><span class="params">(self, doSomething)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p>正如你所知道的 Objective-C 是一门动态语言，所以只有在运行时它才会做一些决定性工作。这也就是说为什么在编译阶段，你调用了一个没有声明的方法，编译器不会报红。对于这一点，C 语言恰恰是相反的，他会在编译阶段就告诉你，你调用了一个没有实现过的方法。</p>
+<p>既然如此， Objective-C 不仅仅需要一个编译器，而且也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。这个运行时系统就是我们今天的主人公 <strong>Runtime</strong> 。</p>
+<p>Runtime 是用 C 和汇编写的，而且是开源的，点击<a href="http://opensource。apple。com" target="_blank" rel="noopener">这里</a>可以下载到它。</p>
+<h3 id="消息传递"><a href="#消息传递" class="headerlink" title="消息传递"></a>消息传递</h3><p>当我们在屏幕上敲出<code>[self doSomething]</code>这一行代码时，编译器会对 Objective-C 代码做分析检查， 并把它翻译成一个C的函数调用，如下</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">objc_msgSend</span><span class="params">(self， doSomething)</span></span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>检测self是不是nil,如果是则会直接忽略.</li>
-<li>方法的调用者会通过 isa 指针来找到其所属的类，然后在 cache 或者 methodLists 中查找该方法，找得到就跳到对应的方法去执行.</li>
-<li>如果class中没有找到对应的方法,继续往它的superclass中找,如果还没找到会继续往上找,直到找到NSObject类为止.(如下图)</li>
-<li>一旦找到对应的函数,就去执行它的实现IMP.如果没有找到就会进入消息转发.</li>
+<li>检测 self 是不是 nil，如果是则会直接忽略。</li>
+<li>方法的调用者会通过 isa 指针来找到其所属的类，然后在 cache 或者 methodLists 中查找该方法，找得到就跳到对应的方法去执行。</li>
+<li>如果 class 中没有找到对应的方法，继续往它的 superclass 中找，如果还没找到会继续往上找，直到找到 NSObject 类为止。(如下图)</li>
+<li>一旦找到对应的函数，就去执行它的实现 IMP。如果没有找到就会进入消息转发。</li>
 </ul>
-<p><img src="http://ww4.sinaimg.cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz.jpg" alt=""></p>
-<p><a href="http://www.sealiesoftware.com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses.html" target="_blank" rel="noopener">图片来自objc_explain_Classes_and_metaclasses</a></p>
-<h3 id="动态方法解析和转发"><a href="#动态方法解析和转发" class="headerlink" title="动态方法解析和转发"></a>动态方法解析和转发</h3><p>在上面的消息传递中,如果一直没有找到对应的函数,没有其他设置的话,就是我们在一开始提到的从崩溃开始,我们的程序会崩溃.但是在程序崩溃前, Runtime 会给我们三次拯救程序的机会:</p>
-<p>1.动态方法解析</p>
-<p>2.备用接收者(重定向)</p>
-<p>3.消息转发</p>
+<p><img src="http://ww4。sinaimg。cn/mw690/8edca89bgw1f5c6x679t3j20hd0i8jsz。jpg" alt=""></p>
+<p><a href="http://www。sealiesoftware。com/blog/archive/2009/04/14/objc_explain_Classes_and_metaclasses。html" target="_blank" rel="noopener">图片来自objc_explain_Classes_and_metaclasses</a></p>
+<h3 id="动态方法解析和转发"><a href="#动态方法解析和转发" class="headerlink" title="动态方法解析和转发"></a>动态方法解析和转发</h3><p>在上面的消息传递中，如果一直没有找到对应的函数，没有其他设置的话，就是我们在一开始提到的从崩溃开始，我们的程序会崩溃。但是在程序崩溃前， Runtime 会给我们三次拯救程序的机会:</p>
+<p>1。动态方法解析</p>
+<p>2。备用接收者(重定向)</p>
+<p>3。消息转发</p>
 <p>下面我们分别来看看这三次机会</p>
-<h4 id="动态方法解析"><a href="#动态方法解析" class="headerlink" title="动态方法解析"></a>动态方法解析</h4><p>在上面的消息传递中,如果一直没有找到对应的方法, Runtime 会发送 <code>+ resolveInstanceMethod:</code> 或者 <code>+ resolveClassMethod:</code> 尝试去 resolve 这个消息.调用<code>class_addMethod</code>添加方法的实现.</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">void</span> <span class="selector-tag">doSomething</span>(id self, SEL sel)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"%@ %@"</span>, self, NSStringFromSelector(sel));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (BOOL)<span class="selector-tag">resolveInstanceMethod</span><span class="selector-pseudo">:(SEL)sel</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="selector-tag">if</span> (sel == <span class="variable">@selector</span>(doSomething)) &#123;</span><br><span class="line">        <span class="selector-tag">class_addMethod</span>(self, <span class="variable">@selector</span>(doSomething), (IMP)doSomething, <span class="string">"v@:"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-attr">[super resolveInstanceMethod:sel]</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="备用接收者"><a href="#备用接收者" class="headerlink" title="备用接收者"></a>备用接收者</h4><p>如果 resolve 方法返回 NO, Runtime 就发送<code>- forwardingTargetForSelector:</code> 允许你把这个消息转发给另一个对象.切记不能返回self,这样会进入死循环状态.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == @selector(eat)) &#123;</span><br><span class="line">        </span><br><span class="line">        Person *person = [[Person alloc] init];</span><br><span class="line">        class_addMethod(self.superclass, @selector(eat), (IMP)eat, &quot;v@:&quot;);</span><br><span class="line">        return person;</span><br><span class="line">    &#125;</span><br><span class="line">    return [super forwardingTargetForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="完整转发"><a href="#完整转发" class="headerlink" title="完整转发"></a>完整转发</h4><p>到这一步,是 Runtime 给我们最后一次拯救世界的机会.如果没有新的目标对象返回, Runtime 就会发送 <code>- methodSignatureForSelector:</code> 和 <code>- forwardInvocation:</code> 消息.</p>
-<p>首先调用<code>methodSignatureForSelector:</code>方法,尝试获得一个方法签名.如果获取不到,则直接调用<code>doesNotRecognizeSelector</code>抛出异常.</p>
-<p>否则就会调用<code>forwardInvocation:</code>方法,将上一步获取到的方法签名包装成Invocation传入.调用<code>invokeWithTarget:</code>手动转发消息.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == @selector(eat)) &#123;</span><br><span class="line">        </span><br><span class="line">        NSMethodSignature *sig = [NSMethodSignature signatureWithObjCTypes:&quot;v@:&quot;];</span><br><span class="line">        </span><br><span class="line">        return sig;</span><br><span class="line">    &#125;</span><br><span class="line">    return nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</span><br><span class="line">&#123;</span><br><span class="line">    Person *person = [[Person alloc] init];</span><br><span class="line">    </span><br><span class="line">    if ([person respondsToSelector:anInvocation.selector]) &#123;</span><br><span class="line">        </span><br><span class="line">        [anInvocation invokeWithTarget:person];</span><br><span class="line">        </span><br><span class="line">        class_addMethod(self.superclass, @selector(eat), (IMP)eat, &quot;v@:&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Runtime-实例应用"><a href="#Runtime-实例应用" class="headerlink" title="Runtime 实例应用"></a>Runtime 实例应用</h3><p>了解了 Runtime 的一些特性,我们就可以根据它的特性做一些很magic的事情,比如:</p>
+<h4 id="动态方法解析"><a href="#动态方法解析" class="headerlink" title="动态方法解析"></a>动态方法解析</h4><p>在上面的消息传递中，如果一直没有找到对应的方法， Runtime 会发送 <code>+ resolveInstanceMethod:</code> 或者 <code>+ resolveClassMethod:</code> 尝试去 resolve 这个消息。调用<code>class_addMethod</code>添加方法的实现。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">void</span> <span class="selector-tag">doSomething</span>(id self， SEL sel)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="selector-tag">NSLog</span>(@<span class="string">"%@ %@"</span>， self， NSStringFromSelector(sel));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (BOOL)<span class="selector-tag">resolveInstanceMethod</span><span class="selector-pseudo">:(SEL)sel</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="selector-tag">if</span> (sel == <span class="variable">@selector</span>(doSomething)) &#123;</span><br><span class="line">        <span class="selector-tag">class_addMethod</span>(self， <span class="variable">@selector</span>(doSomething)， (IMP)doSomething， <span class="string">"v@:"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-attr">[super resolveInstanceMethod:sel]</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="备用接收者"><a href="#备用接收者" class="headerlink" title="备用接收者"></a>备用接收者</h4><p>如果 resolve 方法返回 NO， Runtime 就发送<code>- forwardingTargetForSelector:</code> 允许你把这个消息转发给另一个对象。切记不能返回 self，这样会进入死循环状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (id)forwardingTargetForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == @selector(eat)) &#123;</span><br><span class="line">        </span><br><span class="line">        Person *person = [[Person alloc] init];</span><br><span class="line">        class_addMethod(self。superclass， @selector(eat)， (IMP)eat， &quot;v@:&quot;);</span><br><span class="line">        return person;</span><br><span class="line">    &#125;</span><br><span class="line">    return [super forwardingTargetForSelector:aSelector];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="完整转发"><a href="#完整转发" class="headerlink" title="完整转发"></a>完整转发</h4><p>到这一步，是 Runtime 给我们最后一次拯救世界的机会。如果没有新的目标对象返回， Runtime 就会发送 <code>- methodSignatureForSelector:</code> 和 <code>- forwardInvocation:</code> 消息。</p>
+<p>首先调用<code>methodSignatureForSelector:</code>方法，尝试获得一个方法签名。如果获取不到，则直接调用<code>doesNotRecognizeSelector</code>抛出异常。</p>
+<p>否则就会调用<code>forwardInvocation:</code>方法，将上一步获取到的方法签名包装成Invocation传入。调用<code>invokeWithTarget:</code>手动转发消息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector</span><br><span class="line">&#123;</span><br><span class="line">    if (aSelector == @selector(eat)) &#123;</span><br><span class="line">        </span><br><span class="line">        NSMethodSignature *sig = [NSMethodSignature signatureWithObjCTypes:&quot;v@:&quot;];</span><br><span class="line">        </span><br><span class="line">        return sig;</span><br><span class="line">    &#125;</span><br><span class="line">    return nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)forwardInvocation:(NSInvocation *)anInvocation</span><br><span class="line">&#123;</span><br><span class="line">    Person *person = [[Person alloc] init];</span><br><span class="line">    </span><br><span class="line">    if ([person respondsToSelector:anInvocation。selector]) &#123;</span><br><span class="line">        </span><br><span class="line">        [anInvocation invokeWithTarget:person];</span><br><span class="line">        </span><br><span class="line">        class_addMethod(self。superclass， @selector(eat)， (IMP)eat， &quot;v@:&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Runtime-实例应用"><a href="#Runtime-实例应用" class="headerlink" title="Runtime 实例应用"></a>Runtime 实例应用</h3><p>了解了 Runtime 的一些特性，我们就可以根据它的特性做一些很magic的事情，比如:</p>
 <p>1.Method Swizzling<br>2.AOP - Aspect<br>3.JSPatch<br>4.字典与模型的便捷转换<br>5.便捷归档与接档<br>6.Associated Objects</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://upload-images.jianshu.io/upload_images/571495-5cd12b17d449bab1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://upload-images。jianshu。io/upload_images/571495-5cd12b17d449bab1。png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><a href="">图片来自网络</a></p>
 
       
@@ -461,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -469,7 +469,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

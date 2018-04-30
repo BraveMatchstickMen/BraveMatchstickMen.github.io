@@ -91,7 +91,7 @@
 <meta property="og:description" content="WebViewJavascriptBridge是我们经常会用到的一个Objective-C与JavaScript交互的第三方. 想想我们如果不用这个第三方是怎么交互的:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/8edca89bgw1f6tdpwuz0ej20i00a074w.jpg">
-<meta property="og:updated_time" content="2016-08-15T01:06:59.000Z">
+<meta property="og:updated_time" content="2018-04-30T15:17:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读源码系列之 WebViewJavascriptBridge">
 <meta name="twitter:description" content="WebViewJavascriptBridge是我们经常会用到的一个Objective-C与JavaScript交互的第三方. 想想我们如果不用这个第三方是怎么交互的:">
@@ -289,8 +289,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Object-C/" itemprop="url" rel="index">
-                    <span itemprop="name">Object-C</span>
+                  <a href="/categories/Objective-C/" itemprop="url" rel="index">
+                    <span itemprop="name">Objective-C</span>
                   </a>
                 </span>
 
@@ -364,6 +364,7 @@
 <p>3.消息处理</p>
 <p>messageQueueString 转JSON, 遍历, 拿到 WVJBMessage 类型的数据. 然后查看是否有responseId, 有则是 iOS 端调 Web 端之后所需要的回调. 没有则就是 Web 主动调 iOS 所发送数据.</p>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (responseId) &#123;</span><br><span class="line">  WVJBResponseCallback <span class="attr">responseCallback</span> = _responseCallbacks[responseId];</span><br><span class="line">  responseCallback(message[@<span class="string">"responseData"</span>]);</span><br><span class="line">  [self.responseCallbacks removeObjectForKey:responseId];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   WVJBResponseCallback <span class="attr">responseCallback</span> = NULL;</span><br><span class="line">   NSString* <span class="attr">callbackId</span> = message[@<span class="string">"callbackId"</span>];</span><br><span class="line">   <span class="keyword">if</span> (callbackId) &#123;</span><br><span class="line">     <span class="attr">responseCallback</span> = ^(id responseData) &#123;</span><br><span class="line">       <span class="keyword">if</span> (<span class="attr">responseData</span> == nil) &#123;</span><br><span class="line">         <span class="attr">responseData</span> = [NSNull <span class="literal">null</span>];</span><br><span class="line">       &#125;</span><br><span class="line">                    </span><br><span class="line">       WVJBMessage* <span class="attr">msg</span> = @&#123; @<span class="string">"responseId"</span>:callbackId, @<span class="string">"responseData"</span>:responseData &#125;;</span><br><span class="line">       [self _queueMessage:msg];</span><br><span class="line">     &#125;;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">       <span class="attr">responseCallback</span> = ^(id ignoreResponseData) &#123;</span><br><span class="line">             // Do nothing</span><br><span class="line">       &#125;;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -392,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/10/深入理解Block/" rel="next" title="深入理解Block">
-                <i class="fa fa-chevron-left"></i> 深入理解Block
+              <a href="/2016/04/10/深入理解Block/" rel="next" title="深入理解 Block">
+                <i class="fa fa-chevron-left"></i> 深入理解 Block
               </a>
             
           </div>
@@ -470,7 +471,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -478,7 +479,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
