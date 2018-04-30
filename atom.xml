@@ -828,20 +828,16 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
     <link href="http://blog.chusaikeji.com/2015/03/15/KVO-NSNotification/"/>
     <id>http://blog.chusaikeji.com/2015/03/15/KVO-NSNotification/</id>
     <published>2015-03-15T11:48:00.000Z</published>
-    <updated>2018-04-30T15:11:19.000Z</updated>
+    <updated>2018-04-30T15:38:39.000Z</updated>
     
-    <content type="html">&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;NSNotification-通知中心&quot;&gt;&lt;a href=&quot;#NSNotification-通知中心&quot; class=&quot;headerlink&quot; title=&quot;NSNotification 通知中心&quot;&gt;&lt;/a&gt;NSNotification 通知中心&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;苹果提供的一种消息机制, 观察者只要向消息中心注册， 即可接受其他对象发送来的消息，消息发送者和消息接受者两者可以互相一无所知，完全解耦。NSNotification可以应用于任意时间和任何对象，观察者可以有多个, 这也正是他跟delegate的区别.&lt;/p&gt;
-&lt;p&gt;####使用步骤:&lt;/p&gt;
-&lt;ol&gt;
+    <content type="html">&lt;h2 id=&quot;NSNotification-通知中心&quot;&gt;&lt;a href=&quot;#NSNotification-通知中心&quot; class=&quot;headerlink&quot; title=&quot;NSNotification 通知中心&quot;&gt;&lt;/a&gt;NSNotification 通知中心&lt;/h2&gt;&lt;p&gt;苹果提供的一种消息机制, 观察者只要向消息中心注册， 即可接受其他对象发送来的消息，消息发送者和消息接受者两者可以互相一无所知，完全解耦。NSNotification可以应用于任意时间和任何对象，观察者可以有多个, 这也正是他跟delegate的区别.&lt;/p&gt;
+&lt;h4 id=&quot;使用步骤&quot;&gt;&lt;a href=&quot;#使用步骤&quot; class=&quot;headerlink&quot; title=&quot;使用步骤:&quot;&gt;&lt;/a&gt;使用步骤:&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;注册一个观察者&lt;/li&gt;
 &lt;li&gt;给通知中心发送一个消息&lt;/li&gt;
 &lt;li&gt;清除观察者&lt;/li&gt;
 &lt;/ol&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;####代码:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  注册一个观察者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param observer 谁去接受消息, 执行方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param selector 一旦接收到消息, 要执行的方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param name 要监听的事件, 以字符串区分&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param object 限定发出消息的对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)addObserver:(id)observer selector:(SEL)aSelector name:(NSString *)aName object:(id)anObject;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```2.给通知中心发布消息&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码:&quot;&gt;&lt;/a&gt;代码:&lt;/h4&gt;&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  注册一个观察者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param observer 谁去接受消息, 执行方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param selector 一旦接收到消息, 要执行的方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param name 要监听的事件, 以字符串区分&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  *  @param object 限定发出消息的对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)addObserver:(id)observer selector:(SEL)aSelector name:(NSString *)aName object:(id)anObject;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;```2.给通知中心发布消息&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 
 /**
@@ -872,7 +868,7 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
 
 
 
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  移除全部观察者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param observer &amp;lt;#observer description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - (void)removeObserver:(id)observer;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  移除指定观察者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param observer &amp;lt;#observer description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param aName    &amp;lt;#aName description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param anObject &amp;lt;#anObject description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - (void)removeObserver:(id)observer name:(NSString *)aName object:(id)anObject;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;####应用场景:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1. 控制器与一个或多个任意的对象进行通信(监控)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. UIDevice通知&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. 键盘通知&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## KVO&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Key-Value Observing，是Foundation框架提供的一种机制，使用KVO，可以方便地对指定对象的某个属性进行观察，当属性发生变化时，进行通知.        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 实现步骤&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1. 由被观察的对象调用方法, 添加观察者 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. 一旦被观察的属性发生改变, 系统会调用这个方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. 解除观察者身份 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 代码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ```1. 添加观察者&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  移除全部观察者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param observer &amp;lt;#observer description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - (void)removeObserver:(id)observer;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /**&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  移除指定观察者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param observer &amp;lt;#observer description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param aName    &amp;lt;#aName description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     *  @param anObject &amp;lt;#anObject description#&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;     */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    - (void)removeObserver:(id)observer name:(NSString *)aName object:(id)anObject;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 应用场景:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1. 控制器与一个或多个任意的对象进行通信(监控)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. UIDevice通知&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. 键盘通知&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;## KVO&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Key-Value Observing，是Foundation框架提供的一种机制，使用KVO，可以方便地对指定对象的某个属性进行观察，当属性发生变化时，进行通知.        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 实现步骤&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1. 由被观察的对象调用方法, 添加观察者 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2. 一旦被观察的属性发生改变, 系统会调用这个方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3. 解除观察者身份 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#### 代码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ```1. 添加观察者&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 /**
  *  由被观察的对象调用方法, 添加观察者
@@ -895,7 +891,6 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
  */
 - (void)removeObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;需要注意的是, 在ARC和MRC下都要移除观察者, 在ARC下不调用[super dealloc]&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
 &lt;h4 id=&quot;相关文章&quot;&gt;&lt;a href=&quot;#相关文章&quot; class=&quot;headerlink&quot; title=&quot;相关文章:&quot;&gt;&lt;/a&gt;相关文章:&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.kyleduo.com/?p=270&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.kyleduo.com/?p=270&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSNotification_Class/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSNotification_Class/index.html&lt;/a&gt;&lt;/li&gt;
@@ -907,11 +902,8 @@ NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lineNumber inSection:0];
     
     <summary type="html">
     
-      &lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;NSNotification-通知中心&quot;&gt;&lt;a href=&quot;#NSNotification-通知中心&quot; class=&quot;headerlink&quot; title=&quot;NSNotification 通知中心&quot;&gt;&lt;/a&gt;NSNotification 通知中心&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;苹果提供的一种消息机制, 观察者只要向消息中心注册， 即可接受其他对象发送来的消息，消息发送者和消息接受者两者可以互相一无所知，完全解耦。NSNotification可以应用于任意时间和任何对象，观察者可以有多个, 这也正是他跟delegate的区别.&lt;/p&gt;
-&lt;p&gt;####使用步骤:&lt;/p&gt;
-&lt;ol&gt;
+      &lt;h2 id=&quot;NSNotification-通知中心&quot;&gt;&lt;a href=&quot;#NSNotification-通知中心&quot; class=&quot;headerlink&quot; title=&quot;NSNotification 通知中心&quot;&gt;&lt;/a&gt;NSNotification 通知中心&lt;/h2&gt;&lt;p&gt;苹果提供的一种消息机制, 观察者只要向消息中心注册， 即可接受其他对象发送来的消息，消息发送者和消息接受者两者可以互相一无所知，完全解耦。NSNotification可以应用于任意时间和任何对象，观察者可以有多个, 这也正是他跟delegate的区别.&lt;/p&gt;
+&lt;h4 id=&quot;使用步骤&quot;&gt;&lt;a href=&quot;#使用步骤&quot; class=&quot;headerlink&quot; title=&quot;使用步骤:&quot;&gt;&lt;/a&gt;使用步骤:&lt;/h4&gt;&lt;ol&gt;
 &lt;li&gt;注册一个观察者&lt;/li&gt;
 &lt;li&gt;给通知中心发送一个消息&lt;/li&gt;
 &lt;li&gt;清除观察者&lt;/li&gt;
@@ -2121,6 +2113,127 @@ self.tableView.tableFooterView = [[UIView alloc] init];
 &lt;p&gt;&lt;em&gt;是所有滑动视图的基类, 如UITableView, UICollectionView, UITextView&lt;/em&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;理解UIScrollView-必须理解以下三点&quot;&gt;&lt;a href=&quot;#理解UIScrollView-必须理解以下三点&quot; class=&quot;headerlink&quot; title=&quot;理解UIScrollView, 必须理解以下三点:&quot;&gt;&lt;/a&gt;&lt;strong&gt;理解UIScrollView, 必须理解以下三点:&lt;/strong&gt;&lt;/h2&gt;
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://blog.chusaikeji.com/categories/Objective-C/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.chusaikeji.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 开发内存管理之番外篇</title>
+    <link href="http://blog.chusaikeji.com/2015/01/28/iOS%E5%BC%80%E5%8F%91%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B9%8B%E7%95%AA%E5%A4%96%E7%AF%87/"/>
+    <id>http://blog.chusaikeji.com/2015/01/28/iOS开发内存管理之番外篇/</id>
+    <published>2015-01-27T17:26:00.000Z</published>
+    <updated>2018-04-30T16:04:13.000Z</updated>
+    
+    <content type="html">&lt;p&gt;内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;内存管理现在大致可以分为两类, 一类是从始至终存在的MRC, 一类是Xcode4.2及以上版本有了的自动管理内存, 也就是ARC. 关于MRC和ARC选择哪一个, @唐巧 的&amp;lt;是否应该使用ARC?&amp;gt;文章已经有了很详细的探讨. &lt;/p&gt;
+&lt;p&gt;内存管理, What? Why? How? 这都不是本文讨论的内容, 因为已经有很多非常好的文章来解释这些问题了, 本文将从另外一个角度出发, 教给大家如何调试-解决内存中的问题. 关于What-Why-How本文也会分享一些比较好的文章, 对于不理解内存管理的同学会有很大的帮助.&lt;/p&gt;
+&lt;p&gt;一. 开启”僵尸模式” 🍆 🌽 (环境变量)&lt;br&gt;通常情况下，一旦内存中的对象被释放，其只能就此消失。但当“僵尸”方案启动时，该对象只会被标记为“释放”但却仍然被保留在内存当中。如此一来，当我们访问某个僵尸对象时，Xcode会提醒我们该对象虽然能够被访问、但在实际环境中已经不应存在。在这种模式下，我们将能够了解到正常情况下无法获得的实时状态与对象位置。&lt;/p&gt;
+&lt;p&gt;Zombie环境变量对于处理EXC_BAD_ACCESS类型崩溃很有效。 当这个zombie工具被启用之后，即使这个对象被释放了，这个对象的内存也不会被清理。这个工具将永远不会释放内存，只是简单标记一下这个内存是不死的(“僵尸”的来历)，你最终将会在某个时候耗尽所有的内存。&lt;/p&gt;
+&lt;p&gt;开启”僵尸模式”的步骤:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;依次选择&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-970f6c7161730b0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;勾选上红色区域, 这样就开启了”僵尸模式”.&lt;/p&gt;
+&lt;p&gt;二. 静态分析器 (command + shift + B)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;第一种方法, 直接快捷键, 点击左边导航栏中的警告栏&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;第二种方法, 按下图以此点击&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-29a976a408ea098a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;ps…这个方法有的时候不是特别靠谱, 看情况的啊, 哈哈~&lt;/p&gt;
+&lt;p&gt;三. Instruments 工具&lt;br&gt;Instruments工具可谓是神兵利器了, 功能很强大, 可谓是咱们每个程序员”居家过日子的好帮手”. 以下主要讲解利用Instruments调试内存泄露和循环引用的问题.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打开Instruments&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-82173475f2b86e69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/587&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;很简单两步, 然后就会看到它的主界面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-a546fb3c195fcd50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;选择leaks –&amp;gt; 点击左上角的大红点 –&amp;gt; 这个时候就开始检测了 ( 这个时候模拟器也会运行起来, 切记一定在模拟器中对你的当前程序进行操作, 以便检测 ) –&amp;gt; 等待检测结束..🐦🐦🐦..&lt;/p&gt;
+&lt;p&gt;检测过程中如果出现红色的线, 就证明内存泄露, 如下图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-6eac128791808805.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果要检测循环引用, 就选择Cycles &amp;amp; Roots, 就可以看到以图形方式显示出来的循环引用了.&lt;/p&gt;
+&lt;p&gt;如果要查看内存泄露, 选择Call Tree&lt;/p&gt;
+&lt;p&gt;勾选上右边红色方框里的两项, Invert Call Tree 和Hide System Libraries&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-50ffc12b93208d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这时候内存泄露的具体代码找到了，你只在绿色框里的方法上双击，就会跳转到具体的代码, 一针见血.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;**&lt;/strong&gt; 以上基于Xcode6.1.1 &lt;strong&gt;**&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;参考的文章:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;《iOS开发进阶》老师 第十章《理解内存管理》&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;《Object-C基础教程》第十章《内存管理》&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;《OC内存管理》 &lt;a href=&quot;http://www.cnblogs.com/wendingding/tag/UI基础/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.cnblogs.com/wendingding/tag/UI基础/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;《IOS开发系列—Objective-C之内存管理》&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/kenshincui/p/3870325.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.cnblogs.com/kenshincui/p/3870325.html&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/totogo2010/article/details/8233565&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.csdn.net/totogo2010/article/details/8233565&lt;/a&gt; &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;《iOS故障排除指南》 &lt;a href=&quot;http://mobile.51cto.com/iphone-377138.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://mobile.51cto.com/iphone-377138.htm&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Objective-C" scheme="http://blog.chusaikeji.com/categories/Objective-C/"/>
+    
+    
+      <category term="iOS" scheme="http://blog.chusaikeji.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何利用查头文件学习 iOS 开发</title>
+    <link href="http://blog.chusaikeji.com/2015/01/26/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%9F%A5%E5%A4%B4%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0%20iOS%20%E5%BC%80%E5%8F%91/"/>
+    <id>http://blog.chusaikeji.com/2015/01/26/如何利用查头文件学习 iOS 开发/</id>
+    <published>2015-01-26T15:07:00.000Z</published>
+    <updated>2018-04-30T15:53:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;先上神兵利器—- “command + F”, 搜索快捷键可以帮助我们快速查找所需要的东西. 不知道的同学可以随便找个地方试试…&lt;/p&gt;
+&lt;p&gt;进入今天的正题, 看过头文件的同学都应该知道, 少的有三十多行, 多的有上千行, 各种属性, 各种方法, 琳琅满目, “人山人海”啊, 单靠记忆恐怕是记不完的, 所以查很好的解决了我们的问题, 那么如何来查呢?&lt;/p&gt;
+&lt;p&gt;举个例子, 如果我们遇到没见过的控件, 不明白的方法, 怎么办, 查, 怎么查, 在xcode中, 按住command, 点击控件名或者方法(只要是能点进去的都可以), 然后就会进入头文件, 此时就可以按照”三步走战略”来快速查看头文件了.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png?imageView2/2/w/1240/q/100&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;第一步: 看它继承于谁(继承关系很重要的)&lt;/p&gt;
+&lt;p&gt;第二步: 看它有没有自己的初始化方法, 如果没有就用父类的&lt;/p&gt;
+&lt;p&gt;第三步: 看它是否有代理, 如果有, 看哪些方法是必须实现的&lt;/p&gt;
+&lt;p&gt;以UIActionSheet为例:&lt;/p&gt;
+&lt;p&gt;在Xcode中输入UIActionSheet, 按住command点击, 进入到头文件, 执行 “三步走战略” :&lt;/p&gt;
+&lt;p&gt;第一步: 继承于UIView, 立马想到UIView的所有东西它都可以用.(OC三大特征中的继承 , 必须要掌握的 )&lt;/p&gt;
+&lt;p&gt;第二步: 继续往下看, 发现它有自己的初始化方法, 比较长的一个初始化方法. (如果没有找到它自己的初始化方法, 咱们就用它父类的初始化方法) 有的时候头文件里的内容特别多, 很难找到初始化方法, 这时, 就需要我们的神兵利器 “command + F “了, 按下后, 在弹出来的搜索框里输入”init”, 回车, 就会看到, 快速跳转到包含”init”的方法了. 以此类推, 对于很多方法, 没必要死记硬背, 只要记住它里面的关键词, 如果需要调用此方法, 就进入对应的头文件, 利用我们的神兵利器, 快速查找.&lt;/p&gt;
+&lt;p&gt;第三步: 继续往下看, 发现了什么, id&lt;uiactionsheetdelegate&gt; delegate 说明有代理方法, 怎么办, 继续 按住command + 点击UIActionSheetDelegate点进去进去看, 发现是@optional, 说明不是必须要实现的方法, 咱们可以暂时不用签订协议.&lt;/uiactionsheetdelegate&gt;&lt;/p&gt;
+&lt;p&gt;ok. 现在三步走战略完了, 回到咱们的viewController里, 建一个UIActionSheet, 既然它继承于UIView, 无非也就是创建一view那几步 (继承关系)&lt;/p&gt;
+&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// UIActionSheet的初始化方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;UIActionSheet *actionSheet = [[UIActionSheet alloc] &lt;span class=&quot;string&quot;&gt;initWithTitle:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;分享&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;delegate:&lt;/span&gt;self &lt;span class=&quot;string&quot;&gt;cancelButtonTitle:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;取消&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;destructiveButtonTitle:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;微博分享&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;otherButtonTitles:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;微信分享&quot;&lt;/span&gt;, nil];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 不需要设置frame和backgroundColor&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 添加到view上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[self.view &lt;span class=&quot;string&quot;&gt;addSubview:&lt;/span&gt;actionSheet];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 如果是MRC下需要release&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;好了, 运行一下, 发现了什么, 对, 什么都没出来, 怎么办, 继续点进去看, 肯定是有什么属性或者方法是需要咱们必须要写上的, 一行一行的找, 找到了什么, 好几条跟show有关的方法, 柳暗花明又一村啊.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-6e312800a435f887.png?imageView2/2/w/1240/q/100&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;发现了吧, 要让咱们的actionSheet显示出来还需要加一条方法, 咱们就选择最后一个方法&lt;/p&gt;
+&lt;p&gt;// 必须要写的方法, 否则不会显示出来&lt;/p&gt;
+&lt;p&gt;[actionSheet showInView:self.view];&lt;/p&gt;
+&lt;p&gt;运行一下, 一个简单的UIActionSheet就出来了, 当然了, UIActionSheet还有很多的属性和方法, 咱们都可以通过”查”来一一学习.&lt;/p&gt;
+&lt;p&gt;最后, 不论是查看头文件还是Xcode帮助文档, 都应该把握”三步走战略”, 以此为主线, 展开调研.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.&lt;/p&gt;
     
     </summary>
     

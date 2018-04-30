@@ -82,18 +82,26 @@
 
 
 
-<meta name="description" content="上一篇文章对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过自定义, 来实现一个简单的scrollView, 再次加深对其理解.">
+<meta name="description" content="内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Simple-Custom-ScrollView">
-<meta property="og:url" content="http://blog.chusaikeji.com/2015/02/11/Simple-Custom-ScrollView/index.html">
+<meta property="og:title" content="iOS 开发内存管理之番外篇">
+<meta property="og:url" content="http://blog.chusaikeji.com/2015/01/28/iOS开发内存管理之番外篇/index.html">
 <meta property="og:site_name" content="时空人">
-<meta property="og:description" content="上一篇文章对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过自定义, 来实现一个简单的scrollView, 再次加深对其理解.">
+<meta property="og:description" content="内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-30T15:12:26.000Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-970f6c7161730b0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-29a976a408ea098a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-82173475f2b86e69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/587">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-a546fb3c195fcd50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-6eac128791808805.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/193863-50ffc12b93208d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:updated_time" content="2018-04-30T16:04:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simple-Custom-ScrollView">
-<meta name="twitter:description" content="上一篇文章对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过自定义, 来实现一个简单的scrollView, 再次加深对其理解.">
+<meta name="twitter:title" content="iOS 开发内存管理之番外篇">
+<meta name="twitter:description" content="内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 
 
 
@@ -111,7 +119,7 @@
   };
 </script>
 
-  <title> Simple-Custom-ScrollView | 时空人 </title>
+  <title> iOS 开发内存管理之番外篇 | 时空人 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +269,7 @@
             
             
               
-                Simple-Custom-ScrollView
+                iOS 开发内存管理之番外篇
               
             
           </h1>
@@ -273,8 +281,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-11T11:00:00+08:00" content="2015-02-11">
-              2015-02-11
+            <time itemprop="dateCreated" datetime="2015-01-28T01:26:00+08:00" content="2015-01-28">
+              2015-01-28
             </time>
           </span>
 
@@ -320,107 +328,60 @@
       
 
       
-        <p><a href="http://www.jianshu.com/p/7631a5b1dec5" target="_blank" rel="noopener">上一篇文章</a>对UIScrollView的原理、属性和方法做了比较详细的理解, 本文旨在通过<em>自定义</em>, 来实现一个简单的scrollView, 再次加深对其理解. </p>
+        <p>内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.</p>
 <a id="more"></a>
-<p>在SimpleCustomScrollView.h</p>
-<pre><code>#import &lt;UIKit/UIKit.h&gt;
-
-@interface SimpleCustomScrollView : UIView
-
-// 咱们也定义一个跟系统一样的contentSize, 实现滚动的范围
-@property (nonatomic) CGSize contentSize;
-
-@end
-</code></pre><p>在SimpleCustomScrollView.m</p>
-<pre><code>#import &quot;SimpleCustomScrollView.h&quot;
-
-@implementation SimpleCustomScrollView
-
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-
-        // 给视图添加pan手势
-        UIPanGestureRecognizer *gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-        [self addGestureRecognizer:gestureRecognizer];
-    }
-    return self;
-}
-
-
-
-- (void)handlePanGesture:(UIPanGestureRecognizer *)gestureRecognizer
-{
-    // translationInView 这个方法返回的是:在指定父视图坐标系统中, 横、纵坐标移动的坐标
-    CGPoint translation = [gestureRecognizer translationInView:self];
-    CGRect bounds = self.bounds;
-
-    // 动态改变bounds
-    CGFloat newBoundsOriginX = bounds.origin.x - translation.x;
-    CGFloat minBoundsOriginX = 0.0;
-    CGFloat maxBoundsOriginX = self.contentSize.width - bounds.size.width;
-    bounds.origin.x = fmax(minBoundsOriginX, fmin(newBoundsOriginX, maxBoundsOriginX));
-
-    CGFloat newBoundsOriginY = bounds.origin.y - translation.y;
-    CGFloat minBoundsOriginY = 0.0;
-    CGFloat maxBoundsOriginY = self.contentSize.height - bounds.size.height;
-    bounds.origin.y = fmax(minBoundsOriginY, fmin(newBoundsOriginY, maxBoundsOriginY));
-
-    self.bounds = bounds;
-
-    // 因为拖动起来一直是在递增, 所以每次都要用 setTranslation: 方法置0
-    [gestureRecognizer setTranslation:CGPointZero inView:self];
-
-    // 真相只有一个, 打印一下
-    NSLog(@&quot;self.view&apos;s bounds is : %@&quot;, NSStringFromCGRect(self.bounds));
-}
-
-@end
-</code></pre><p>ok. 到这, 咱们自定义的一个简单scrollView就完成了, 在viewController中测试一下</p>
-<p>在ViewController.m中</p>
-<pre><code>#import &quot;ViewController.h&quot;
-#import &quot;SimpleCustomScrollView.h&quot;
-
-@interface ViewController ()
-
-@property (nonatomic, strong) SimpleCustomScrollView *customScroll;
-
-@end
-
-@implementation ViewController
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor whiteColor];
-
-    self.customScroll = [[SimpleCustomScrollView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.customScroll];
-
-    // 跟系统的一样, 在这我们也必须要设置contentSize的大小, 否则无法滚动
-    self.customScroll.contentSize = CGSizeMake(0, 800);
-
-    [self p_setupSubviews];
-
-}
-
-
-// 创建视图
-- (void)p_setupSubviews
-{
-    // 因为老喝橙汁么, 所以就报答一下橙色了
-    UIView *orangeView = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
-orangeView.backgroundColor = [UIColor orangeColor];
-
-[self.customScroll addSubview:orangeView];
-}
-
-@end
-</code></pre><p>运行一下, 是不是跟系统的一样可以滚动. ☀️ 最后附上<a href="https://github.com/BraveMatchstickMen/SimpleCustomScrollView" target="_blank" rel="noopener">git地址</a></p>
+<p>内存管理现在大致可以分为两类, 一类是从始至终存在的MRC, 一类是Xcode4.2及以上版本有了的自动管理内存, 也就是ARC. 关于MRC和ARC选择哪一个, @唐巧 的&lt;是否应该使用ARC?&gt;文章已经有了很详细的探讨. </p>
+<p>内存管理, What? Why? How? 这都不是本文讨论的内容, 因为已经有很多非常好的文章来解释这些问题了, 本文将从另外一个角度出发, 教给大家如何调试-解决内存中的问题. 关于What-Why-How本文也会分享一些比较好的文章, 对于不理解内存管理的同学会有很大的帮助.</p>
+<p>一. 开启”僵尸模式” 🍆 🌽 (环境变量)<br>通常情况下，一旦内存中的对象被释放，其只能就此消失。但当“僵尸”方案启动时，该对象只会被标记为“释放”但却仍然被保留在内存当中。如此一来，当我们访问某个僵尸对象时，Xcode会提醒我们该对象虽然能够被访问、但在实际环境中已经不应存在。在这种模式下，我们将能够了解到正常情况下无法获得的实时状态与对象位置。</p>
+<p>Zombie环境变量对于处理EXC_BAD_ACCESS类型崩溃很有效。 当这个zombie工具被启用之后，即使这个对象被释放了，这个对象的内存也不会被清理。这个工具将永远不会释放内存，只是简单标记一下这个内存是不死的(“僵尸”的来历)，你最终将会在某个时候耗尽所有的内存。</p>
+<p>开启”僵尸模式”的步骤:</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p>依次选择</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-970f6c7161730b0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p>勾选上红色区域, 这样就开启了”僵尸模式”.</p>
+<p>二. 静态分析器 (command + shift + B)</p>
+<ol>
+<li><p>第一种方法, 直接快捷键, 点击左边导航栏中的警告栏</p>
+</li>
+<li><p>第二种方法, 按下图以此点击</p>
+</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-29a976a408ea098a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468" alt=""></p>
+<p>ps…这个方法有的时候不是特别靠谱, 看情况的啊, 哈哈~</p>
+<p>三. Instruments 工具<br>Instruments工具可谓是神兵利器了, 功能很强大, 可谓是咱们每个程序员”居家过日子的好帮手”. 以下主要讲解利用Instruments调试内存泄露和循环引用的问题.</p>
+<ol>
+<li>打开Instruments</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-82173475f2b86e69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/587" alt=""></p>
+<p>很简单两步, 然后就会看到它的主界面</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-a546fb3c195fcd50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p>选择leaks –&gt; 点击左上角的大红点 –&gt; 这个时候就开始检测了 ( 这个时候模拟器也会运行起来, 切记一定在模拟器中对你的当前程序进行操作, 以便检测 ) –&gt; 等待检测结束..🐦🐦🐦..</p>
+<p>检测过程中如果出现红色的线, 就证明内存泄露, 如下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-6eac128791808805.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p>如果要检测循环引用, 就选择Cycles &amp; Roots, 就可以看到以图形方式显示出来的循环引用了.</p>
+<p>如果要查看内存泄露, 选择Call Tree</p>
+<p>勾选上右边红色方框里的两项, Invert Call Tree 和Hide System Libraries</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/193863-50ffc12b93208d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<p>这时候内存泄露的具体代码找到了，你只在绿色框里的方法上双击，就会跳转到具体的代码, 一针见血.</p>
+<p><strong>**</strong> 以上基于Xcode6.1.1 <strong>**</strong></p>
+<p>参考的文章:</p>
+<ol>
+<li><p>《iOS开发进阶》老师 第十章《理解内存管理》</p>
+</li>
+<li><p>《Object-C基础教程》第十章《内存管理》</p>
+</li>
+<li><p>《OC内存管理》 <a href="http://www.cnblogs.com/wendingding/tag/UI基础/" target="_blank" rel="noopener">http://www.cnblogs.com/wendingding/tag/UI基础/</a></p>
+</li>
+<li><p>《IOS开发系列—Objective-C之内存管理》</p>
+</li>
+</ol>
+<p><a href="http://www.cnblogs.com/kenshincui/p/3870325.html" target="_blank" rel="noopener">http://www.cnblogs.com/kenshincui/p/3870325.html</a></p>
+<ol>
+<li><p><a href="http://blog.csdn.net/totogo2010/article/details/8233565" target="_blank" rel="noopener">http://blog.csdn.net/totogo2010/article/details/8233565</a> </p>
+</li>
+<li><p>《iOS故障排除指南》 <a href="http://mobile.51cto.com/iphone-377138.htm" target="_blank" rel="noopener">http://mobile.51cto.com/iphone-377138.htm</a></p>
+</li>
+</ol>
 
       
     </div>
@@ -450,16 +411,16 @@ orangeView.backgroundColor = [UIColor orangeColor];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/02/09/UITableView-Tips/" rel="next" title="UITableView-Tips">
-                <i class="fa fa-chevron-left"></i> UITableView-Tips
+              <a href="/2015/01/26/如何利用查头文件学习 iOS 开发/" rel="next" title="如何利用查头文件学习 iOS 开发">
+                <i class="fa fa-chevron-left"></i> 如何利用查头文件学习 iOS 开发
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/02/13/UITableView景深效果/" rel="prev" title="UITableView 景深效果">
-                UITableView 景深效果 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/02/03/“不求甚解”之UIScrollView/" rel="prev" title="不求甚解之 UIScrollView">
+                不求甚解之 UIScrollView <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
