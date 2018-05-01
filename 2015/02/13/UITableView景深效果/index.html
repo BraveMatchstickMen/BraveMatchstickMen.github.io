@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="UITableView,景深效果," />
 
 
 
@@ -83,7 +83,7 @@
 
 
 <meta name="description" content="景深效果在很多的app中都可以看到, 比较fashion. 他跟咱们在前几篇文章中提到的对UIScrollView和UITableView的理解息息相关. 下面具体来看看他是怎么实现的. 要实现景深效果, 主要是理解两个方面:  搞明白视图层级关系 偏移量的改变而对应图片frame的改变  首先, 来看一下视图的层级关系">
-<meta name="keywords" content="iOS">
+<meta name="keywords" content="UITableView,景深效果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UITableView 景深效果">
 <meta property="og:url" content="http://blog.chusaikeji.com/2015/02/13/UITableView景深效果/index.html">
@@ -91,7 +91,7 @@
 <meta property="og:description" content="景深效果在很多的app中都可以看到, 比较fashion. 他跟咱们在前几篇文章中提到的对UIScrollView和UITableView的理解息息相关. 下面具体来看看他是怎么实现的. 要实现景深效果, 主要是理解两个方面:  搞明白视图层级关系 偏移量的改变而对应图片frame的改变  首先, 来看一下视图的层级关系">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/193863-42a1f1c50b012cda.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-30T15:16:17.000Z">
+<meta property="og:updated_time" content="2018-05-01T02:26:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITableView 景深效果">
 <meta name="twitter:description" content="景深效果在很多的app中都可以看到, 比较fashion. 他跟咱们在前几篇文章中提到的对UIScrollView和UITableView的理解息息相关. 下面具体来看看他是怎么实现的. 要实现景深效果, 主要是理解两个方面:  搞明白视图层级关系 偏移量的改变而对应图片frame的改变  首先, 来看一下视图的层级关系">
@@ -332,98 +332,9 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/193863-42a1f1c50b012cda.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
 <p>从上图中, 我们可以很清楚的看到整个景深效果的层级关系. 我们发现他的imageView整个是, 先放在view上的, 并且头部是超出屏幕一定距离的. 然后再放tableView, 那tableView不是把imageView给挡住了吗? 按照正常的话, 没错, 肯定是会给imageView挡上的, 此时就需要我们做一个小的调整, 给tableView设置headview, 并且让headview是透明的. 明白了吧, 我们一开始看见的imageView, 就是headview这一块内容.</p>
-<p>到这, 我们的景深效果就完成了一半, 剩下的一半就到了根据tableView的偏移量, 来调整imageView的位置, 看代码.</p>
-<pre><code>func scrollViewDidScroll(scrollView: UIScrollView) {
-
-    var content = scrollView.contentOffset.y     
-    var newRect = self.imageView!.frame
-
-    // 判断当前偏移状态
-    if content &lt; 0 {            
-        newRect.origin.y = -120 - content / 3            
-    } else if content &gt; 0 &amp;&amp; content &lt; 200 {            
-        newRect.origin.y = -120 - content
-    }
-    self.imageView!.frame = newRect 
-}
-</code></pre><p>这样, 我们整个的原理就讲完了, 最后, 附上完整的代码.</p>
-<pre><code>import UIKit
-
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,     UIScrollViewDelegate {
-
-// 定义为属性
-var imageView : UIImageView?
-
-// override关键字代表重写
-override func viewDidLoad() {
-    super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
-
-    // 创建一个imageView
-    self.imageView = UIImageView(frame: CGRect(x: self.view.frame.origin.x, y:-90, width: self.view.frame.size.width, height: 600))
-
-    self.imageView!.image = UIImage(named:&quot;beautiful.png&quot;)
-    self.view.addSubview(self.imageView!)
-
-    // 创建tableView
-    var tableView = UITableView(frame: CGRect(x: 0, y: 90, width: UIScreen.mainScreen().bounds.size.width, height: self.view.frame.size.height - 90), style: .Plain)
-    tableView.backgroundColor = UIColor.clearColor()
-    tableView.showsVerticalScrollIndicator = false;
-    tableView.delegate = self
-    tableView.dataSource = self
-    self.view.addSubview(tableView)
-
-    // 创建一块透明的区域来显示图片, 并且作为tableView的headview
-    var view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 200))
-    view.backgroundColor = UIColor.clearColor()
-    view.opaque = false;
-    tableView.tableHeaderView = view        
-}
-
-func scrollViewDidScroll(scrollView: UIScrollView) {
-
-    var content = scrollView.contentOffset.y
-
-    var newRect = self.imageView!.frame
-
-    // 判断当前偏移状态
-    if content &lt; 0 {
-
-        newRect.origin.y = -120 - content / 3
-
-    } else if content &gt; 0 &amp;&amp; content &lt; 200{
-
-        newRect.origin.y = -120 - content            
-    }        
-    self.imageView!.frame = newRect        
-}    
-
-// 创建表示图
-func numberOfSectionsInTableView(tableView: UITableView) -&gt; Int {        
-    return 3        
-}    
-
-func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int {        
-    return 20        
-}
-
-
-func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&gt; UITableViewCell {
-
-    var cell : UITableViewCell?
-
-    // as强转类型
-    cell = tableView.dequeueReusableCellWithIdentifier(&quot;cell&quot;) as? UITableViewCell
-
-    if cell == nil {            
-        cell = UITableViewCell(style: .Subtitle, reuseIdentifier: &quot;cell&quot;)            
-    }        
-    cell!.detailTextLabel!.text = &quot;\(indexPath.row)&quot;
-
-    return cell!        
-}
-</code></pre><p>分享使人快乐, 分享使人进步. 转载请注明出处<a href="http://www.jianshu.com/p/3aea30ad0ff4" target="_blank" rel="noopener">柴茝</a></p>
+<p>到这, 我们的景深效果就完成了一半, 剩下的一半就到了根据tableView的偏移量, 来调整imageView的位置, 看代码.<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">func scrollViewDidScroll(scrollView: <span class="type">UIScrollView</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> content = scrollView.contentOffset.y     </span><br><span class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Rect</span> = self.imageView!.frame</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断当前偏移状态</span></span><br><span class="line">    <span class="keyword">if</span> content &lt; <span class="number">0</span> &#123;            </span><br><span class="line">        <span class="keyword">new</span><span class="type">Rect</span>.origin.y = <span class="number">-120</span> - content / <span class="number">3</span>            </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> content &gt; <span class="number">0</span> &amp;&amp; content &lt; <span class="number">200</span> &#123;            </span><br><span class="line">        <span class="keyword">new</span><span class="type">Rect</span>.origin.y = <span class="number">-120</span> - content</span><br><span class="line">    &#125;</span><br><span class="line">    self.imageView!.frame = <span class="keyword">new</span><span class="type">Rect</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样, 我们整个的原理就讲完了, 最后, 附上完整的代码.</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainViewController</span>: <span class="title">UIViewController</span>, <span class="title">UITableViewDataSource</span>, <span class="title">UITableViewDelegate</span>, <span class="title">UIScrollViewDelegate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义为属性</span></span><br><span class="line"><span class="keyword">var</span> imageView : <span class="type">UIImageView</span>?</span><br><span class="line">    </span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建 imageView</span></span><br><span class="line">    <span class="keyword">self</span>.imageView = <span class="type">UIImageView</span>(frame: <span class="type">CGRect</span>(x: <span class="keyword">self</span>.view.frame.origin.x, y:-<span class="number">90</span>, width: <span class="keyword">self</span>.view.frame.size.width, height: <span class="number">600</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.imageView!.image = <span class="type">UIImage</span>(named:<span class="string">"beautiful.png"</span>)</span><br><span class="line">    <span class="keyword">self</span>.view.addSubview(<span class="keyword">self</span>.imageView!)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建 tableView</span></span><br><span class="line">    <span class="keyword">var</span> tableView = <span class="type">UITableView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">90</span>, width: <span class="type">UIScreen</span>.mainScreen().bounds.size.width, height: <span class="keyword">self</span>.view.frame.size.height - <span class="number">90</span>), style: .<span class="type">Plain</span>)</span><br><span class="line">    tableView.backgroundColor = <span class="type">UIColor</span>.clearColor()</span><br><span class="line">    tableView.showsVerticalScrollIndicator = <span class="literal">false</span>;</span><br><span class="line">    tableView.delegate = <span class="keyword">self</span></span><br><span class="line">    tableView.dataSource = <span class="keyword">self</span></span><br><span class="line">    <span class="keyword">self</span>.view.addSubview(tableView)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 创建一块透明的区域来显示图片, 并且作为 tableView 的 headview</span></span><br><span class="line">    <span class="keyword">var</span> view = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="keyword">self</span>.view.frame.size.width, height: <span class="number">200</span>))</span><br><span class="line">    view.backgroundColor = <span class="type">UIColor</span>.clearColor()</span><br><span class="line">    view.opaque = <span class="literal">false</span>;</span><br><span class="line">    tableView.tableHeaderView = view        </span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">scrollViewDidScroll</span><span class="params">(scrollView: UIScrollView)</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> content = scrollView.contentOffset.y</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> newRect = <span class="keyword">self</span>.imageView!.frame</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 判断当前偏移状态</span></span><br><span class="line">    <span class="keyword">if</span> content &lt; <span class="number">0</span> &#123;</span><br><span class="line">        </span><br><span class="line">        newRect.origin.y = -<span class="number">120</span> - content / <span class="number">3</span></span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> content &gt; <span class="number">0</span> &amp;&amp; content &lt; <span class="number">200</span>&#123;</span><br><span class="line">        </span><br><span class="line">        newRect.origin.y = -<span class="number">120</span> - content            </span><br><span class="line">    &#125;        </span><br><span class="line">    <span class="keyword">self</span>.imageView!.frame = newRect        </span><br><span class="line">&#125;    </span><br><span class="line">    </span><br><span class="line"><span class="comment">// 创建表示图</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">numberOfSectionsInTableView</span><span class="params">(tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;        </span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span>        </span><br><span class="line">&#125;    </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;        </span><br><span class="line">    <span class="keyword">return</span> <span class="number">20</span>        </span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> cell : <span class="type">UITableViewCell</span>?</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// as 强转类型</span></span><br><span class="line">    cell = tableView.dequeueReusableCellWithIdentifier(<span class="string">"cell"</span>) <span class="keyword">as</span>? <span class="type">UITableViewCell</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> cell == <span class="literal">nil</span> &#123;            </span><br><span class="line">        cell = <span class="type">UITableViewCell</span>(style: .<span class="type">Subtitle</span>, reuseIdentifier: <span class="string">"cell"</span>)            </span><br><span class="line">    &#125;        </span><br><span class="line">    cell!.detailTextLabel!.text = <span class="string">"<span class="subst">\(indexPath.row)</span>"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> cell!        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -444,7 +355,9 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/UITableView/" rel="tag">#UITableView</a>
+          
+            <a href="/tags/景深效果/" rel="tag">#景深效果</a>
           
         </div>
       
@@ -531,7 +444,7 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -548,7 +461,7 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
