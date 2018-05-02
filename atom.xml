@@ -17,8 +17,8 @@
   
   <entry>
     <title>Objective-C 与 JavaScript 的通信</title>
-    <link href="http://blog.chusaikeji.com/2017/05/26/---/"/>
-    <id>http://blog.chusaikeji.com/2017/05/26/---/</id>
+    <link href="http://blog.chusaikeji.com/2017/05/26/Objective-C%E4%B8%8EJavaScript%20%E7%9A%84%E9%80%9A%E4%BF%A1/"/>
+    <id>http://blog.chusaikeji.com/2017/05/26/Objective-C与JavaScript 的通信/</id>
     <published>2017-05-26T15:07:00.000Z</published>
     <updated>2018-05-01T04:46:42.000Z</updated>
     
@@ -93,6 +93,131 @@
     
     
       <category term="JavaScript" scheme="http://blog.chusaikeji.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装 Anaconda 时遇到的问题</title>
+    <link href="http://blog.chusaikeji.com/2017/04/30/%E5%AE%89%E8%A3%85%20Anaconda%20%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://blog.chusaikeji.com/2017/04/30/安装 Anaconda 时遇到的问题/</id>
+    <published>2017-04-30T15:18:00.000Z</published>
+    <updated>2018-05-02T06:06:36.000Z</updated>
+    
+    <content type="html">&lt;p&gt;在官网下载安装完成 Anaconda 之后，启动环境发现 Terminal 有异常，如下图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://wx1.sinaimg.cn/mw690/8edca89bgy1fqw8y0xhebj20vu0kkacb.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;然后在 Terminal 中输入命令&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; conda -V&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;检查我们的 conda 环境是否安装成功。发现 Terminal 提示 &lt;code&gt;zsh: command not found: conda&lt;/code&gt;，第一反应肯定是路径不对，打开 &lt;code&gt;.zshrc&lt;/code&gt; 查看，果然没有对应的 PATH，找官方文档看到需要添加如下 PATH&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; &lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;export PATH=&quot;/anaconda3/bin:$PATH&quot;&#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;最后切记别忘了让它生效&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;bash&quot;&gt; &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; .zshrc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;启动 Anaconda，或者直接在 Terminal 输入 &lt;code&gt;ipython&lt;/code&gt; 发现我们的环境已经可以正常运行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://wx1.sinaimg.cn/mw690/8edca89bgy1fqw8ye3s20j20vs0kgabv.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在官网下载安装完成 Anaconda 之后，启动环境发现 Terminal 有异常，如下图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://wx1.sinaimg.cn/mw690/8edca89bgy1fqw8y0xhebj20vu0kkacb.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://blog.chusaikeji.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://blog.chusaikeji.com/tags/Python/"/>
+    
+      <category term="Anaconda" scheme="http://blog.chusaikeji.com/tags/Anaconda/"/>
+    
+      <category term="conda" scheme="http://blog.chusaikeji.com/tags/conda/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 入门</title>
+    <link href="http://blog.chusaikeji.com/2017/03/22/Python%E5%85%A5%E9%97%A8/"/>
+    <id>http://blog.chusaikeji.com/2017/03/22/Python入门/</id>
+    <published>2017-03-22T15:05:00.000Z</published>
+    <updated>2018-05-02T06:05:50.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Python 出身于所谓的脚本语言家族，是一种解释型、面向对象、动态类型的语言。解释型， 意味着Python 代码由解释器而非编译器执行。动态类型，意味着类型在运行时而非编译时绑定。从这两方面看，Python 采取的策略是在灵活性和运行时安全之间寻找平衡点。面向对象，意味着 Python 支持封装、类继承、多态等特性。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;Python-简史&quot;&gt;&lt;a href=&quot;#Python-简史&quot; class=&quot;headerlink&quot; title=&quot;Python 简史&quot;&gt;&lt;/a&gt;Python 简史&lt;/h2&gt;&lt;p&gt;Python 是著名的“龟叔”Guido van Rossum在1989年圣诞节期间，为了打发无聊的圣诞节而编写的一个编程语言。由此可见 Python 是一门多么“随性”的语言。Python 是崇尚自由精神的语言，允许你做几乎一切事情，包括修改 NilClass 或 String 这样的核心类。&lt;/p&gt;
+&lt;h2 id=&quot;1-快速起步&quot;&gt;&lt;a href=&quot;#1-快速起步&quot; class=&quot;headerlink&quot; title=&quot;1 快速起步&quot;&gt;&lt;/a&gt;1 快速起步&lt;/h2&gt;&lt;h3 id=&quot;1-1-Python-的编程模型&quot;&gt;&lt;a href=&quot;#1-1-Python-的编程模型&quot; class=&quot;headerlink&quot; title=&quot;1.1 Python 的编程模型&quot;&gt;&lt;/a&gt;1.1 Python 的编程模型&lt;/h3&gt;&lt;p&gt;Python 从设计之初就是一门面向对象的语言，它有一个重要的概念，即一切皆对象。&lt;/p&gt;
+&lt;p&gt;Objective-C 虽然也是面向对象编程的语言，但是血统没有 Python 纯正。比如 Objective-C 的基本数据类型 int、float、double 等都不是对象，如果需要把他们转换为对象类型，在 Objective-C 中对应的是 NSNumber 类型。但是在 Python 中，一切皆对象。数字、字符串、元组、列表、字典、函数、方法、类、模块等等都是对象，包括你的代码。&lt;/p&gt;
+&lt;h3 id=&quot;1-2-判断&quot;&gt;&lt;a href=&quot;#1-2-判断&quot; class=&quot;headerlink&quot; title=&quot;1.2 判断&quot;&gt;&lt;/a&gt;1.2 判断&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;age = 20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; age &amp;gt;= 6:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;teenager&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; age &amp;gt;= 18:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;adult&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;kid&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Python 中的判断只有 True or False，&lt;code&gt;not True&lt;/code&gt; 相当于 Objective-C 中的 &lt;code&gt;!YES&lt;/code&gt;。&lt;br&gt;空值是 Python 里一个特殊的值，用 None 表示。None 不能理解为 0，因为 0 是有意义的，而None 是一个特殊的空值。0 相当于 False。&lt;/p&gt;
+&lt;h3 id=&quot;1-3-鸭子类型&quot;&gt;&lt;a href=&quot;#1-3-鸭子类型&quot; class=&quot;headerlink&quot; title=&quot;1.3 鸭子类型&quot;&gt;&lt;/a&gt;1.3 鸭子类型&lt;/h3&gt;&lt;p&gt;动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。&lt;/p&gt;
+&lt;p&gt;Python 是一门解释型语言。一切皆为对象，且易于获取对象的任何信息，如对象的各方法及所属类。它是鸭子类型的，且行为通常和强类型语言毫无二致。&lt;/p&gt;
+&lt;h2 id=&quot;2-进阶之路&quot;&gt;&lt;a href=&quot;#2-进阶之路&quot; class=&quot;headerlink&quot; title=&quot;2 进阶之路&quot;&gt;&lt;/a&gt;2 进阶之路&lt;/h2&gt;&lt;h3 id=&quot;2-1-定义函数&quot;&gt;&lt;a href=&quot;#2-1-定义函数&quot; class=&quot;headerlink&quot; title=&quot;2.1 定义函数&quot;&gt;&lt;/a&gt;2.1 定义函数&lt;/h3&gt;&lt;figure class=&quot;highlight arduino&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; math&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def &lt;span class=&quot;built_in&quot;&gt;move&lt;/span&gt;(x, y, &lt;span class=&quot;built_in&quot;&gt;step&lt;/span&gt;, angle=&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    nx = x + &lt;span class=&quot;built_in&quot;&gt;step&lt;/span&gt; * math.&lt;span class=&quot;built_in&quot;&gt;cos&lt;/span&gt;(angle)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ny = y - &lt;span class=&quot;built_in&quot;&gt;step&lt;/span&gt; * math.&lt;span class=&quot;built_in&quot;&gt;sin&lt;/span&gt;(angle)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; nx, ny&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Python 的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。&lt;/p&gt;
+&lt;p&gt;默认参数一定要用&lt;strong&gt;不可变对象&lt;/strong&gt;，如果是可变对象，程序运行时会有逻辑错误！&lt;/p&gt;
+&lt;p&gt;要注意定义可变参数和关键字参数的语法：&lt;/p&gt;
+&lt;p&gt;*args 是可变参数，args 接收的是一个 tuple；&lt;/p&gt;
+&lt;p&gt;**kw 是关键字参数，kw 接收的是一个 dict。&lt;/p&gt;
+&lt;p&gt;以及调用函数时如何传入可变参数和关键字参数的语法：&lt;/p&gt;
+&lt;p&gt;可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过&lt;code&gt;*args&lt;/code&gt;传入：func(*(1, 2, 3))；&lt;/p&gt;
+&lt;p&gt;关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过&lt;code&gt;**kw&lt;/code&gt;传入：func(**{‘a’: 1, ‘b’: 2})。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;*args&lt;/code&gt;和&lt;code&gt;**kw&lt;/code&gt;是 Python 的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。&lt;/p&gt;
+&lt;p&gt;命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。&lt;/p&gt;
+&lt;p&gt;定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。&lt;/p&gt;
+&lt;h3 id=&quot;2-2-数组&quot;&gt;&lt;a href=&quot;#2-2-数组&quot; class=&quot;headerlink&quot; title=&quot;2.2 数组&quot;&gt;&lt;/a&gt;2.2 数组&lt;/h3&gt;&lt;h4 id=&quot;list&quot;&gt;&lt;a href=&quot;#list&quot; class=&quot;headerlink&quot; title=&quot;list&quot;&gt;&lt;/a&gt;list&lt;/h4&gt;&lt;p&gt;Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。&lt;/p&gt;
+&lt;p&gt;比如，列出班里所有同学的名字，就可以用一个list表示：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; classmates = [&lt;span class=&quot;string&quot;&gt;&#39;Michael&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bob&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Tracy&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; classmates&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&#39;Michael&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bob&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Tracy&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;tuple&quot;&gt;&lt;a href=&quot;#tuple&quot; class=&quot;headerlink&quot; title=&quot;tuple&quot;&gt;&lt;/a&gt;tuple&lt;/h4&gt;&lt;p&gt;另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改，比如同样是列出同学的名字：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; classmates = (&lt;span class=&quot;string&quot;&gt;&#39;Michael&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bob&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Tracy&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;现在，classmates这个tuple不能变了，它也没有append()，insert()这样的方法。其他获取元素的方法和list是一样的，你可以正常地使用classmates[0]，classmates[-1]，但不能赋值成另外的元素。&lt;/p&gt;
+&lt;p&gt;注意，tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。&lt;/p&gt;
+&lt;h3 id=&quot;2-3-字典&quot;&gt;&lt;a href=&quot;#2-3-字典&quot; class=&quot;headerlink&quot; title=&quot;2.3 字典&quot;&gt;&lt;/a&gt;2.3 字典&lt;/h3&gt;&lt;h4 id=&quot;dict&quot;&gt;&lt;a href=&quot;#dict&quot; class=&quot;headerlink&quot; title=&quot;dict&quot;&gt;&lt;/a&gt;dict&lt;/h4&gt;&lt;p&gt;Python 内置了字典：dict 的支持，dict 全称 dictionary，在其他语言中也称为 map，使用键-值（key-value）存储，具有极快的查找速度。&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; d = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;Michael&#39;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;95&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Bob&#39;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;75&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Tracy&#39;&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;85&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; d[&lt;span class=&quot;string&quot;&gt;&#39;Michael&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;95&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;set&quot;&gt;&lt;a href=&quot;#set&quot; class=&quot;headerlink&quot; title=&quot;set&quot;&gt;&lt;/a&gt;set&lt;/h4&gt;&lt;p&gt;set 和 dict 类似，也是一组 key 的集合，但不存储 value。由于 key 不能重复，所以，在set 中，没有重复的 key。&lt;/p&gt;
+&lt;p&gt;要创建一个 set，需要提供一个 list 作为输入集合：&lt;/p&gt;
+&lt;figure class=&quot;highlight lsl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; s = set([&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意，传入的参数[1, 2, 3]是一个list，而显示的{1, 2, 3}只是告诉你这个set内部有1，2，3这3个元素，显示的顺序也不表示set是有序的。&lt;/p&gt;
+&lt;p&gt;重复元素在set中自动被过滤：&lt;/p&gt;
+&lt;figure class=&quot;highlight lsl&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; s = set([&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt; s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;2-4-代码块&quot;&gt;&lt;a href=&quot;#2-4-代码块&quot; class=&quot;headerlink&quot; title=&quot;2.4 代码块&quot;&gt;&lt;/a&gt;2.4 代码块&lt;/h3&gt;&lt;p&gt;代码块又叫 Block、闭包，相当于一个匿名函数，Python 中用 lambda 表示:&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; f = lambda &lt;span class=&quot;symbol&quot;&gt;x:&lt;/span&gt; x * x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; f&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;function &amp;lt;lambda&amp;gt; at &lt;span class=&quot;number&quot;&gt;0x101c6ef28&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; f(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;number&quot;&gt;25&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;2-5-定义类&quot;&gt;&lt;a href=&quot;#2-5-定义类&quot; class=&quot;headerlink&quot; title=&quot;2.5 定义类&quot;&gt;&lt;/a&gt;2.5 定义类&lt;/h3&gt;&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Student&lt;/span&gt;(&lt;span class=&quot;title&quot;&gt;object&lt;/span&gt;):&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, name, score)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.name = name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.score = score&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;print_score&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        print(&lt;span class=&quot;string&quot;&gt;&#39;%s: %s&#39;&lt;/span&gt; % (&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.name, &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.score))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线&lt;strong&gt;，在Python中，实例的变量名如果以&lt;/strong&gt;开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问&lt;/p&gt;
+&lt;p&gt;使用&lt;strong&gt;slots&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Python允许在定义class的时候，定义一个特殊的&lt;strong&gt;slots&lt;/strong&gt;变量，来限制该class实例能添加的属性：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    __slots__ = (&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;) &lt;span class=&quot;comment&quot;&gt;# 用tuple定义允许绑定的属性名称&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;@property 广泛应用在类的定义中，可以让调用者写出简短的代码，同时保证对参数进行必要的检查，这样，程序运行时就减少了出错的可能性。&lt;/p&gt;
+&lt;h3 id=&quot;2-6-编写-Mixin&quot;&gt;&lt;a href=&quot;#2-6-编写-Mixin&quot; class=&quot;headerlink&quot; title=&quot;2.6 编写 Mixin&quot;&gt;&lt;/a&gt;2.6 编写 Mixin&lt;/h3&gt;&lt;p&gt;由于 Python 允许使用多重继承，因此，MixIn 就是一种常见的设计。&lt;/p&gt;
+&lt;p&gt;只允许单一继承的语言（如Java, Objective-C）不能使用 MixIn 的设计。&lt;/p&gt;
+&lt;figure class=&quot;highlight haskell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Dog&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;Mammal&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;RunnableMixIn&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;CarnivorousMixIn&lt;/span&gt;):&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;    pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;2-7-模块&quot;&gt;&lt;a href=&quot;#2-7-模块&quot; class=&quot;headerlink&quot; title=&quot;2.7 模块&quot;&gt;&lt;/a&gt;2.7 模块&lt;/h3&gt;&lt;figure class=&quot;highlight elm&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; sys&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；&lt;/p&gt;
+&lt;p&gt;类似&lt;strong&gt;xxx&lt;/strong&gt;这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的&lt;strong&gt;author&lt;/strong&gt;，&lt;strong&gt;name&lt;/strong&gt;就是特殊变量，hello模块定义的文档注释也可以用特殊变量&lt;strong&gt;doc&lt;/strong&gt;访问，我们自己的变量一般不要用这种变量名；&lt;/p&gt;
+&lt;p&gt;类似_xxx和&lt;strong&gt;xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，&lt;/strong&gt;abc等；&lt;/p&gt;
+&lt;p&gt;模块搜索路径&lt;br&gt;当我们试图加载一个模块时，Python会在指定的路径下搜索对应的.py文件，如果找不到，就会报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; import mymodule&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Traceback (most recent call last)&lt;span class=&quot;symbol&quot;&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  File &lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;stdin&amp;gt;&quot;&lt;/span&gt;, line &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &amp;lt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;symbol&quot;&gt;ImportError:&lt;/span&gt; No &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;named&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;mymodule&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径存放在sys模块的path变量中：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; import sys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; sys.path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&#39;&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;/Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6&#39;&lt;/span&gt;, ..., &lt;span class=&quot;string&quot;&gt;&#39;/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果我们要添加自己的搜索目录，有两种方法：&lt;/p&gt;
+&lt;p&gt;一是直接修改sys.path，添加要搜索的目录：&lt;/p&gt;
+&lt;figure class=&quot;highlight ruby&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; import sys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;&amp;gt; sys.path.append(&lt;span class=&quot;string&quot;&gt;&#39;/Users/michael/my_py_scripts&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这种方法是在运行时修改，运行结束后失效。&lt;/p&gt;
+&lt;p&gt;第二种方法是设置环境变量PYTHONPATH，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。&lt;/p&gt;
+&lt;h4 id=&quot;Enum&quot;&gt;&lt;a href=&quot;#Enum&quot; class=&quot;headerlink&quot; title=&quot;Enum&quot;&gt;&lt;/a&gt;Enum&lt;/h4&gt;&lt;figure class=&quot;highlight oxygene&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; import &lt;span class=&quot;keyword&quot;&gt;Enum&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Month = &lt;span class=&quot;keyword&quot;&gt;Enum&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;Month&#39;&lt;/span&gt;, (&lt;span class=&quot;string&quot;&gt;&#39;Jan&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Feb&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Mar&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Apr&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;May&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Jun&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Jul&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Aug&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Sep&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Oct&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Nov&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Dec&#39;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样我们就获得了 Month 类型的枚举类，可以直接使用 Month.Jan 来引用一个常量，或者枚举它的所有成员：&lt;/p&gt;
+&lt;figure class=&quot;highlight sqf&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;name&lt;/span&gt;, member &lt;span class=&quot;built_in&quot;&gt;in&lt;/span&gt; Month.&lt;span class=&quot;variable&quot;&gt;__members__&lt;/span&gt;.&lt;span class=&quot;built_in&quot;&gt;items&lt;/span&gt;():&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    print(&lt;span class=&quot;built_in&quot;&gt;name&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;=&amp;gt;&#39;&lt;/span&gt;, member, &lt;span class=&quot;string&quot;&gt;&#39;,&#39;&lt;/span&gt;, member.value)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;value 属性则是自动赋给成员的 int 常量，默认从 1 开始计数。&lt;/p&gt;
+&lt;h2 id=&quot;3-再上一步&quot;&gt;&lt;a href=&quot;#3-再上一步&quot; class=&quot;headerlink&quot; title=&quot;3 再上一步&quot;&gt;&lt;/a&gt;3 再上一步&lt;/h2&gt;&lt;p&gt;元编程，说白了就是“写能写程序的程序”&lt;/p&gt;
+&lt;h3 id=&quot;3-1-开放类&quot;&gt;&lt;a href=&quot;#3-1-开放类&quot; class=&quot;headerlink&quot; title=&quot;3.1 开放类&quot;&gt;&lt;/a&gt;3.1 开放类&lt;/h3&gt;&lt;h3 id=&quot;3-2-使用-try…except…finally&quot;&gt;&lt;a href=&quot;#3-2-使用-try…except…finally&quot; class=&quot;headerlink&quot; title=&quot;3.2 使用 try…except…finally&quot;&gt;&lt;/a&gt;3.2 使用 try…except…finally&lt;/h3&gt;&lt;h3 id=&quot;3-3-模块&quot;&gt;&lt;a href=&quot;#3-3-模块&quot; class=&quot;headerlink&quot; title=&quot;3.3 模块&quot;&gt;&lt;/a&gt;3.3 模块&lt;/h3&gt;&lt;h2 id=&quot;4-趁热打铁&quot;&gt;&lt;a href=&quot;#4-趁热打铁&quot; class=&quot;headerlink&quot; title=&quot;4 趁热打铁&quot;&gt;&lt;/a&gt;4 趁热打铁&lt;/h2&gt;&lt;h3 id=&quot;4-1-核心优势&quot;&gt;&lt;a href=&quot;#4-1-核心优势&quot; class=&quot;headerlink&quot; title=&quot;4.1 核心优势&quot;&gt;&lt;/a&gt;4.1 核心优势&lt;/h3&gt;&lt;h3 id=&quot;4-2-不足之处&quot;&gt;&lt;a href=&quot;#4-2-不足之处&quot; class=&quot;headerlink&quot; title=&quot;4.2 不足之处&quot;&gt;&lt;/a&gt;4.2 不足之处&lt;/h3&gt;&lt;h3 id=&quot;4-3-最后思考&quot;&gt;&lt;a href=&quot;#4-3-最后思考&quot; class=&quot;headerlink&quot; title=&quot;4.3 最后思考&quot;&gt;&lt;/a&gt;4.3 最后思考&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Python 出身于所谓的脚本语言家族，是一种解释型、面向对象、动态类型的语言。解释型， 意味着Python 代码由解释器而非编译器执行。动态类型，意味着类型在运行时而非编译时绑定。从这两方面看，Python 采取的策略是在灵活性和运行时安全之间寻找平衡点。面向对象，意味着 Python 支持封装、类继承、多态等特性。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://blog.chusaikeji.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://blog.chusaikeji.com/tags/Python/"/>
     
   </entry>
   
@@ -2081,127 +2206,6 @@ self.tableView.tableFooterView = [[UIView alloc] init];
     
     
       <category term="UIScrollView" scheme="http://blog.chusaikeji.com/tags/UIScrollView/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS 开发内存管理之番外篇</title>
-    <link href="http://blog.chusaikeji.com/2015/01/28/iOS%E5%BC%80%E5%8F%91%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B9%8B%E7%95%AA%E5%A4%96%E7%AF%87/"/>
-    <id>http://blog.chusaikeji.com/2015/01/28/iOS开发内存管理之番外篇/</id>
-    <published>2015-01-27T17:26:00.000Z</published>
-    <updated>2018-04-30T16:04:13.000Z</updated>
-    
-    <content type="html">&lt;p&gt;内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;内存管理现在大致可以分为两类, 一类是从始至终存在的MRC, 一类是Xcode4.2及以上版本有了的自动管理内存, 也就是ARC. 关于MRC和ARC选择哪一个, @唐巧 的&amp;lt;是否应该使用ARC?&amp;gt;文章已经有了很详细的探讨. &lt;/p&gt;
-&lt;p&gt;内存管理, What? Why? How? 这都不是本文讨论的内容, 因为已经有很多非常好的文章来解释这些问题了, 本文将从另外一个角度出发, 教给大家如何调试-解决内存中的问题. 关于What-Why-How本文也会分享一些比较好的文章, 对于不理解内存管理的同学会有很大的帮助.&lt;/p&gt;
-&lt;p&gt;一. 开启”僵尸模式” 🍆 🌽 (环境变量)&lt;br&gt;通常情况下，一旦内存中的对象被释放，其只能就此消失。但当“僵尸”方案启动时，该对象只会被标记为“释放”但却仍然被保留在内存当中。如此一来，当我们访问某个僵尸对象时，Xcode会提醒我们该对象虽然能够被访问、但在实际环境中已经不应存在。在这种模式下，我们将能够了解到正常情况下无法获得的实时状态与对象位置。&lt;/p&gt;
-&lt;p&gt;Zombie环境变量对于处理EXC_BAD_ACCESS类型崩溃很有效。 当这个zombie工具被启用之后，即使这个对象被释放了，这个对象的内存也不会被清理。这个工具将永远不会释放内存，只是简单标记一下这个内存是不死的(“僵尸”的来历)，你最终将会在某个时候耗尽所有的内存。&lt;/p&gt;
-&lt;p&gt;开启”僵尸模式”的步骤:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-0c57b79045a9048d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;依次选择&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-970f6c7161730b0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;勾选上红色区域, 这样就开启了”僵尸模式”.&lt;/p&gt;
-&lt;p&gt;二. 静态分析器 (command + shift + B)&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;第一种方法, 直接快捷键, 点击左边导航栏中的警告栏&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;第二种方法, 按下图以此点击&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-29a976a408ea098a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;ps…这个方法有的时候不是特别靠谱, 看情况的啊, 哈哈~&lt;/p&gt;
-&lt;p&gt;三. Instruments 工具&lt;br&gt;Instruments工具可谓是神兵利器了, 功能很强大, 可谓是咱们每个程序员”居家过日子的好帮手”. 以下主要讲解利用Instruments调试内存泄露和循环引用的问题.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;打开Instruments&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-82173475f2b86e69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/587&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;很简单两步, 然后就会看到它的主界面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-a546fb3c195fcd50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;选择leaks –&amp;gt; 点击左上角的大红点 –&amp;gt; 这个时候就开始检测了 ( 这个时候模拟器也会运行起来, 切记一定在模拟器中对你的当前程序进行操作, 以便检测 ) –&amp;gt; 等待检测结束..🐦🐦🐦..&lt;/p&gt;
-&lt;p&gt;检测过程中如果出现红色的线, 就证明内存泄露, 如下图&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-6eac128791808805.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;如果要检测循环引用, 就选择Cycles &amp;amp; Roots, 就可以看到以图形方式显示出来的循环引用了.&lt;/p&gt;
-&lt;p&gt;如果要查看内存泄露, 选择Call Tree&lt;/p&gt;
-&lt;p&gt;勾选上右边红色方框里的两项, Invert Call Tree 和Hide System Libraries&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-50ffc12b93208d43.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这时候内存泄露的具体代码找到了，你只在绿色框里的方法上双击，就会跳转到具体的代码, 一针见血.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;**&lt;/strong&gt; 以上基于Xcode6.1.1 &lt;strong&gt;**&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;参考的文章:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;《iOS开发进阶》老师 第十章《理解内存管理》&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;《Object-C基础教程》第十章《内存管理》&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;《OC内存管理》 &lt;a href=&quot;http://www.cnblogs.com/wendingding/tag/UI基础/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.cnblogs.com/wendingding/tag/UI基础/&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;《IOS开发系列—Objective-C之内存管理》&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/kenshincui/p/3870325.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://www.cnblogs.com/kenshincui/p/3870325.html&lt;/a&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/totogo2010/article/details/8233565&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://blog.csdn.net/totogo2010/article/details/8233565&lt;/a&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;《iOS故障排除指南》 &lt;a href=&quot;http://mobile.51cto.com/iphone-377138.htm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://mobile.51cto.com/iphone-377138.htm&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;内存管理, 一个恒古的话题, 它不是一个简单的问题. 比如说我们会遇到的一些, 内存莫名的持续增长, 程序莫名的crash, 以及难以发现的内存泄露等等问题, 都是比较让人揪心的. 但是, 只要咱们理解了内存管理的原则, 完全遵照, 其实, 内存管理也是很好解决的.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://blog.chusaikeji.com/categories/Objective-C/"/>
-    
-    
-      <category term="iOS" scheme="http://blog.chusaikeji.com/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何利用查头文件学习 iOS 开发</title>
-    <link href="http://blog.chusaikeji.com/2015/01/26/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%9F%A5%E5%A4%B4%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0%20iOS%20%E5%BC%80%E5%8F%91/"/>
-    <id>http://blog.chusaikeji.com/2015/01/26/如何利用查头文件学习 iOS 开发/</id>
-    <published>2015-01-26T15:07:00.000Z</published>
-    <updated>2018-04-30T15:53:44.000Z</updated>
-    
-    <content type="html">&lt;p&gt;今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;先上神兵利器—- “command + F”, 搜索快捷键可以帮助我们快速查找所需要的东西. 不知道的同学可以随便找个地方试试…&lt;/p&gt;
-&lt;p&gt;进入今天的正题, 看过头文件的同学都应该知道, 少的有三十多行, 多的有上千行, 各种属性, 各种方法, 琳琅满目, “人山人海”啊, 单靠记忆恐怕是记不完的, 所以查很好的解决了我们的问题, 那么如何来查呢?&lt;/p&gt;
-&lt;p&gt;举个例子, 如果我们遇到没见过的控件, 不明白的方法, 怎么办, 查, 怎么查, 在xcode中, 按住command, 点击控件名或者方法(只要是能点进去的都可以), 然后就会进入头文件, 此时就可以按照”三步走战略”来快速查看头文件了.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-d9224943fc867409.png?imageView2/2/w/1240/q/100&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;第一步: 看它继承于谁(继承关系很重要的)&lt;/p&gt;
-&lt;p&gt;第二步: 看它有没有自己的初始化方法, 如果没有就用父类的&lt;/p&gt;
-&lt;p&gt;第三步: 看它是否有代理, 如果有, 看哪些方法是必须实现的&lt;/p&gt;
-&lt;p&gt;以UIActionSheet为例:&lt;/p&gt;
-&lt;p&gt;在Xcode中输入UIActionSheet, 按住command点击, 进入到头文件, 执行 “三步走战略” :&lt;/p&gt;
-&lt;p&gt;第一步: 继承于UIView, 立马想到UIView的所有东西它都可以用.(OC三大特征中的继承 , 必须要掌握的 )&lt;/p&gt;
-&lt;p&gt;第二步: 继续往下看, 发现它有自己的初始化方法, 比较长的一个初始化方法. (如果没有找到它自己的初始化方法, 咱们就用它父类的初始化方法) 有的时候头文件里的内容特别多, 很难找到初始化方法, 这时, 就需要我们的神兵利器 “command + F “了, 按下后, 在弹出来的搜索框里输入”init”, 回车, 就会看到, 快速跳转到包含”init”的方法了. 以此类推, 对于很多方法, 没必要死记硬背, 只要记住它里面的关键词, 如果需要调用此方法, 就进入对应的头文件, 利用我们的神兵利器, 快速查找.&lt;/p&gt;
-&lt;p&gt;第三步: 继续往下看, 发现了什么, id&lt;uiactionsheetdelegate&gt; delegate 说明有代理方法, 怎么办, 继续 按住command + 点击UIActionSheetDelegate点进去进去看, 发现是@optional, 说明不是必须要实现的方法, 咱们可以暂时不用签订协议.&lt;/uiactionsheetdelegate&gt;&lt;/p&gt;
-&lt;p&gt;ok. 现在三步走战略完了, 回到咱们的viewController里, 建一个UIActionSheet, 既然它继承于UIView, 无非也就是创建一view那几步 (继承关系)&lt;/p&gt;
-&lt;figure class=&quot;highlight groovy&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// UIActionSheet的初始化方法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;UIActionSheet *actionSheet = [[UIActionSheet alloc] &lt;span class=&quot;string&quot;&gt;initWithTitle:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;分享&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;delegate:&lt;/span&gt;self &lt;span class=&quot;string&quot;&gt;cancelButtonTitle:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;取消&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;destructiveButtonTitle:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;微博分享&quot;&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;otherButtonTitles:&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&quot;微信分享&quot;&lt;/span&gt;, nil];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 不需要设置frame和backgroundColor&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 添加到view上&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[self.view &lt;span class=&quot;string&quot;&gt;addSubview:&lt;/span&gt;actionSheet];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 如果是MRC下需要release&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;好了, 运行一下, 发现了什么, 对, 什么都没出来, 怎么办, 继续点进去看, 肯定是有什么属性或者方法是需要咱们必须要写上的, 一行一行的找, 找到了什么, 好几条跟show有关的方法, 柳暗花明又一村啊.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/193863-6e312800a435f887.png?imageView2/2/w/1240/q/100&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;发现了吧, 要让咱们的actionSheet显示出来还需要加一条方法, 咱们就选择最后一个方法&lt;/p&gt;
-&lt;p&gt;// 必须要写的方法, 否则不会显示出来&lt;/p&gt;
-&lt;p&gt;[actionSheet showInView:self.view];&lt;/p&gt;
-&lt;p&gt;运行一下, 一个简单的UIActionSheet就出来了, 当然了, UIActionSheet还有很多的属性和方法, 咱们都可以通过”查”来一一学习.&lt;/p&gt;
-&lt;p&gt;最后, 不论是查看头文件还是Xcode帮助文档, 都应该把握”三步走战略”, 以此为主线, 展开调研.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天我们要总结的是利用Xcode, 查找头文件, 进行快速有效的学习方法, 总结为一个字—-“查”.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Objective-C" scheme="http://blog.chusaikeji.com/categories/Objective-C/"/>
-    
-    
-      <category term="iOS" scheme="http://blog.chusaikeji.com/tags/iOS/"/>
     
   </entry>
   
