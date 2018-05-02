@@ -1,0 +1,722 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时空人" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Python 出身于所谓的脚本语言家族，是一种解释型、面向对象、动态类型的语言。解释型， 意味着Python 代码由解释器而非编译器执行。动态类型，意味着类型在运行时而非编译时绑定。从这两方面看，Python 采取的策略是在灵活性和运行时安全之间寻找平衡点。面向对象，意味着 Python 支持封装、类继承、多态等特性。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 入门">
+<meta property="og:url" content="http://blog.chusaikeji.com/2017/03/22/Python入门/index.html">
+<meta property="og:site_name" content="时空人">
+<meta property="og:description" content="Python 出身于所谓的脚本语言家族，是一种解释型、面向对象、动态类型的语言。解释型， 意味着Python 代码由解释器而非编译器执行。动态类型，意味着类型在运行时而非编译时绑定。从这两方面看，Python 采取的策略是在灵活性和运行时安全之间寻找平衡点。面向对象，意味着 Python 支持封装、类继承、多态等特性。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-02T06:05:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 入门">
+<meta name="twitter:description" content="Python 出身于所谓的脚本语言家族，是一种解释型、面向对象、动态类型的语言。解释型， 意味着Python 代码由解释器而非编译器执行。动态类型，意味着类型在运行时而非编译时绑定。从这两方面看，Python 采取的策略是在灵活性和运行时安全之间寻找平衡点。面向对象，意味着 Python 支持封装、类继承、多态等特性。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Python 入门 | 时空人 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时空人</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python 入门
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-22T23:05:00+08:00" content="2017-03-22">
+              2017-03-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python 出身于所谓的脚本语言家族，是一种解释型、面向对象、动态类型的语言。解释型， 意味着Python 代码由解释器而非编译器执行。动态类型，意味着类型在运行时而非编译时绑定。从这两方面看，Python 采取的策略是在灵活性和运行时安全之间寻找平衡点。面向对象，意味着 Python 支持封装、类继承、多态等特性。</p>
+<a id="more"></a>
+<h2 id="Python-简史"><a href="#Python-简史" class="headerlink" title="Python 简史"></a>Python 简史</h2><p>Python 是著名的“龟叔”Guido van Rossum在1989年圣诞节期间，为了打发无聊的圣诞节而编写的一个编程语言。由此可见 Python 是一门多么“随性”的语言。Python 是崇尚自由精神的语言，允许你做几乎一切事情，包括修改 NilClass 或 String 这样的核心类。</p>
+<h2 id="1-快速起步"><a href="#1-快速起步" class="headerlink" title="1 快速起步"></a>1 快速起步</h2><h3 id="1-1-Python-的编程模型"><a href="#1-1-Python-的编程模型" class="headerlink" title="1.1 Python 的编程模型"></a>1.1 Python 的编程模型</h3><p>Python 从设计之初就是一门面向对象的语言，它有一个重要的概念，即一切皆对象。</p>
+<p>Objective-C 虽然也是面向对象编程的语言，但是血统没有 Python 纯正。比如 Objective-C 的基本数据类型 int、float、double 等都不是对象，如果需要把他们转换为对象类型，在 Objective-C 中对应的是 NSNumber 类型。但是在 Python 中，一切皆对象。数字、字符串、元组、列表、字典、函数、方法、类、模块等等都是对象，包括你的代码。</p>
+<h3 id="1-2-判断"><a href="#1-2-判断" class="headerlink" title="1.2 判断"></a>1.2 判断</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">age = 20</span><br><span class="line"><span class="keyword">if</span> age &gt;= 6:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'teenager'</span>)</span><br><span class="line"><span class="keyword">elif</span> age &gt;= 18:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'adult'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'kid'</span>)</span><br></pre></td></tr></table></figure>
+<p>Python 中的判断只有 True or False，<code>not True</code> 相当于 Objective-C 中的 <code>!YES</code>。<br>空值是 Python 里一个特殊的值，用 None 表示。None 不能理解为 0，因为 0 是有意义的，而None 是一个特殊的空值。0 相当于 False。</p>
+<h3 id="1-3-鸭子类型"><a href="#1-3-鸭子类型" class="headerlink" title="1.3 鸭子类型"></a>1.3 鸭子类型</h3><p>动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。</p>
+<p>Python 是一门解释型语言。一切皆为对象，且易于获取对象的任何信息，如对象的各方法及所属类。它是鸭子类型的，且行为通常和强类型语言毫无二致。</p>
+<h2 id="2-进阶之路"><a href="#2-进阶之路" class="headerlink" title="2 进阶之路"></a>2 进阶之路</h2><h3 id="2-1-定义函数"><a href="#2-1-定义函数" class="headerlink" title="2.1 定义函数"></a>2.1 定义函数</h3><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">def <span class="built_in">move</span>(x, y, <span class="built_in">step</span>, angle=<span class="number">0</span>):</span><br><span class="line">    nx = x + <span class="built_in">step</span> * math.<span class="built_in">cos</span>(angle)</span><br><span class="line">    ny = y - <span class="built_in">step</span> * math.<span class="built_in">sin</span>(angle)</span><br><span class="line">    <span class="built_in">return</span> nx, ny</span><br></pre></td></tr></table></figure>
+<p>Python 的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。</p>
+<p>默认参数一定要用<strong>不可变对象</strong>，如果是可变对象，程序运行时会有逻辑错误！</p>
+<p>要注意定义可变参数和关键字参数的语法：</p>
+<p>*args 是可变参数，args 接收的是一个 tuple；</p>
+<p>**kw 是关键字参数，kw 接收的是一个 dict。</p>
+<p>以及调用函数时如何传入可变参数和关键字参数的语法：</p>
+<p>可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过<code>*args</code>传入：func(*(1, 2, 3))；</p>
+<p>关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过<code>**kw</code>传入：func(**{‘a’: 1, ‘b’: 2})。</p>
+<p>使用<code>*args</code>和<code>**kw</code>是 Python 的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。</p>
+<p>命名的关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。</p>
+<p>定义命名的关键字参数在没有可变参数的情况下不要忘了写分隔符*，否则定义的将是位置参数。</p>
+<h3 id="2-2-数组"><a href="#2-2-数组" class="headerlink" title="2.2 数组"></a>2.2 数组</h3><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。</p>
+<p>比如，列出班里所有同学的名字，就可以用一个list表示：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; classmates = [<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; classmates</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="tuple"><a href="#tuple" class="headerlink" title="tuple"></a>tuple</h4><p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦初始化就不能修改，比如同样是列出同学的名字：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; classmates = (<span class="string">'Michael'</span>, <span class="string">'Bob'</span>, <span class="string">'Tracy'</span>)</span><br></pre></td></tr></table></figure>
+<p>现在，classmates这个tuple不能变了，它也没有append()，insert()这样的方法。其他获取元素的方法和list是一样的，你可以正常地使用classmates[0]，classmates[-1]，但不能赋值成另外的元素。</p>
+<p>注意，tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。</p>
+<h3 id="2-3-字典"><a href="#2-3-字典" class="headerlink" title="2.3 字典"></a>2.3 字典</h3><h4 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h4><p>Python 内置了字典：dict 的支持，dict 全称 dictionary，在其他语言中也称为 map，使用键-值（key-value）存储，具有极快的查找速度。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; d = &#123;<span class="string">'Michael'</span>: <span class="number">95</span>, <span class="string">'Bob'</span>: <span class="number">75</span>, <span class="string">'Tracy'</span>: <span class="number">85</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; d[<span class="string">'Michael'</span>]</span><br><span class="line"><span class="number">95</span></span><br></pre></td></tr></table></figure>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>set 和 dict 类似，也是一组 key 的集合，但不存储 value。由于 key 不能重复，所以，在set 中，没有重复的 key。</p>
+<p>要创建一个 set，需要提供一个 list 作为输入集合：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，传入的参数[1, 2, 3]是一个list，而显示的{1, 2, 3}只是告诉你这个set内部有1，2，3这3个元素，显示的顺序也不表示set是有序的。</p>
+<p>重复元素在set中自动被过滤：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = set([<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line">&gt;&gt;&gt; s</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-代码块"><a href="#2-4-代码块" class="headerlink" title="2.4 代码块"></a>2.4 代码块</h3><p>代码块又叫 Block、闭包，相当于一个匿名函数，Python 中用 lambda 表示:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; f = lambda <span class="symbol">x:</span> x * x</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; f</span><br><span class="line">&lt;function &lt;lambda&gt; at <span class="number">0x101c6ef28</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; f(<span class="number">5</span>)</span><br><span class="line"><span class="number">25</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-5-定义类"><a href="#2-5-定义类" class="headerlink" title="2.5 定义类"></a>2.5 定义类</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>(<span class="title">object</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>, name, score)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">        <span class="keyword">self</span>.score = score</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        print(<span class="string">'%s: %s'</span> % (<span class="keyword">self</span>.name, <span class="keyword">self</span>.score))</span><br></pre></td></tr></table></figure>
+<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线<strong>，在Python中，实例的变量名如果以</strong>开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问</p>
+<p>使用<strong>slots</strong></p>
+<p>Python允许在定义class的时候，定义一个特殊的<strong>slots</strong>变量，来限制该class实例能添加的属性：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></span><br><span class="line">    __slots__ = (<span class="string">'name'</span>, <span class="string">'age'</span>) <span class="comment"># 用tuple定义允许绑定的属性名称</span></span><br></pre></td></tr></table></figure>
+<p>@property 广泛应用在类的定义中，可以让调用者写出简短的代码，同时保证对参数进行必要的检查，这样，程序运行时就减少了出错的可能性。</p>
+<h3 id="2-6-编写-Mixin"><a href="#2-6-编写-Mixin" class="headerlink" title="2.6 编写 Mixin"></a>2.6 编写 Mixin</h3><p>由于 Python 允许使用多重继承，因此，MixIn 就是一种常见的设计。</p>
+<p>只允许单一继承的语言（如Java, Objective-C）不能使用 MixIn 的设计。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Dog</span>(<span class="type">Mammal</span>, <span class="type">RunnableMixIn</span>, <span class="type">CarnivorousMixIn</span>):</span></span><br><span class="line"><span class="class">    pass</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-7-模块"><a href="#2-7-模块" class="headerlink" title="2.7 模块"></a>2.7 模块</h3><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
+<p>正常的函数和变量名是公开的（public），可以被直接引用，比如：abc，x123，PI等；</p>
+<p>类似<strong>xxx</strong>这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的<strong>author</strong>，<strong>name</strong>就是特殊变量，hello模块定义的文档注释也可以用特殊变量<strong>doc</strong>访问，我们自己的变量一般不要用这种变量名；</p>
+<p>类似_xxx和<strong>xxx这样的函数或变量就是非公开的（private），不应该被直接引用，比如_abc，</strong>abc等；</p>
+<p>模块搜索路径<br>当我们试图加载一个模块时，Python会在指定的路径下搜索对应的.py文件，如果找不到，就会报错：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import mymodule</span><br><span class="line">Traceback (most recent call last)<span class="symbol">:</span></span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;<span class="class"><span class="keyword">module</span>&gt;</span></span><br><span class="line"><span class="symbol">ImportError:</span> No <span class="class"><span class="keyword">module</span> <span class="title">named</span> <span class="title">mymodule</span></span></span><br></pre></td></tr></table></figure>
+<p>默认情况下，Python解释器会搜索当前目录、所有已安装的内置模块和第三方模块，搜索路径存放在sys模块的path变量中：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import sys</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; sys.path</span><br><span class="line">[<span class="string">''</span>, <span class="string">'/Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip'</span>, <span class="string">'/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6'</span>, ..., <span class="string">'/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages'</span>]</span><br></pre></td></tr></table></figure>
+<p>如果我们要添加自己的搜索目录，有两种方法：</p>
+<p>一是直接修改sys.path，添加要搜索的目录：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import sys</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; sys.path.append(<span class="string">'/Users/michael/my_py_scripts'</span>)</span><br></pre></td></tr></table></figure>
+<p>这种方法是在运行时修改，运行结束后失效。</p>
+<p>第二种方法是设置环境变量PYTHONPATH，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。</p>
+<h4 id="Enum"><a href="#Enum" class="headerlink" title="Enum"></a>Enum</h4><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> <span class="keyword">enum</span> import <span class="keyword">Enum</span></span><br><span class="line"></span><br><span class="line">Month = <span class="keyword">Enum</span>(<span class="string">'Month'</span>, (<span class="string">'Jan'</span>, <span class="string">'Feb'</span>, <span class="string">'Mar'</span>, <span class="string">'Apr'</span>, <span class="string">'May'</span>, <span class="string">'Jun'</span>, <span class="string">'Jul'</span>, <span class="string">'Aug'</span>, <span class="string">'Sep'</span>, <span class="string">'Oct'</span>, <span class="string">'Nov'</span>, <span class="string">'Dec'</span>))</span><br></pre></td></tr></table></figure>
+<p>这样我们就获得了 Month 类型的枚举类，可以直接使用 Month.Jan 来引用一个常量，或者枚举它的所有成员：</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="built_in">name</span>, member <span class="built_in">in</span> Month.<span class="variable">__members__</span>.<span class="built_in">items</span>():</span><br><span class="line">    print(<span class="built_in">name</span>, <span class="string">'=&gt;'</span>, member, <span class="string">','</span>, member.value)</span><br></pre></td></tr></table></figure>
+<p>value 属性则是自动赋给成员的 int 常量，默认从 1 开始计数。</p>
+<h2 id="3-再上一步"><a href="#3-再上一步" class="headerlink" title="3 再上一步"></a>3 再上一步</h2><p>元编程，说白了就是“写能写程序的程序”</p>
+<h3 id="3-1-开放类"><a href="#3-1-开放类" class="headerlink" title="3.1 开放类"></a>3.1 开放类</h3><h3 id="3-2-使用-try…except…finally"><a href="#3-2-使用-try…except…finally" class="headerlink" title="3.2 使用 try…except…finally"></a>3.2 使用 try…except…finally</h3><h3 id="3-3-模块"><a href="#3-3-模块" class="headerlink" title="3.3 模块"></a>3.3 模块</h3><h2 id="4-趁热打铁"><a href="#4-趁热打铁" class="headerlink" title="4 趁热打铁"></a>4 趁热打铁</h2><h3 id="4-1-核心优势"><a href="#4-1-核心优势" class="headerlink" title="4.1 核心优势"></a>4.1 核心优势</h3><h3 id="4-2-不足之处"><a href="#4-2-不足之处" class="headerlink" title="4.2 不足之处"></a>4.2 不足之处</h3><h3 id="4-3-最后思考"><a href="#4-3-最后思考" class="headerlink" title="4.3 最后思考"></a>4.3 最后思考</h3>
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/01/Runtime/" rel="next" title="Runtime">
+                <i class="fa fa-chevron-left"></i> Runtime
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/30/安装 Anaconda 时遇到的问题/" rel="prev" title="安装 Anaconda 时遇到的问题">
+                安装 Anaconda 时遇到的问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww1.sinaimg.cn/mw690/8edca89bgw1f2rp95fpbjj208c08ct9y.jpg"
+               alt="Brave" />
+          <p class="site-author-name" itemprop="name">Brave</p>
+          <p class="site-description motion-element" itemprop="description">只要思想不滑坡 办法总比困难多</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/BraveMatchstickMen" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2396825755" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/fddb055efe32/latest_articles" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xingren.com" target="_blank">杏仁医生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hack.xingren.com/2016/03/29/webpack%E5%85%A5%E9%97%A8/" target="_blank">杏仁技术博客</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-简史"><span class="nav-number">1.</span> <span class="nav-text">Python 简史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-快速起步"><span class="nav-number">2.</span> <span class="nav-text">1 快速起步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Python-的编程模型"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 Python 的编程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-判断"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-鸭子类型"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 鸭子类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-进阶之路"><span class="nav-number">3.</span> <span class="nav-text">2 进阶之路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-定义函数"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-数组"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">3.2.1.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tuple"><span class="nav-number">3.2.2.</span> <span class="nav-text">tuple</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-字典"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dict"><span class="nav-number">3.3.1.</span> <span class="nav-text">dict</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#set"><span class="nav-number">3.3.2.</span> <span class="nav-text">set</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-代码块"><span class="nav-number">3.4.</span> <span class="nav-text">2.4 代码块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-定义类"><span class="nav-number">3.5.</span> <span class="nav-text">2.5 定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-编写-Mixin"><span class="nav-number">3.6.</span> <span class="nav-text">2.6 编写 Mixin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-模块"><span class="nav-number">3.7.</span> <span class="nav-text">2.7 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Enum"><span class="nav-number">3.7.1.</span> <span class="nav-text">Enum</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-再上一步"><span class="nav-number">4.</span> <span class="nav-text">3 再上一步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-开放类"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 开放类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-使用-try…except…finally"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 使用 try…except…finally</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-模块"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-趁热打铁"><span class="nav-number">5.</span> <span class="nav-text">4 趁热打铁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-核心优势"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 核心优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-不足之处"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 不足之处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-最后思考"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 最后思考</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brave</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
