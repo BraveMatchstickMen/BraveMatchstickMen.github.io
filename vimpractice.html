@@ -1,0 +1,776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时空人" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在线VIM模拟学习 在线Emacs模拟学习 - aTool在线工具            	var _hmt = _hmt || []; 	(function() { 		var hm = document.createElement(&quot;script&quot;); 		hm.src = &quot;//hm.baidu.com/hm.js?b169f904ade5ef8ef30b1f93eb03f0ef">
+<meta property="og:type" content="website">
+<meta property="og:title" content="时空人">
+<meta property="og:url" content="http://blog.chusaikeji.com/vimpractice.html">
+<meta property="og:site_name" content="时空人">
+<meta property="og:description" content="在线VIM模拟学习 在线Emacs模拟学习 - aTool在线工具            	var _hmt = _hmt || []; 	(function() { 		var hm = document.createElement(&quot;script&quot;); 		hm.src = &quot;//hm.baidu.com/hm.js?b169f904ade5ef8ef30b1f93eb03f0ef">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-04T13:53:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="时空人">
+<meta name="twitter:description" content="在线VIM模拟学习 在线Emacs模拟学习 - aTool在线工具            	var _hmt = _hmt || []; 	(function() { 		var hm = document.createElement(&quot;script&quot;); 		hm.src = &quot;//hm.baidu.com/hm.js?b169f904ade5ef8ef30b1f93eb03f0ef">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title>
+  
+
+  
+     | 时空人
+  
+</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">时空人</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-heartbeat fa-fw"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wb="http://open.weibo.com/wb">
+	<head>
+		<title>在线VIM模拟学习 在线Emacs模拟学习 - aTool在线工具</title>
+
+<!--
+*这个公司没有年终奖，兄弟别指望了，也别来了，你坚持不了多久的，我准备辞职了，拜拜，祝好！
+*要网站代码 加QQ交流群: O1234，并逐步开源到github（https://github.com/aTool-org）
+*网站官方域名 http://www.atool.org/
+-->
+
+<link rel="author" href="https://plus.google.com/117054904202244414422?rel=author">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="bookmark" href="/favicon.ico">
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?b169f904ade5ef8ef30b1f93eb03f0ef";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+
+	function async_load(url){
+		var s = document.createElement('script');
+		s.type = 'text/javascript';
+		s.async = true;
+		s.src = url;
+		var x = document.getElementsByTagName('script')[0];
+		x.parentNode.insertBefore(s, x);
+	}
+	function aysnc_load_js(url) {
+		if (window.attachEvent)
+			window.attachEvent('onload', function() {async_load(url)});
+		else
+			window.addEventListener('load', function() {async_load(url)}, false);
+	}
+
+	function async_do_func(func) {
+		if (window.attachEvent)
+			window.attachEvent('onload', func);
+		else
+			window.addEventListener('load', func, false);
+	}
+</script>
+<link rel="apple-touch-icon" href="http://cdn.atool.org/res/touch-icon-iphone.png">
+<link rel="stylesheet" href="http://cdn.atool.org/res/bijou.min.css">
+<link rel="stylesheet" href="http://cdn.atool.org/res/style.new.css">
+<link rel="stylesheet" href="res/ad-block/ad-block.css">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7292810486004926",
+    enable_page_level_ads: true
+  });
+</script>
+		<meta name="Keywords" content="aTool,在线工具,vim,vim编辑器,vim学习,vim模拟学习,vim练习">
+		<meta name="Description" content="aTool,在线工具,VIM编辑器，是linux上最常用的编辑器之一，被诸多的程序员所热衷，本工具是一个VIM学习的模拟工具，可以模拟vim的各种按键操作。">
+		<link rel="stylesheet" href="http://cdn.atool.org/res/lib/CodeMirror/lib/codemirror.css">
+		<link rel="stylesheet" href="http://cdn.atool.org/res/lib/CodeMirror/addon/dialog/dialog.css">
+		<link rel="stylesheet" href="http://cdn.atool.org/res/lib/CodeMirror/theme/material.css">
+		<!-- <link rel="stylesheet" href="/res/lib/CodeMirror/theme/solarized.css"> -->
+		<script src="http://cdn.atool.org/res/lib/CodeMirror/lib/codemirror.js"></script>
+		<script src="http://cdn.atool.org/res/lib/CodeMirror/addon/dialog/dialog.js"></script>
+		<script src="http://cdn.atool.org/res/lib/CodeMirror/addon/search/searchcursor.js"></script>
+		<script src="http://cdn.atool.org/res/lib/CodeMirror/mode/clike/clike.js"></script>
+		<script src="http://cdn.atool.org/res/lib/CodeMirror/addon/edit/matchbrackets.js"></script>
+		<script src="http://cdn.atool.org/res/lib/CodeMirror/keymap/vim.js"></script>
+		<style type="text/css">
+		     .CodeMirror {border-top: 1px solid #eee; border-bottom: 1px solid #eee;}
+		     .table th, .table td { padding: 3px 8px;}
+		     .table td {
+			    border-bottom: 2px #d1d1d1 solid;
+			    padding: 8px 12px;
+			    white-space:pre-wrap;
+			}
+		</style>
+	</head>
+	<body>
+		<script language="javascript" type="text/javascript">
+ function addfavor(url,title){var ua=navigator.userAgent.toLowerCase();if(ua.indexOf("msie 8")>-1){external.AddToFavoritesBar(url,title,'');}else{try{window.external.addFavorite(url,title);}catch(e){try{window.sidebar.addPanel(title,url,'');}catch(e){alert("加入收藏失败，请使用键盘Ctrl+D进行添加");}}}return false;}
+
+function qzone_login() {
+    document.getElementById("oauth_login").innerHTML = '<div class="full_screen_bg" style="z-index:100000000" onclick="this.parentNode.innerHTML=\' \';"></div><div id="login_div" style="position:fixed;width:700px;height:400px;top:50%;left:50%;padding:0;margin:0;margin-top:-200px;margin-left:-350px;z-index:100000001;_position:absolute;_margin:0" align="center"><a href="javascript:;" onclick="this.parentNode.parentNode.innerHTML=\' \';" class="popup_close">×</a><iframe id="login_frame" name="login_frame" frameborder="0" scrolling="auto" width="100%" height="100%" src="/oauth/qq_login.php"></iframe></div>';
+    return false;
+}
+</script>
+<style type="text/css">
+	.navbar .webmaster a {
+		color:red;
+		font-weight: bold;
+	}
+	.shake_logo {
+		border: none;
+	}
+	.full_screen_bg{position:fixed;top:0;right:0;bottom:0;left:0;background:#f1f1f1;background:rgba(0,0,0,0.39)}
+
+	#site_menu {
+		display:block;
+		overflow:hidden;
+	}
+	.sub_menus {width: 510px;}
+	.sub_menus li a {color: #ddd;overflow:hidden;}
+	/*.sub_menus li a:hover {color: #ccc;}*/
+	.sub_menu_title {background-color: rgba(248, 248, 248, 0.81)!important;width: 510px;height: 20px!important;line-height: 20px!important;}
+	.sub_menu_title a {color: #000!important;}
+	#menu_list {Z-INDEX: 999999;}
+	#menu_list,#menu_list UL {
+		padding:0px;
+		margin:0px;
+		list-style-type: none;
+	}
+	#menu_list LI,#menu_list a{HEIGHT: 40px; LINE-HEIGHT: 40px;FLOAT: left;}
+	#menu_list LI {padding:0px; MARGIN: 0px;
+		margin-left: -2px;}
+	#menu_list a{
+		DISPLAY: block;
+		margin: 0 10px;
+		TEXT-ALIGN: center;
+	}
+	#menu_list LI:hover,#menu_list A:hover {
+		color:#FF7B0E;
+	}
+	#menu_list LI a:hover {
+		text-decoration: none;
+		}
+	#menu_list LI ul li a:hover{ background-image:none;}
+	#menu_list LI UL {display: none; POSITION: absolute}
+	#menu_list LI UL li,#menu_list LI UL li a{
+		line-height:24px;
+		height:24px;
+		background-image:none;}
+	#menu_list LI:hover UL,#menu_list LI.sfhover UL {
+		MARGIN-TOP: 37px;
+		padding:4px;
+		Z-INDEX: 5;
+		FILTER: alpha (opacity=80);
+		MARGIN-LEFT: 0px;
+		BORDER-BOTTOM: #0D1C31 1px solid;
+		POSITION: absolute;
+		background-color:#0D182A;
+		opacity: 0.80;
+		+CLEAR: both; +MARGIN-TOP: 0px;
+		_clear:both; _margin-top:0px;
+		display: block;
+	}
+	#menu_list LI:hover UL LI A,#menu_list LI.sfhover UL LI A{
+		DISPLAY: block;
+		PADDING: 0px 0px 0px 8px;
+		FONT-WEIGHT: normal;
+		FONT-SIZE: 13px;
+		MARGIN: 0px;
+		TEXT-TRANSFORM: none;
+		WIDTH: 120px;
+		/*color:#aCA7C7; */
+		TEXT-ALIGN: left;
+	}
+	#menu_list LI:hover UL LI A:hover,#menu_list LI.sfhover UL LI A:hover {
+		BACKGROUND-COLOR: #0D182A
+	}
+	#menu_list UL LI UL {DISPLAY: none;}
+	#menu_list UL LI UL LI A:hover {
+		MARGIN-TOP: -2px;
+		DISPLAY: block;
+		FILTER: alpha (opacity=85);
+		MARGIN-LEFT: 50px;
+		WIDTH: 105px;
+		POSITION: absolute;
+		BACKGROUND-COLOR: #666;
+	}
+	.sub_menus_1 {margin-left: -40px!important;}
+	.sub_menus_2 {margin-left: -120px!important;}
+	.sub_menus_3 {margin-left: -200px!important;}
+	.sub_menus_4 {margin-left: -290px!important;}
+	#menu_list .new {color:#FF9292;}
+</style>
+<script type="text/javascript">
+var sfHover = function() {
+	var sfEls = document.getElementById("site_menu").getElementsByTagName("LI");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script>
+
+<script src="http://cdn.atool.org/res/horse/horse.min.js"></script>
+<link href="http://cdn.atool.org/res/horse/horse.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	var tools = document.querySelectorAll("#menu_list a.tool");
+	var suggestions = [];
+	for (var i = 0; i< tools.length; i++) {
+		suggestions.push({ value: tools[i].href, text: tools[i].innerText });
+	}
+	horse(document.getElementById('search_tools'), {
+	  suggestions: suggestions,
+	  limit: 12,
+	  onselect: function (input, li, selection) {
+	  	window.open(selection['value'], '_blank');
+	  }
+	});
+</script>
+		<div class="container">
+			<h3 class="explainer">在线VIM编辑器模拟学习 - aTool在线工具</h3>
+			<style type="text/css">
+	#ad-blocks {
+		margin: 10px 0;
+	}
+</style>
+
+
+<div id="hidead">
+</div>
+
+
+	        <ul class="new_tools_list">
+	        	<li><span class="green strong">VIM编辑器</span>，是linux上最常用的编辑器之一，被诸多的程序员所热衷，学会VIM的操作，才算一个合格的程序员。</li>
+			</ul>
+	        <div class="divider"></div>
+			<textarea placeholder="请输入Code" style="height:300px;" id="code">function findSequence(goal) {
+	function find(start, history) {
+		if (start == goal)
+      		return history;
+    	else if (start > goal)
+      		return null;
+    	else
+      		return find(start + 5, "(" + history + " + 5)") || find(start * 3, "(" + history + " * 3)");
+  	}
+  	return find(1, "1");
+}
+</textarea>
+			<div class="alert success">
+				<span id="command-display" class="green strong"></span>
+	        </div>
+	        <script type="text/javascript">
+      		var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        		lineNumbers: true,
+        		mode: "text/x-csrc",
+        		keyMap: "vim",
+        		matchBrackets: true,
+        		showCursorWhenSelecting: true,
+        		styleActiveLine: true,
+        		theme: 'material',
+        		lineWrapping: true,
+      		});
+      		editor.setSize('100%', 450);
+      		var commandDisplay = document.getElementById('command-display');
+      		var keys = '';
+      		CodeMirror.on(editor, 'vim-keypress', function(key) {
+        		keys = keys + key;
+        		commandDisplay.innerHTML = keys;
+      		});
+      		CodeMirror.on(editor, 'vim-command-done', function(e) {
+        		keys = '';
+        		commandDisplay.innerHTML = keys;
+      		});
+    		CodeMirror.commands.save = function(){ commandDisplay.innerHTML = "VIM Saved..."; };
+	        </script>
+</div></body></html>
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ww1.sinaimg.cn/mw690/8edca89bgw1f2rp95fpbjj208c08ct9y.jpg"
+               alt="Brave" />
+          <p class="site-author-name" itemprop="name">Brave</p>
+          <p class="site-description motion-element" itemprop="description">只要思想不滑坡 办法总比困难多</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/BraveMatchstickMen" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/2396825755" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/fddb055efe32/latest_articles" target="_blank">
+                  
+                    <i class="fa fa-globe"></i>
+                  
+                  jianshu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+            <div class="links-of-blogroll-title">Links</div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://xingren.com" target="_blank">杏仁医生</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://hack.xingren.com/2016/03/29/webpack%E5%85%A5%E9%97%A8/" target="_blank">杏仁技术博客</a>
+                </li>
+              
+            </ul>
+          
+        </div>
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Brave</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
